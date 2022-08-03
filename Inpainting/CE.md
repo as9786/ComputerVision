@@ -196,6 +196,10 @@
 
 ![캡처](https://user-images.githubusercontent.com/80622859/182606930-5d841ade-8182-4280-8142-162c0ed9bbff.PNG)
 
+- L2로 학습한 모델이 생성한 부분이 대충 맞긴 하나 흐릿한 모습
+- Adv로 학습한 모델이 생성한 부분은 진하고, real하지만 문맥에 맞지 않는 경우 발생
+- 위 둘을 결합했을 때 성능 좋음
+
 ## 6. Classification pre-training
 - AlexNet 분류기를 미세조정
 - Image를 무작위로 잘라 분류기를 훈렪나 다음 test image 당 10개의 무작위 자르기를 사용하여 분류기를 평가
