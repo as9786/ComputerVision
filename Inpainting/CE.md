@@ -44,3 +44,47 @@
 - 자연어처리의 Word2Vec과 유사
 
 ### 2. CE의 구성
+- Encoder-Decoder 구조
+- Encoder : 영역이 누락된 input image의 latent feature representation 생성
+- latent feature representation : Convolution을 거쳐 나온 중간 결과, decoder 입력 직전 상태의 encoder의 출력값
+
+![캡처](https://user-images.githubusercontent.com/80622859/182592006-fcb34d47-f341-45c0-a655-caceaa7e5d1f.PNG)
+
+- Decoder : feature representation을 사용하여 누락된 image의 content를 생성(누락된 영역 복원)
+- AE와 동일하게 비지도학습으로 진행. 
+- Model이 image를 이해하는 것 뿐만 아니라 누락된 부분에 대해서도 해결 방안을 생성해야 함
+- 누락된 영역을 채움과 동시에 주어진 맥락과 일관성을 유지하는 방법이 여러 가지가 있기 때문에 multi-modal
+- CE의 encoder와 decoder를 다 학습하여 reconstruction loss(L2)와 adversarial loss를 최소화
+- Reconstruction loss : 누락된 영역의 전체 구조를 맥락과 관련하여 포착
+- Adversarial loss : particular mode(특정 모드)를 선택하는 효과
+
+### 3. CE의 평가
+- Encoder와 Decoder 독립적으로 진행
+- Encoder는 image patch의 context만 encoding하고 resulting feature를 사용하여 dataset에서 가장 가까운 인접 context를 검색하면 원래 patch와 의미적으로 유사한 patch가 생성.
+- 다양한 이미지 이해 작업을 위해 encoder를 미세 조정하여 학습된 feature representation을 검증
+- Decoder는 CE가 누락된 영역을 채울 수 있는 것을 보여줌.
+
+##  3. CE for image generation
+
+![캡처](https://user-images.githubusercontent.com/80622859/182593193-df416a4c-212a-441e-9603-0ca801d799e4.PNG)
+
+### 1. Encoder-Decoder pipeline
+- Encoder : 영역이 누락된 입력 이미지를 가져와 latent feature representation을 생성
+- Decoder : feature representation을 사용하여 누락된 이미지 content를 생성
+- Encoder와 decoder는 채널 단위의 fully connected layer로 연결 -> decoder의 각 단위가 전체 이미지 컨텐츠에 대해 추론
+
+### 2. Encoder
+- 위의 그림처럼 없어진 부분을 가진 입력 이미지를 latent vector로 만듦
+- Encoder는 AlexNet 참조
+- ex) 227 x 227 input image, AlexNet의 5개의 conv + pooling layers를 사용하여 6x6x256의 feature representation 계산
+- CE는 AlexNet과 달리 ImageNet으로 분류 학습을 하지 않음. 처음부터 무작위로 초기화된 가중치로 context 예측에 초점을 두어 훈련
+
+### 3. Channel-wise fully connected layer
+- Encoder와 Decoder를 완전히 연결하면 parameter의 수가 많아져서 GPU에 과부하
+- 해결하기 위해 channel-wise fully connected layer 이용
+- 입력층에 nxn인 feature map이 m개 있으면 nxn차원의 m개의 feature map을 출력하여 decoder에 전달
+- 이 때 각 feature map마다 활성홯함수를 적용하며 전달(일반적인 FCL과 달리 feature map을 연결하는 parameter가 존재하지 않으며 feature map 내에서만 정보를 전달)
+- FCL을 할 경우 parameter의 수는 $mn^4$가 되지만 위의 과정을 거칠 경우 $m^2n^4$가 됨(편향은 무시)
+- stride = 1
+
+### 4. Decoder
