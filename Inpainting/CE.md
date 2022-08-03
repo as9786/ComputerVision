@@ -90,3 +90,81 @@
 ### 4. Decoder
 - 전달받은 feature map을 사용하여 image pixel 생성
 - ReLU 활성화 함수를 거친 학습된 filter가 있는 5개의 up-convolutional layer(고해상도 이미지를 생성하는 컨볼루션)로 이루어져 있음.
+
+![캡처](https://user-images.githubusercontent.com/80622859/182595681-c4360420-cbd2-4386-a97e-e711eb5c2dee.PNG)
+
+### 5. Loss Function
+- 누락된 영역이 실제 영역을 맞추는 내용으로 학습.
+- 누락된 영역을 채우는 방법이 여러 가지 존재 -> context 내의 연속성과 출력의 여러 모드 모두를 처리하기 위해 분리된 공동 손실 함수를 가짐으로써 학습
+- Reconstruction loss : 누락된 영역의 전체 구조를 맥락과 관련하여 포착하면서, 예측에서 여러 모드를 평균화
+- Adversarial loss : particular mode(특정 모드)를 선택하는 효과
+- 각 실측값 이미지 x에 대해 context encoder는 출력 F(x)를 생성
+- $\hat M$은 픽셀이 누락된 곳이면 1이고 입력 픽셀이면 0인 binary mask
+
+![캡처](https://user-images.githubusercontent.com/80622859/182596685-1c877dee-a993-4dc9-8208-2c5763048474.PNG)
+
+- 학습 중에 이러한 mask는 자동으로 생성
+
+#### Reconstruction Loss(재구성 손실 함수)
+- L2 distance 사용
+
+![캡처](https://user-images.githubusercontent.com/80622859/182597339-ddc19091-6f39-4ff3-8d9e-11c8fc24b187.PNG)
+
+- x : image, $\hat M$ : binary mask, $1-\hat M$ : 손실되지 않은 이미지의 영역을 나타내는 mask
+- $1-\hat M$에 x를 요소별 곱을 하게 되면 구멍이 뚫린 이미즈를 얻게 됨
+- L1과 L2 큰 차이 없음
+- 단순 loss를 사용할 경우 decoder가 예측된 물체의 윤곽을 생성하도록 유도할 수 있지만, 세부사항 파악을 못함
+- L2 loss가 높은 정밀도 texture보다 흐릿한 solution을 선호 -> 평균 픽셀 단위의 오차는 최소화 할 수 있지만 평균 이미지가 흐릿해짐
+- 이를 adversarial loss를 추가함으로써 해결
+
+#### Adversarial Loss(적대적 손실)
+- GAN 기반
+
+![캡처](https://user-images.githubusercontent.com/80622859/182598721-eb508729-4d49-4bd5-ab2a-7e2b9c2a6214.PNG)
+
+- GAN의 기본 손실함수
+- z : noise, G(z) : 가짜 이미지, x : 진짜 이미지
+- D의 목적으로 GAN의 loss 함수를 최대가 되도록 하는 것. G의 목적은 GAN의 loss 함수를 최소가 되도록 하는 것
+- 하지만 이는 CE에 쉽게 훈련되지 않음 <- D(Discriminitor)가 실제샘플이랑 예측샘플 분류를 하는데, 예측 샘플에서 손상된 영역을 복원한 이미지가 될거고 완전히 매끄럽지 않음. 그러면 D는 이 경계를 가지고 분류를 하게 되어서 과적합 발생)
+- G(Generator)가 noise vector에 의해 조절되지 않았을 때 더 나은 결과를 보였다는 것을 발견
+- 최종 적대적 손실 함수
+
+![캡처](https://user-images.githubusercontent.com/80622859/182599330-fcbd7d90-29c0-448c-8cb4-6293164ab360.PNG)
+
+- 누락된 영역뿐만 아니라 context encoder 출력 전체가 실제처럼 보이도록 이끌게 됨
+
+- Joint loss
+
+![캡처](https://user-images.githubusercontent.com/80622859/182599554-458d00c1-d9d6-44d7-b4d9-83ec1bc7e01d.PNG)
+
+### 6. Region Masks
+- 제거된 영역은 어떤 모양이든 될 수 있지만, 논문에서는 아래의 세 가지 종류를 제안
+
+![캡처](https://user-images.githubusercontent.com/80622859/182599788-45bfa877-e278-473a-a673-add4a778ae1f.PNG)
+
+#### 1. Central region
+- 이미지 중앙에 정사각형 patch가 있는 가장 간단한 모양
+- Inpainting에는 매우 효과적이지만 central mask의 경계에 고정된 특징(낮은 수준)을 학습
+- 제거된 영역에 대응하는 낮은 수준의 image의 특징을 찾음 => 낮은 수준의 mask가 없는 image에 대해서는 일반화되지 않음
+
+#### 2. Random block
+- 신경망이 masking된 영역의 일정한 경계에 적응하는 것ㅇ르 방지하기 위해서 masking process를 random하게 적용
+- 고정된 위치에 하나의 큰 mask를 적용하는 것이 아니라, 작은 mask들을 여러 개 설정하여 이미지의 1/4까지 덮을 수 있도록 함
+- 이러한 masks는 겹칠 수 없음
+- 뚜렷한 경계가 존재하는 문제 발생
+
+#### 3. Random region
+- 경계선을 완전히 제거하기 위해 PASCAL VOC 2012 dataset에서 얻은 random mask를 가지고 이미지에서 임의의 형상을 제거
+- 이미지의 최대 1/4까지 덮음
+- 위의 두 가지처럼 일반적인 특징을 찾아내는 것보다 훨씬 좋은 특징을 찾아냄
+- 따라서 random region을 dropout하는 것을 모든 과정에서 사용
+
+![Qualitative-segmentation-results-on-PASCAL-VOC-2012-validation-set (1)](https://user-images.githubusercontent.com/80622859/182600688-df74d1f6-6769-4710-88dc-bd7304db88ac.png)
+
+
+
+
+
+
+
+
