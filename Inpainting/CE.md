@@ -83,8 +83,10 @@
 - Encoder와 Decoder를 완전히 연결하면 parameter의 수가 많아져서 GPU에 과부하
 - 해결하기 위해 channel-wise fully connected layer 이용
 - 입력층에 nxn인 feature map이 m개 있으면 nxn차원의 m개의 feature map을 출력하여 decoder에 전달
-- 이 때 각 feature map마다 활성홯함수를 적용하며 전달(일반적인 FCL과 달리 feature map을 연결하는 parameter가 존재하지 않으며 feature map 내에서만 정보를 전달)
+- 이 때 각 feature map마다 활성화함수를 적용하며 전달(일반적인 FCL과 달리 feature map을 연결하는 parameter가 존재하지 않으며 feature map 내에서만 정보를 전달)
 - FCL을 할 경우 parameter의 수는 $mn^4$가 되지만 위의 과정을 거칠 경우 $m^2n^4$가 됨(편향은 무시)
 - stride = 1
 
 ### 4. Decoder
+- 전달받은 feature map을 사용하여 image pixel 생성
+- ReLU 활성화 함수를 거친 학습된 filter가 있는 5개의 up-convolutional layer(고해상도 이미지를 생성하는 컨볼루션)로 이루어져 있음.
