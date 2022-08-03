@@ -161,7 +161,9 @@
 
 ![Qualitative-segmentation-results-on-PASCAL-VOC-2012-validation-set (1)](https://user-images.githubusercontent.com/80622859/182600688-df74d1f6-6769-4710-88dc-bd7304db88ac.png)
 
-
+##  4. Implementation details
+- Caffe, Torch, Adam, masking된 입력 image에서 누락된 영역은 평균값으로 채움
+- 
 
 
 
