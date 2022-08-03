@@ -178,7 +178,36 @@
 
 ### 1. Semenatic Inpainting
 - CE가 누락된 영역이 있는 image의 semantic details를 채우는 기능
+- 누락된 영역을 그리기 위해서 joint loss function을 사용하여 context encoder 훈련
+- hyperparmeter 
 
+![캡처](https://user-images.githubusercontent.com/80622859/182606155-21ad24c0-9cda-4f97-a302-aece5e64297c.PNG)
 
+#### 학습 시 중요 사항
+- 적대적 손실을 조절하지 않음 = encoder에 noise 추가 X
+- 적대적 판별기보다 더 높은 학습율(10배)를 context encoder에 사용
+- context와 예측값의 일관성을 더욱 강조하기 위해 context보다 더 큰 patch(7px)로 예측
+- 학습 중에 겹치는 영역에서 재구성 손실에 가중치 10배 적용
+- 낮은 수준의 texture로 채워질 수 있는 경우 texture convolution이 종종 더 잘 수행될 수  있음
 
+![캡처](https://user-images.githubusercontent.com/80622859/182606737-33639ffa-d5a5-41e9-ae87-517de1ed90d1.PNG)
 
+- content-aware fill(photoshop)
+
+![캡처](https://user-images.githubusercontent.com/80622859/182606930-5d841ade-8182-4280-8142-162c0ed9bbff.PNG)
+
+## 6. Classification pre-training
+- AlexNet 분류기를 미세조정
+- Image를 무작위로 잘라 분류기를 훈렪나 다음 test image 당 10개의 무작위 자르기를 사용하여 분류기를 평가
+- 무작위로 자른 것 이미지들에 대해서 분류기 출력의 평균을 냄
+
+## 7. Detection pretraining
+- Fast R-CNN 
+- ImageNet 사전 훈련된 신경망을 context encoder로 대체
+- 사전 훈련된 encoder 가중치를 pool5층까지 가져오고, 완전연결계층을 초기화
+- FRCN의 훈련-평가 방법을 따르고 정확도 평가
+
+## 8. Semantic Segmentation pre-training
+- pixel 단위로 의미론적 세분화를 위한 context encoder 학습의 유용성
+- ImageNet 분류를 위해 사전 훈련된 CNN을 사용하여 이미지의 각 픽셀에서 semantic label을 예측하는 end-to-end 학습가능한 방ㅂ버으로 FCN이 제안
+- 이 논문에서는 FCN 방법에 사용된 분류 사전훈련 신경망을 context encoder로 대체한 후 기존의 CaffeNet을 기반으로 한 결과와 직접 비교하기 위해 FCN 훈련-평가 방법을 따름
