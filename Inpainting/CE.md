@@ -163,9 +163,21 @@
 
 ##  4. Implementation details
 - Caffe, Torch, Adam, masking된 입력 image에서 누락된 영역은 평균값으로 채움
-- 
+- Caffe(Convolutional Architecture for Fast Feature Embedding) : 빠른 속도와 모듈성을 내세운 딥러닝 프레임워크
 
+![캡처](https://user-images.githubusercontent.com/80622859/182602788-8d8bf141-b231-4b66-bccb-3e3d02560f2b.PNG)
 
+### 1. Pool-free encoders
+- 모든 pooling layer를 동일한 kernel size와 stride를 갖는 convolution으로 교체
+- 신경망 전체 stride는 동일하게 유지되지만 더 세밀하게 그림을 그릴 수 있음
+- 특징학습결과에 대해서는 AlexNet architecture 사용 (이전 작업과 일관성을 유지하기 위함)
+
+## 5. Evaluation
+- Paris StreetView, ImageNet에서 얻은 이미지로 진행.
+- labeling X
+
+### 1. Semenatic Inpainting
+- CE가 누락된 영역이 있는 image의 semantic details를 채우는 기능
 
 
 
