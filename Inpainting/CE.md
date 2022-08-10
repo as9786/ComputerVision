@@ -23,7 +23,7 @@
 - Decoder : 생성 네트워크(generative network), 내부 표현을 출력으로 변환
 
 #### CE에서 AE를 사용할 경우  문제점 
-- AE는 input image를 이용하여 저차원의 병목 계층(bottlenect)을 통과한 후 재구성함
+- AE는 input image를 이용하여 저차원의 병목 계층(bottleneck)을 통과한 후 재구성함
 - 하지만 이러한 과정은 의미있는 표현을 학습하지 않을수도 있고, 압축에 한계가 발생
 - 누락된 부분을 채우는 작업은 전체 image의 내용을 확인하고, 누락된 부분에 대해서 자연스러운 painting이 필요
 
