@@ -17,7 +17,7 @@
 
 ![캡처](https://user-images.githubusercontent.com/80622859/182587600-d724141d-f182-4a20-9849-c3658d501906.PNG)
 
-- 간단한 신경망과 달리 네트워크에 여러가지 제약을 가함으로써 어려운 신경망으로 만들엊 ㅜㅁ
+- 간단한 신경망과 달리 네트워크에 여러가지 제약을 가함으로써 어려운 신경망으로 만듦
 - ex) 은닉층의 node 수를 입력층의 것보다 작게하여 데이터를 압축(Undercomplete AE), 입력 데이터에 noise를 추가한 후 원본 입력을 복원할 수 있도록 신경망 학습
 - Encoder : 인지 네트워크(recognition network), 입력을 내부 표현으로 변환
 - Decoder : 생성 네트워크(generative network), 내부 표현을 출력으로 변환
