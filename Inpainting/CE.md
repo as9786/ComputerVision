@@ -148,7 +148,7 @@
 - 제거된 영역에 대응하는 낮은 수준의 image의 특징을 찾음 => 낮은 수준의 mask가 없는 image에 대해서는 일반화되지 않음
 
 #### 2. Random block
-- 신경망이 masking된 영역의 일정한 경계에 적응하는 것ㅇ르 방지하기 위해서 masking process를 random하게 적용
+- 신경망이 masking된 영역의 일정한 경계에 적응하는 것 방지하기 위해서 masking process를 random하게 적용
 - 고정된 위치에 하나의 큰 mask를 적용하는 것이 아니라, 작은 mask들을 여러 개 설정하여 이미지의 1/4까지 덮을 수 있도록 함
 - 이러한 masks는 겹칠 수 없음
 - 뚜렷한 경계가 존재하는 문제 발생
