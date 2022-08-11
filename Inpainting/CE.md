@@ -213,7 +213,7 @@
 
 ## 8. Semantic Segmentation pre-training
 - pixel 단위로 의미론적 세분화를 위한 context encoder 학습의 유용성
-- ImageNet 분류를 위해 사전 훈련된 CNN을 사용하여 이미지의 각 픽셀에서 semantic label을 예측하는 end-to-end 학습가능한 방ㅂ버으로 FCN이 제안
+- ImageNet 분류를 위해 사전 훈련된 CNN을 사용하여 이미지의 각 픽셀에서 semantic label을 예측하는 end-to-end 학습가능한 방법으로 FCN이 제안
 - 이 논문에서는 FCN 방법에 사용된 분류 사전훈련 신경망을 context encoder로 대체한 후 기존의 CaffeNet을 기반으로 한 결과와 직접 비교하기 위해 FCN 훈련-평가 방법을 따름
 
 ![캡처](https://user-images.githubusercontent.com/80622859/182608232-83c9ff5f-5125-43d5-9f6b-edc89fde5035.PNG)
