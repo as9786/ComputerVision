@@ -202,7 +202,7 @@
 
 ## 6. Classification pre-training
 - AlexNet 분류기를 미세조정
-- Image를 무작위로 잘라 분류기를 훈렪나 다음 test image 당 10개의 무작위 자르기를 사용하여 분류기를 평가
+- Image를 무작위로 잘라 분류기를 훈련한 다음 test image 당 10개의 무작위 자르기를 사용하여 분류기를 평가
 - 무작위로 자른 것 이미지들에 대해서 분류기 출력의 평균을 냄
 
 ## 7. Detection pretraining
