@@ -47,5 +47,5 @@
 - Patch Embedding이 출력됨
 
 #### [CLS] Token
-- BERT의 [class] token처럼, 학습 가능한 embedding patch $z\limits_0^0 = x_{class}$를 추가
+- BERT의 [class] token처럼, 학습 가능한 embedding patch $z_0^0 = x_{class}$를 추가
 - $ㅋ
