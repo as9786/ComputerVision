@@ -82,7 +82,7 @@
 
 ![캡처](https://user-images.githubusercontent.com/80622859/177319034-b1aea852-c694-4583-b28e-1f046b5e9ed7.PNG)
 
-- Self-attention에서 구하는 attention score와 유사하지만 transformer에서는 내적값을 \sqrt{d_k}로 나눠줌 (d_k는 원소의 갯수) => Scaled dot product attention
+- Self-attention에서 구하는 attention score와 유사하지만 transformer에서는 내적값을 $\sqrt{d_k}$로 나눠줌 ($d_k$는 원소의 갯수) => Scaled dot product attention
 - 각 scaled dot-product self-attention 결과를 이어붙이기해서 multi-head attention 계산
 - Q, K, V 값을 그대로 쓰지 않고 선형 변환을 함
 - Attention을 사용하는 이유
@@ -107,6 +107,9 @@
 - 첫 번째 FNN -> ReLU, 두 번째 FNN -> 활성화 함수 없음
 
 ![캡처](https://user-images.githubusercontent.com/80622859/177322437-f3fad46e-4636-40c2-a364-5e4720be2c99.PNG)
+
+![캡처](https://user-images.githubusercontent.com/80622859/185107341-94e542c7-9dce-4348-8c94-aad99897fe87.PNG)
+
 
 - x : 첫 번째 FNN에 입력되는 입력벡터(Add & Norm 층이 출력하는 각 단어에 대한 결과 벡터)
 - 위의 식을 통해서 나온 값들에 다시 한 번 Add & Norm 층을 적용하여서 encoder block의 최종 결과물 출력 = encoder block의 hidden state
