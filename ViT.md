@@ -6,7 +6,7 @@
 - 대용량의 학습 자원과 data가 필요
 - Text data에서는 이미 transformer가 가장 좋은 성능을 보이고  있음
 
-## Visual Tranformer의 의의
+## Vison Tranformer의 의의
 
 ![캡처](https://user-images.githubusercontent.com/80622859/185046721-e5fd8e00-d419-4737-9a37-e849c5213071.PNG)
 
@@ -14,7 +14,7 @@
 2. 기존의 제한적인 attention 매커니즘에서 벗어나, CNN 구조 대부분을 transformer로 대체(입력층인 sequence of image patch에서는 제외)
 3. 대용량 dataset을 사전 학습 -> small image dataset에서 전이 학습 => 훨씬 적은 계산 resource로 우수한 결과
 
-## Visual Transformer 요약
+## Vison Transformer 요약
 - 이전 vision task에서 self-attention 적용의 한계
 
 ### Self-Attention
