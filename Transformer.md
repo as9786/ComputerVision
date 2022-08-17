@@ -19,7 +19,7 @@
 ![캡처](https://user-images.githubusercontent.com/80622859/177313852-b610a396-a6ff-4dd8-8d68-b0f1eae5aa67.PNG)
 
 - SOS : start of sequence
-- 'Today' 라는 단어를 예측할 경우, Attention 층에서는 hs에 포함이 되어 있는 벡터 정보 중에서 예측하고자 하는 Today와 관련이 제일 많은 오늘은 단어에 해당하는 hidden statedls ho에 제일 많은 가중치를 주게 됨
+- 'Today' 라는 단어를 예측할 경우, Attention 층에서는 hs에 포함이 되어 있는 벡터 정보 중에서 예측하고자 하는 Today와 관련이 제일 많은 오늘은 단어에 해당하는 hidden states $h_0$에 제일 많은 가중치를 주게 됨
 
 ![캡처](https://user-images.githubusercontent.com/80622859/177314125-ad74d62e-140b-40ba-a0b2-2dee94d0e5ef.PNG)
 
