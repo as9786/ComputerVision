@@ -82,7 +82,7 @@
 
 ![캡처](https://user-images.githubusercontent.com/80622859/177319034-b1aea852-c694-4583-b28e-1f046b5e9ed7.PNG)
 
-- Self-attention에서 구하는 attention score와 유사하지만 transformer에서는 내적값을 $\sqrt{d_k}$로 나눠줌 ($d_k$는 원소의 갯수) => Scaled dot product attention
+- Self-attention에서 구하는 attention score와 유사하지만 transformer에서는 내적값을 $\sqrt{d_k}$로 나눠줌 ( $d_k$ 는 원소의 갯수) => Scaled dot product attention
 - 각 scaled dot-product self-attention 결과를 이어붙이기해서 multi-head attention 계산
 - Q, K, V 값을 그대로 쓰지 않고 선형 변환을 함
 - Attention을 사용하는 이유
