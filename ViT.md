@@ -41,3 +41,10 @@
 #### 입력 embedding
 - Token embedding을 1D sequence로 입력
 - 2D Image(HxWxC) -> $N \times (P^2 \cdot C)$
+- (P,P) : Image patch 해상도 
+- N : Patch의 수 = $HW/P^2$
+- D : 모든 층에서의 동일한 latent vector size -> Flatten한 patch를 학습 가능한 Linear projection(E)를 사용하여, D 차원으로 mapping
+- Patch Embedding이 출력됨
+
+#### [CLS] Token
+- Bert 
