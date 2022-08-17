@@ -48,4 +48,48 @@
 
 #### [CLS] Token
 - BERT의 [class] token처럼, 학습 가능한 embedding patch $z_0^0 = x_{class}$를 추가
-- $ㅋ
+- $z_L^0$ : 최종 L번째 층의 0 번째 token. 사전 학습과 미세조정을 수행하는 classification head가 부착
+
+#### Classification Head
+- 사전 학습 : 1-hidden layer인 MLP(Multi-Layer preceptron; 다층 퍼셉트론)
+
+##### MLP
+- 단층 퍼셉트론 : 입력층과 출력층만 있는 구조
+
+![캡처](https://user-images.githubusercontent.com/80622859/185049928-0246b211-7c1b-4ee1-b8e9-241aaa1fb2b0.PNG)
+
+- 결과값을 내놓는 부분은 활성 함수 존재. 즉 활성 함수가 1개밖에 없는 구조
+- 제대로 된 학습이 불가 -> MLP
+
+![캡처](https://user-images.githubusercontent.com/80622859/185050130-8748c859-62b5-41bc-b9a5-b80bdba1fabf.PNG)
+
+- 미세조정 : 1-linear layer
+
+#### Position embedding
+- Patch Embedding의 위치 정보를 유지하기 위함
+- Image이지만 1D position embedding 사용
+
+#### Transformer
+- 위의 embedding sequence가 encoder의 입력으로 들어감
+- Transformer Encoder : Multi-Head로 구성된 self-attention 매커니즘 적용
+
+##### Multi-head Attention
+
+![캡처](https://user-images.githubusercontent.com/80622859/185051059-460d2beb-2398-4248-b630-a86b95b0d427.PNG)
+
+![캡처](https://user-images.githubusercontent.com/80622859/185051086-fbbf2d1a-c2e8-4e20-be2c-875cdbfa6b00.PNG)
+
+- 2가지 방법으로 attention layer 성능을 향상시킴
+- 병렬 연산
+
+### Hybrid architecture
+- Image patch에 대해 바로 적용하기도 하고 CNN의 feature map에 대해서 ViT를 적용하는 것
+
+### Inductive bias
+- 우리가 ML/DL을 수행할 때 많은 data에 대해서 귀납적으로 문제를 더 잘 풀기 위해 설계한 model 또는 목적함수의 추가적인 가정
+- Transformer의 경우에는 위의 경우가 필요하지 않고 대신에 대용량의 data가 필요
+
+## 미세 조정
+- 큰 dataset에 대해서 사전학습을 하고 작은 dataset에 대해서 fine-tuning하는 과정
+- 사전훈련된 $z_L^0$에 붙은 MLP를 제거하고 0으로 초기화된 DxK 선형변환 층을 추가(K는 미세조정 dataset class 개수)
+- 고해상도 image를 사용하는 것이 좋다고 알려져 있음 => patch size를 일정하게 유지한 채 큰 크기의 image 사용
