@@ -40,4 +40,4 @@
 
 #### 입력 embedding
 - Token embedding을 1D sequence로 입력
-- 2D Image(HxWxC) ->$N x (P^2 \cdot C)$
+- 2D Image(HxWxC) -> $N x (P^2 \cdot C)$
