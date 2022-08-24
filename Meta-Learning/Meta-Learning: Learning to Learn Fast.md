@@ -11,3 +11,10 @@
 ## Define the Meta-Learning Problem
 
 ### A Simple View
+- 좋은 meta-learning model은 학습하는 task에 대한 다양성에 대해서 학습되어야 하고, 잠재적으로 인지되지 못한 task를 포함해서 여러 task들의 분포상에서 최고의 성능을 낼 수 있도록 최적화되어야 함
+- 각 task들이 dataset D로 구성되어 있는데, 여기에는 각각 feature vector들과 true label들이 포함되어 있음
+- 이 때 optimal model parameter는 아래와 같음
+
+![캡처](https://user-images.githubusercontent.com/80622859/186351180-f25087b2-bbca-4338-bd60-123fd8e7dd50.PNG)
+
+- 여러 개의 dataset 중에서 샘플링된 dataset D에 대해서 loss function $L_\theta(D)$ 을 최소화할 수 있는 $\theta$를 찾겠다는 의미
