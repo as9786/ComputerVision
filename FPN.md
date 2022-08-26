@@ -35,4 +35,3 @@
 ![다운로드 (3)](https://user-images.githubusercontent.com/80622859/186902783-efc9d3da-956d-4f46-9316-0667c64e0dce.png)
 
 - 임의의 크기의 single-scale image를 합성곱 신경망에 입력하여 다양한 scale의 feature map을 출력하는 신경망(논문에서는 ResNet 사용)
-- 
