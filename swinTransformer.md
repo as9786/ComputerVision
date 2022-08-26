@@ -20,8 +20,10 @@
 
 ![다운로드 (4)](https://user-images.githubusercontent.com/80622859/186910798-cb2dfb42-88ba-485e-98d6-16d85cb18e65.png)
 
-- 
+- 단계
 1. Patch Partition
 2. Linear Embedding
 3. Swin Transformer
 4. Path Merging
+
+- 핵심 idea : 오른쪽 그림 (b), swin transformer block, 두 개의 encoder로 구성, MSA(Multi head sef-attention)이 아니라 W-MSA, SW-MAS로 구성
