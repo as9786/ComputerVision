@@ -10,3 +10,4 @@
 
 - Input size = (224,224)
 - ViT는 각 patch size를 16x16 pixcel로 만든다면 $(224/16)^2=196$ 개의 patch를 가진 상태를 유지하고 각 patch와 나머지 전체 patch에 대한 self attention 수행(Quadratic computational complexity to image size)
+- Swin Transformer는 마치 feature pyramid network처럼 작은 patch 4x4에서 시작해서 점점 patch들을 합쳐나가는 방식
