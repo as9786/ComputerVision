@@ -1,0 +1,5 @@
+# Swin Transformer: Hierarchical Vision Transformer using Shifted Windows
+- ViT는 모든 patch가 self attention을 함으로 계산 비용이 크게 발생
+
+-> 각 patch를 window로 나누어 해당 window 안에서만 self attention을 수행하고 그 window를 한 번 shift한 후에 다시 self attention을 하는 구조 제시
+- 일반적인 Transformer와 달리 계층적 구조를 제시하면서 분류뿐만 아니라 object detection, object segmentation에서도 좋은 성능을 낼 수 있게 됨
