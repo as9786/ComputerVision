@@ -61,5 +61,5 @@
 
 ![render](https://user-images.githubusercontent.com/80622859/187358968-6b98aa8d-526e-4ac1-a778-77e32a802f50.png)
 
-
-
+- 기존에 position embedding은 절대좌표를 더함
+- Swin-Transformer의 경우에는 상대좌표를 더함.
