@@ -27,3 +27,39 @@
 4. Path Merging
 
 - 핵심 idea : 오른쪽 그림 (b), swin transformer block, 두 개의 encoder로 구성, MSA(Multi head sef-attention)이 아니라 W-MSA, SW-MAS로 구성
+- 1개의 block 당 2개의 encoder가 붙어 있음
+
+### Patch Partition/Patch Merging
+- Input image에 patch partition을 할 경우
+
+![다운로드](https://user-images.githubusercontent.com/80622859/187357450-89c38a44-99c4-475a-aac2-a837d98c9e88.png)
+
+- Image에서 한 점은 pixel이지만 patch partition을 하게 되면 한 점은 patch가 됨.
+- 각 patch의 pixcel 정보들이 channel이 됨
+
+### Linear Embedding
+- Linear layer을 거쳐서 C의 차원으로 만들어줌
+
+### Swin Transformer Block(Shifted Window based Self-Attention)
+
+![다운로드 (1)](https://user-images.githubusercontent.com/80622859/187357762-a7435c43-0253-4ca0-b886-95a0a7a9423b.png)
+
+- MSA가 아니라 Windows-MSA, Shifted Windows-MSA를 사용
+- W-MSA는 현재 window에 있는 patch들끼리만 self-attention 연산을 수행. Image는 주변 pixels끼리 서로 연관성이 높기 때문에 window 내에서만 self-attention을 써서 효율적으로 연산량을 줄임
+- 하지만 window가 고정되어 있기 때문에 고정된 부분에서만 self-attention을 수행하는 단점이 있어서 저자들은 이 window를 shift해서 self-attention을 한 번더 수행 = SW-MSA
+
+![다운로드 (2)](https://user-images.githubusercontent.com/80622859/187358248-685ea5df-c7da-4146-b546-110a4f2f58c7.png)
+
+- Cycle shift : 먼저 window를 shift(window size//2만큼 우측 하단으로 shift하고 A,B,C 구역을 mask 씌워서 self-attention을 하지 못하도록 함. 그 이유는 원래 A, B, C 구역은 좌상단에 있었기 때문에 반대편에 와서 연산을 하는 것이 의미가 없음
+- mask 연산을 한 후 다시 원래 값으로 되돌림(reverse cyclic shift)
+- Windows 사이의 연결성을 나타낼 수 있음
+- Cycle shift 대신에 padding을 사용할 수 있었지만 이러한 방법은 계산 비용을 증가시키기 때문에 비효율적
+
+### Relative position bias
+- ViT와 다르게 처음에 position embedding을 더해주지 않음
+- 대신에 self-attention 과정에서 relative position bias를 추가
+
+![render](https://user-images.githubusercontent.com/80622859/187358968-6b98aa8d-526e-4ac1-a778-77e32a802f50.png)
+
+
+
