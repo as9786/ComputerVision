@@ -60,7 +60,7 @@
 
 ## Global Optimality 
 
-### 판별기의 golobal optimum point
+### 판별기의 global optimum point
 - G가 고정되어 있을 때
 
 ![render](https://user-images.githubusercontent.com/80622859/188366954-6b231fce-2dbe-4afa-827e-c5380b70dfbe.png)
@@ -68,6 +68,17 @@
 ![render (1)](https://user-images.githubusercontent.com/80622859/188367457-83730db2-c210-46f7-8ac3-c93f2ea5ae97.png)
 
 ![render (2)](https://user-images.githubusercontent.com/80622859/188367611-d6b09bcf-d5ab-4e1f-898f-db479688bbd0.png)
+
+### 생성기의 global optimnum point
+- Global optimum point is $p_g = p_{data}$
+
+![render (3)](https://user-images.githubusercontent.com/80622859/188368571-d742b82d-c328-469b-bbdb-0027b7d7a73c.png)
+
+#### KL divergence(쿨백-라이블러 발산)
+- 두 확률분포의 차이를 보여주는 식
+
+![eq34](https://user-images.githubusercontent.com/80622859/188368742-7a39e459-38c2-4d7e-b2cd-bf470b007399.png)
+
 
 
 
