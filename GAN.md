@@ -79,6 +79,17 @@
 
 ![eq34](https://user-images.githubusercontent.com/80622859/188368742-7a39e459-38c2-4d7e-b2cd-bf470b007399.png)
 
+#### Jensen-Shannon Divergence
+- KL divergence에서 나온 개념을 distance metrics로 사용하기 위한 변환식
+- 두 분포가 동일할 때는 JSD 값은 0
+
+![render (4)](https://user-images.githubusercontent.com/80622859/188369100-65af428e-13ea-4702-8e9a-0ca0fc1ef7c5.png)
+
+- 위의 증명들은 model 학습이 잘 되었을 때 위와 같은 값을 가져야한다는 것을 의미.
+- 학습이 수렴하는 방법에 관한 식 X
+
+## GAN 알고리즘
+- 판별기 학습 후 -> 생성기 학습
 
 
 
