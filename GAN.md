@@ -59,8 +59,10 @@
 - 생성자의 분포가 원본 data의 분포에 수렴하도록 만드는 것. $P_g$ -> $P_{data}$, D(G(z))->1/2(학습이 다 이루어진 후에는 진짜와 가짜를 구별할 수 없기 때문에 50% 확률값을 가지게 됨 = 판별자가 더 이상 구별을 못함 
 
 ## Global Optimality 
--  $P_g$ -> $P_{data}$ 공식
+
+### 판별기의 golobal optimum point
 - G가 고정되어 있을 때
+
 ![render](https://user-images.githubusercontent.com/80622859/188366954-6b231fce-2dbe-4afa-827e-c5380b70dfbe.png)
 
 ![render (1)](https://user-images.githubusercontent.com/80622859/188367457-83730db2-c210-46f7-8ac3-c93f2ea5ae97.png)
