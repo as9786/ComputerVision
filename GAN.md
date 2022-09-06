@@ -69,7 +69,7 @@
 
 ![render (2)](https://user-images.githubusercontent.com/80622859/188367611-d6b09bcf-d5ab-4e1f-898f-db479688bbd0.png)
 
-### 생성기의 global optimnum point
+### 생성기의 global optimum point
 - Global optimum point is $p_g = p_{data}$
 
 ![render (3)](https://user-images.githubusercontent.com/80622859/188368571-d742b82d-c328-469b-bbdb-0027b7d7a73c.png)
@@ -87,9 +87,11 @@
 
 - 위의 증명들은 model 학습이 잘 되었을 때 위와 같은 값을 가져야한다는 것을 의미.
 - 학습이 수렴하는 방법에 관한 식 X
+- 역전파 수행
 
 ## GAN 알고리즘
 - 판별기 학습 후 -> 생성기 학습
+- 생성기 학습 후 -> 판별기 학습
 
 
 
