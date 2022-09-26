@@ -18,5 +18,29 @@
 1. 컴퓨터 성능의 향상으로 brute-force 계산 방법이 가능
 2. Data의 크기 증가
 3. 고차원의 입력을 다룰 수 있고 복잡한 결정을 내릴 수 있는 기계학습 등장. ex) 역전 오차파로 학습된 multi-layered neural networks
-4
+
+### A. Learning from Data
+- Gradient-based learning
+- 기계는 다음과 함수를 계산
+
+![다운로드](https://user-images.githubusercontent.com/80622859/192316747-9ba83ad6-cdba-4c62-9c14-51d0ce8cea43.png)
+
+- $Z^p$ : 입력값, W : 조절가능한 매개변수, $Y^p$ : $Z^p$에 대해 예측한 class의 label이거나 각각의 class에 관련된 확률
+- 손실함수
+
+![다운로드 (1)](https://user-images.githubusercontent.com/80622859/192317019-bb11b204-3027-4eee-810d-75623e87159d.png)
+
+- $D^p$ : p번째 입력값의 실제 label
+- 실제 label과 기계가 출력하는 값의 불일치를 측정
+- 평균 손실함수 : $E_{train}(W)$
+- 학습 과정에서 평균 손실함수를 가장 작게 만드는 W를 찾아야 함
+- 하지만 중요한 것은 train data가 아니라 test data에 대해서 오차를 줄여야 함
+- $E_{test}$와 $E_{train}$의 관계는 다음 식에 근접
+
+![다운로드 (2)](https://user-images.githubusercontent.com/80622859/192317870-f66411af-417a-4bb3-9853-7f1f38bf1649.png)
+
+
+
+
+
 
