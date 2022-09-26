@@ -78,5 +78,15 @@
 - 논문에서는 Section V와 같은 GTN 방법 사용
 
 ### E. Globally Trainable Systems
-- 
+- 손실함수의 미분 가능함을 보장하기 위해 feed-forward network로 전반적인 system 구성
+
+![다운로드 (6)](https://user-images.githubusercontent.com/80622859/192321494-4993b81c-b64c-4cc8-b920-00441d4966f6.png)
+
+- $X_n$ : 출력값, $W_n$ : 매개변수
+- $X_0$는 model의 첫 입력이며 $Z^p$와 같음
+- System 전체의 손실함수를 각각 편미분한 것은 아래와 같음
+
+![다운로드 (7)](https://user-images.githubusercontent.com/80622859/192321774-9e1813e0-f389-4339-b383-5bfd41cc5422.png)
+
+
 
