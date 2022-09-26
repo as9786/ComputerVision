@@ -39,6 +39,17 @@
 
 ![다운로드 (2)](https://user-images.githubusercontent.com/80622859/192317870-f66411af-417a-4bb3-9853-7f1f38bf1649.png)
 
+- P : data size, h : 기계의 복잡도, $\alpha$ : 0.5 ~ 1 사이의 수
+- Train data의 크기가 커지고 기계가 단순해진다면 train data에서의 오차와 test data에서의 오차의 차이가 줄어듬
+- h가 증가하면 $E_{train}$이 감소 -> $E_{train}$와 $E_{test}$ 사이의 차이는 증가
+- Structural risk minimization : $E_{train}$을 최소화시키는 방법
+
+![다운로드 (3)](https://user-images.githubusercontent.com/80622859/192318426-f94a5eb3-0042-4751-b3cc-0c4da57765a3.png)
+
+- H(W) : 규제화, $\beta$ : 상수
+
+### B. Gradient-Based Learning
+
 
 
 
