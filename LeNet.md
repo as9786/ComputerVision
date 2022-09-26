@@ -88,5 +88,40 @@
 
 ![다운로드 (7)](https://user-images.githubusercontent.com/80622859/192321774-9e1813e0-f389-4339-b383-5bfd41cc5422.png)
 
+## 2. Convoultional Neural Networks for Isolated Character Recognition
+- Image는 크기가 크기 때문에 많은 매개변수들이 필요로 하고, 많은 매개변수를 학습시키기 위해 더 많은 data를 요구
+- 가장 큰 결점은 input data에 약간의 왜곡만 취해도 아주 다른 data라고 인식
 
+### A. Convolutional Networks
+- LeNet-5 구조
+
+![다운로드 (8)](https://user-images.githubusercontent.com/80622859/192322204-3aa0df0b-913e-43f0-af5b-a91995537120.png)
+
+- Input은 정규화되고, centered된 image를 받음
+- 층의 각각의 unit은 이전 층의 근처에 위치한 unit들에서 입력을 받아옴(local receptive fields) => 가장자리, 모서리와 같은 저차원의 시각적 특징을 추출할 수 있게 됨
+- 위와 같은 특징들을 하위의 층들에서 조합하여 고차원의 시각적 특징을 감지할 수 있게 됨
+- 저차원의 시각적 특징도 전체적으로 유의미한 특징이기 때문에 image에 왜곡이 주어져도 같은 가중치를 갖게 됨
+- 이러한 출력들을 feature map이라고 부름
+- Feature map의 unit들은 image의 다른 부분에서도 같은 연산을 하도록 제한
+- C1 : 6개의 feature map, feature map의 unit은 5x5 filter => 26개 parameters
+- 각각의 feature map은 서로 다른 가중치를 가지면 서로 다른 local feature를 추출
+- 입력에 변환을 줘도 출력이 똑같이 변환되기 때문에 기존의 출력과 같은 값을 얻게 된다는 장점이 있음
+- Sub-sampling-layer(Pooling) : 2x2 filter, 인접한 unit들 간의 중복을 허용하지 않음. feature map의 크기를 줄임
+- Sub-sampling-layer에서 줄어든 만큼 합성곱층에서 feature map의 수가 늘어나는 것을 반복
+
+### B. LeNet-5
+- 7개의 층, 입력 크기 : 32 x 32
+- Output layer는 euclidean radial basis function(RBF)로 구성
+
+![다운로드 (9)](https://user-images.githubusercontent.com/80622859/192323768-41cf9f2a-5fa5-49bf-8707-7a174c8e4a8e.png)
+
+### C. Loss Function
+- MLE
+
+![다운로드 (10)](https://user-images.githubusercontent.com/80622859/192323889-014460d7-a480-4766-a45b-0b1b8e9928db.png)
+
+- $y_(D_p)$ : $D_p$번째 RBF unit의 출력
+- 두 가지 결점
+1. RBF의 매개변수들을 학습시키면 E(W)가 매우 작아지나, RBF의 모든 매개변수 vector는 동일하기 때문에 결국 신경망의 입력은 무시한 채 모든 RBF의 출력이 0이 됨
+2. Class 간의 경쟁이 없음
 
