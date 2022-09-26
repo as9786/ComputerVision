@@ -58,4 +58,25 @@
 
 ![다운로드 (5)](https://user-images.githubusercontent.com/80622859/192319970-a4095da8-ce8e-4148-8227-04bb54896d3f.png)
 
+#### 확률적 경사하강법
+- 추출된 data 한 개에 대해서 경사를 계산하고, 경사하강법을 적용하는 방법
+- 전체 data를 사용하는 것이 아니라, 무작위로 추출한 일부 data를 사용하는 것
+- 학습 중간 과정에서 결과의 진폭이 크고 불안정하며, 속도가 매우 빠름
+
+### C. Gradient Back-Propagation
+- 경사를 활용한 학습 1950년대부터 소개되었지만 선형 모형에 한정되어 사용
+- 아래의 3가지 이유로 기계학습에서도 사용
+1. 손실함수의 local minima문제는 실제로 큰 문제가 아니라는 점. 
+2. 오차 역전파가 비선형 모형에서도 대중화
+3. 오차 역전파 과정이 sigmoid 함수를 통해서 MLP에 적용되면 복잡한 기계학습 과업을 해결 가능
+
+### D. Learning in Real Handwriting Recognition Systems
+- 합성곱 활용
+- Heuristic한 방법을 통해서 글자를 분리
+- 그리고 학습기에 의해 후보들 중 가장 높은 점수를 낸 조합 채택
+- 하지만 이럴 경우 비용이 많이 들고 어려움
+- 논문에서는 Section V와 같은 GTN 방법 사용
+
+### E. Globally Trainable Systems
+- 
 
