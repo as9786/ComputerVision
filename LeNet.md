@@ -49,9 +49,13 @@
 - H(W) : 규제화, $\beta$ : 상수
 
 ### B. Gradient-Based Learning
+- 손실함수를 최소화하기 위해 현재 매개변수의 경사를 이용
 
+![다운로드 (4)](https://user-images.githubusercontent.com/80622859/192319209-055273e0-1f22-4c66-aa82-ef29ae8fa6b7.png)
 
+- W : 실수의 매개변수 집합, E(W)는 연속적이고 미분 가능, $\epsilon$ : scalar
+- 대중적인 최적화 과정은 online update라고 불리기도 하는 stochastic gradient
 
-
+![다운로드 (5)](https://user-images.githubusercontent.com/80622859/192319970-a4095da8-ce8e-4148-8227-04bb54896d3f.png)
 
 
