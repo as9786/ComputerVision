@@ -92,6 +92,16 @@
 - 이를 다중 검출(multiple detections) 문제라고 함
 - 이는 비 최대 억제(non-maximal suppression)을 통해 개선
 
+#### 비 최대 억제
+
+![다운로드 (7)](https://user-images.githubusercontent.com/80622859/193465089-f30af544-d3b4-4ede-b724-79d2fb1d69d0.png)
+
+1. 하나의 class에 대한 bounding boxes 목록에서 가장 높은 점수를 갖고 있는 bounding box를 선택하고 목록에서 제거, 그리고 final box에 추가
+2. 선택된 bounding box를 bounding boxes 목록에 있는 모든 bounding box와 IoU를 계산하여 비교. IoU가 threshold보다 높으면 bounding boxes 목록에서 제거
+3. bounding boxes 목록에 남아있는 bounding box에서 가장 높은 점수를 갖고 있는 것을 선택하고 목록에서 제거. 그리고 final box에 추가
+4. 다시 선택된 bounding box를 목록에 있는 box들과 IoU 비교. Threshold보다 높으면 목록에서 제거
+5. Bounding boxes에 아무것도 남아 있지 않을 때까지 반복
+
 ### 2.4 Limitations of YOLO
 - 하나의 grid cell마다 두 개의 bounding box를 예측, 그리고 하나의 grid cell은 오직 하나의 객체만을 검출 => 공간적 제약
 - 공간적 제약(Spatial constraints) : 하나의 grid cell은 오직 하나의 객체만을 검출하므로 하나의 grid cell에 두 개 이상의 객체가 붙어 있다면 이를 잘 검출하지 못하는 문제
