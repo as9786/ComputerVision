@@ -19,4 +19,4 @@
 - 학습동안 SSE 손실함수 사용
 - Logistic regression을 사용하여 각각의 bbox에 대해 objectness score 계산
 - 예측값이 실제값과 같으면 1
-- 
+- 예측을 무시하는 임계점보다 높은 
