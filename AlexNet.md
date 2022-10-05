@@ -27,3 +27,8 @@
 ### 3.2 Training on Multiple GPUs
 - Network를 2개의 GPU에 나눔
 - 최신 GPU들은 다른 GPU의 memory에서 직접 읽고 쓸 수 있기 때문에 병렬 처리에 적합
+- Node를 절반으로 나누어 각 GPU에 넣어 병렬 처리
+- 하나의 트릭 : GPU가 특정 계층에만 통신 ex) 3층의 kernel은 2층의 모든 kernel들의 입력을 받지만, 4층의 kernel은 같은 kernel map의 3층 kernel에서만 입력을 받음
+
+![캡처](https://user-images.githubusercontent.com/80622859/194093943-249ce214-e4c8-4e86-99a2-0d99acb473d6.PNG)
+
