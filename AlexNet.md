@@ -15,7 +15,7 @@
 - 직사각형이 주어질 경우 짦은 면의 길이를 256이 되도록 image의 scale을 조정한 후 중앙을 기준으로 256 x 256이 되도록 사진을 자름
 - 이외의 전처리 작업을 하지는 않았지만, 학습 set의 각 pixel에서 평균 값을 빼주는 방법으로 RGB pixcel을 학습
 
-## 3. The Atchitecures
+## 3. The Atchitetures
 - 5개의 합성곱층과 3개의 완전연결층 = 총 8개의 층
 
 ### 3.1 ReLU Nonlinearity
