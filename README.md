@@ -7,3 +7,8 @@
 - https://jjuon.tistory.com/21
 ### SGD
 - https://go-hard.tistory.com/11
+
+# AlexNet
+- https://mountain96.tistory.com/33
+- https://123okk2.tistory.com/171
+- https://towardsdatascience.com/the-w3h-of-alexnet-vggnet-resnet-and-inception-7baaaecccc96
