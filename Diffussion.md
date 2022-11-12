@@ -25,4 +25,10 @@
 - q는 noise를 아주 조금 추가하는 과정
 - 단순히 q의 평균과 표준편차와 같아지도록 학습한다면 p 또한 당연히 noise가 추가되는 과정으로 학습됨
 
-![캡처](https://user-images.githubusercontent.com/80622859/201462485-85bbb6fe-2e67-4e8f-910e-59e5103cbcc3.PNG)
+## 2. DDPM loss
+
+### 1. VAE
+
+![캡처](https://user-images.githubusercontent.com/80622859/201462729-912829c4-0533-4ab9-a7f8-33395d77a350.PNG)
+
+
