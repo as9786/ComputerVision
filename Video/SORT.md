@@ -70,4 +70,27 @@
 ![image](https://user-images.githubusercontent.com/80622859/202890958-45897429-4b95-44d1-af9b-a235f796d548.png)
 
 ### (3) Data Association
-- 
+- MOT 방법을 기반으로 한 tracking-by-detection
+- Hungraian problem : Data association optimization method
+- Kalman filter를 이용해 확보한 예측값은 이후 frame에서 새롭게 탐지한 객체와의 연관에 적용
+- 기존 target들의 각 탐지와 모든 예측되는 bbox들 사이의 IoU distance로 assignment cost matrix를 계산
+- 그리고 hungarian algorithm을 사용하여 최적으로 해결
+
+![image](https://user-images.githubusercontent.com/80622859/202891109-5c942e49-e230-4e42-8936-94b5a7d78bcd.png)
+
+- (a) : Kalman filter에서 나온 결과
+- (b)의 초록색 : 현재 탐지기에서 나온 bbox
+- 위의 둘을 IoU 시킨 후 hungarian에서 짝을 찾아 주어 (c)처럼 ID가 할당
+
+## 3. Experiments
+
+### (1) Metrics
+- 하나의 단일 점수를 사용하여 성능을 평가하기가 어려움
+- MOTA : MOT accuracy
+- MOTP : MOT 정밀도
+- FAF : Frame 당 오경보 수
+- MT : 주로 추적되는 궤적의 수
+- ML : 대부분 손실된 궤적의 수
+- FP : 잘못된 탐지 수
+- FN : 놓친 탐지 수
+- ID SW : ID가 이전에 추적된 다른 객체로 전환된 횟수
