@@ -47,3 +47,27 @@
 - R-CNN family의 객체 탐지 신경망은 높은 성능을 보이지만, 처리 속도가 매우 느림
 - 다른 구조로 교체 가능. ex) SSD, YOLO
 - 탐지 품질이 tracking performance에 상당한 영향을 미침
+
+### (2) Estimation Model
+- Object tracking의 작업은 객체의 위치를 예측하는 것
+- Motion estimation 방법으로 이전 순간의 target state에서 현재 순간의 target state를 예측하는 Kalman filter 방법을 사용
+- Kalman filter는 초창기 방법이고, 현재는 순환신경망 기반의 motion model을 사용
+
+#### Kalma filter
+
+![image](https://user-images.githubusercontent.com/80622859/202890808-a81dc52c-17e7-4932-b581-73f47eab229d.png)
+
+- Noise가 선형적 움직임을 가지는 target state를 추적하는 recursive filter
+- 확률 이론에 기반
+- Noise를 포함한 data가 입력되었을 때, noise를 고려하여 정확한 추정이 가능
+- 시간에 따라 진행한 측정을 기반으로 하기 때문에 해당 순간에만 측정한 결과만 사용하는 것보다는 좀 더 정확한 추정이 가능
+- 바로 이전 시간 외의 측정값은 사용 X
+- 각 추정 계산은 예측과 보정 두 단계로 나눔
+- 예측 : 이전 시간에 추정된 상태에 대해, 그 상태에서 입력이 들어왔을 때 예상되는 상태를 계산하는 단계
+- 보정 : 앞서 계산된 예측 상태와 실제로 측정된 상태를 토대로 정확한 상태를 계산하는 단계
+- 동영상의 이전 frame에서 객체 탐지기를 통해 얻어진 target state(bbox 좌표)를 통해, 이후 frame의 target state를 예측
+
+![image](https://user-images.githubusercontent.com/80622859/202890958-45897429-4b95-44d1-af9b-a235f796d548.png)
+
+### (3) Data Association
+- 
