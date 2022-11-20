@@ -6,4 +6,4 @@
 - 즉, 탐지된 객체 정보를 기반으로 각 frame 간의 동일 객체에 대한 탐지 반응을 연관하여 각 객체에 대한 전체 궤도를 완성
 - Robust한 MOT를 위해 다양한 data association algorithm 개발
 - 객체 탐지 결과와의 결합 유무에 따라 크게 **detection-free-tracking 방식** 과 **tracking-by-detection 방식**으로 구분
-- 최근에는 <mark style='background-color: #0366d6'><font color='blue'>tracking-by-detection 방식</mark></font>으로 대부분의 연구가 진행
+- 최근에는 <span style="color:blue">tracking-by-detection 방식</span>으로 대부분의 연구가 진행
