@@ -1,2 +1,1 @@
-# Semantic segmentation 
 
