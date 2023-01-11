@@ -18,3 +18,16 @@
 - Object detection : 사진에 보이는 해당 객체들을 각각 골라냄
 - Semantic segmentation : 의미 대로 image 분할(pixel 분류)
 - Instance segmentation : 객체대로 사진 분할(pixel 분류)
+
+# 2. Semantic segmentation 
+
+![image](https://user-images.githubusercontent.com/80622859/211768333-562dd8d6-5a1c-4f96-90cb-e3dc0c64a51f.png)
+
+## U-Net
+
+![image](https://user-images.githubusercontent.com/80622859/211768390-79acb56e-9789-45c7-bccf-dc8f0a62a12d.png)
+
+- 검출할 class의 수를 따라서 semantic segmentation map을 얻을 수 있음
+- 분류와 객체 탐지보다 큰 차원의 출력값. 검출을 위해 image의 각 pixel에 해당하는 영역의 class별 정보가 필요하기 때문
+
+
