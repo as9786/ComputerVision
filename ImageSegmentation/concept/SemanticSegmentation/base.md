@@ -23,6 +23,9 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/211768333-562dd8d6-5a1c-4f96-90cb-e3dc0c64a51f.png)
 
+![image](https://user-images.githubusercontent.com/80622859/211769939-6dc0c365-f1a1-45ff-a543-7a37aeb6ffd0.png)
+
+
 ## U-Net
 
 ![image](https://user-images.githubusercontent.com/80622859/211768390-79acb56e-9789-45c7-bccf-dc8f0a62a12d.png)
