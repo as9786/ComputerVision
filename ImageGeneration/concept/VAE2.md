@@ -9,8 +9,22 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/212450915-e19f9b8f-8b2c-4640-88cb-174a89dfff2e.png)
 
-## 수식적 증명
+## VAE decoder
 - 모형의 파리미터 $\theta$가 주어졌을 때, 우리가 원하는 정답인 x가 나올 확률인 $p_{\theta}(x)$를 높이는 것이 VAE 학습의 핵심
+
+![image](https://user-images.githubusercontent.com/80622859/212453370-c72b3976-0d70-44c1-b564-52bb991f1d05.png)
+
+- 적분식 -> 베이즈 공식 : x와 z가 동시에 일어날 확률을 모든 z에 대해서 적분 = x의 우도
+- 하지만 위의 식을 계산하는 것은 다루기 힘듦 (P(x)의 값을 모름)
+
+![image](https://user-images.githubusercontent.com/80622859/212454422-541a14d9-e74b-40ed-a474-43bcec596a64.png)
+
+- Variational inference(변분추론)를 통해 해결
+- Enocder의 역할은 실제 우리가 알고 싶은 P(z|x)를 신경망으로 가장 근사하는 Q(z|x)를 구할 수 있는 신경망이 됨
+- p는 실제값, q는 p를 근사화하는 추정값
+
+## ELBO
+
 
 ## AE vs VAE
 - 탄생 배경이 다름
