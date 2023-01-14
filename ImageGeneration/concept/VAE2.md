@@ -23,7 +23,16 @@
 - Enocder의 역할은 실제 우리가 알고 싶은 P(z|x)를 신경망으로 가장 근사하는 Q(z|x)를 구할 수 있는 신경망이 됨
 - p는 실제값, q는 p를 근사화하는 추정값
 
-## ELBO
+## ELBO(Evidence of Lower BOund)
+- variational lower bound
+- 우리가 관찰한 p(z|x)가 다루기 힘든 분포를 이루고 있을 때, 이를 조금 더 다루기 쉬운 분포인 Q(x)로 표현하는 과정에서 두 분포의 차이를 최소화히기 위해 사용
+
+![image](https://user-images.githubusercontent.com/80622859/212456788-9e5e569b-631d-48d8-a0d1-73d1c5f30843.png)
+
+- P(x)를 최대화 시키고 싶기에 P(x)에 log를 씌워줌
+- 이는 기댓값 형태로 나오게 되는데 이 때 logP(x)는 그대로 두고 z가 enocder를 거쳐서 나오는 확률 분포를 따를 때의 기댓값
+
+![image](https://user-images.githubusercontent.com/80622859/212457267-542bc8d0-d1f3-4ed3-84ed-6e81b49073bd.png)
 
 
 ## AE vs VAE
