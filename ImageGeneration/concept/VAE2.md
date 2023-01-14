@@ -12,3 +12,9 @@
 ## 수식적 증명
 - 모형의 파리미터 $\theta$가 주어졌을 때, 우리가 원하는 정답인 x가 나올 확률인 $p_{\theta}(x)$를 높이는 것이 VAE 학습의 핵심
 
+## AE vs VAE
+- 탄생 배경이 다름
+- 구조가 비슷해서 Variational AE라는 이름이 붙음
+- AutoEncoder의 목적은 encoder
+- VAE의 목적은 decoder
+- AE는 latent space의 어떤 하나의 값을 나타낸다면, VAE는 gaussian distribution을 나타냄
