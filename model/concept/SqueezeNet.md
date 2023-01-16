@@ -60,4 +60,6 @@
 ![image](https://user-images.githubusercontent.com/80622859/212582717-7434650f-5264-4b42-b32a-895699e596da.png)
 
 - SqueezeNet을 적용했을 때, parameter 감소가 제일 컸고, AlexNet보다 성능 향상
-- Deep compression을 적용시키면 더 압축시킬 수 
+- Deep compression을 적용시키면 더 압축시킬 수 있음
+- Deep compression도 AlexNet에 parameter 수를 낮추기 위해 사용된 하나의 기법
+- (Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding) 참조
