@@ -48,3 +48,16 @@
 - 성능은 두 번째 구조가 제일 좋음
 
 ![image](https://user-images.githubusercontent.com/80622859/212582530-bf71a5dc-4976-42eb-8212-4efe184ea7e2.png)
+
+- Bypass를 추가한 이유는 fire module 내에서 bottleneck 문제가 발생 => 정보 손실 방지
+
+## Evaluation of squeezenet
+
+![image](https://user-images.githubusercontent.com/80622859/212582689-4fce323b-082a-40da-a13d-6459cf7764e8.png)
+
+- AlexNet보다 parameter 수가 3배 감소
+
+![image](https://user-images.githubusercontent.com/80622859/212582717-7434650f-5264-4b42-b32a-895699e596da.png)
+
+- SqueezeNet을 적용했을 때, parameter 감소가 제일 컸고, AlexNet보다 성능 향상
+- Deep compression을 적용시키면 더 압축시킬 수 
