@@ -54,6 +54,7 @@
 ![image](https://user-images.githubusercontent.com/80622859/212461220-1921201e-0acc-4392-a781-e711ee5a8e4e.png)
 
 - 근본적으로 feature map의 크기가 너무 작기 때문에 예측된 dense map(예상 그림)의 정보는 여전히 정교하지 않음
+- 경계가 모호해지는 문제 발
 
 ![image](https://user-images.githubusercontent.com/80622859/212461240-43dc8f3d-b327-40e5-8544-a7bf97b0884a.png)
 
