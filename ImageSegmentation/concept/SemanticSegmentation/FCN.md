@@ -3,6 +3,7 @@
 ![image](https://user-images.githubusercontent.com/80622859/212460633-394dbd92-faed-4a90-9c94-dcbf7ed1b2a3.png)
 
 - Image classfication에서 우수한 성능을 보인 CNN 기반 모형을 목적에 맞춰 변형
+- AlexNet, VGG, GoogleNet 비교 결과 VGG의 성능이 제일 좋음
 - Image classification model to semantic segmentation model
 1. Convolutionalization
 2. Deconvolution(Upsampling)
