@@ -35,7 +35,7 @@
 - Contracting path : Size가 줄어드는 경로(왼쪽)
 - Expansive path : Size가 늘어나는 경로(오른쪽)
 
-### Contracting path
+### Contracting path(수축 구간)
 
 - 전형적인 CNN
 
@@ -47,7 +47,12 @@
 - Downsampling
 - Downsampling 할 때마다 channel의 크기를 2배 늘림
 
-### Expansive path
+### Bottle Nect(전환 구간)
+
+- 3 x 3 합성곱층, ReLU, batch noramliazaion, dropout
+- Dropout을 통해 일반화
+
+### Expansive path(확장 경로)
 
 - Contracting path와 좌우로 대칭되는 구조
 - 3 x 3 filter의 합성곱층을 2번 적용한 뒤 feature map의 너비와 높이를 2배로 늘림(Upsampling)
@@ -59,6 +64,20 @@
 - 총 23 개의 CNN layer 
 
 ## Training
+
+### Overlap-tile strategy
+
+- 큰 image를 겹치는 부분이 있도록 일정 크기로 나누고 모형의 입력으로 활용
+
+![image](https://user-images.githubusercontent.com/80622859/213980646-47d1cc44-2fe6-4ca4-99df-4aded2bed346.png)
+
+### Mirroring Extrapolate
+
+![image](https://user-images.githubusercontent.com/80622859/213980929-ab35234b-a447-4689-89b5-7bd43e4ecb75.png)
+
+- Image 경계에 위치한 image를 복사하고 좌우 반전을 통해 mirror image를 생성한 후 원본 image 주변에 붙여 입력으로 사용
+
+### Weight Loss
 
 - GPU를 최대한 활용하기 위해 image file을 여러 개의 batch로 나눔
 - 학습용 dataset의 단위가 image가 아닌 image의 일부
@@ -74,7 +93,13 @@
 - 같은 세포라도 pixel 값에 차이가 있으니 그러한 부분을 보완해 줌
 - d1 : 가장 가까운 class의 테두리와의 거리, d2 : 두 번째로 가까운 class의 테두리와의 거리
 - $\sigma = 5, w_0 = 10$
+- w(x)는 pixel x와 경계의 거리가 가까우면 큰 값을 갖게 되므로 해당 pixel의 loss 비중이 커지게 됨 => 학습 시 경계에 해당하는 pixel을 잘 학습
 
 ![image](https://user-images.githubusercontent.com/80622859/213979231-cdbfa6e5-f02e-4b15-8a3a-5e15f9861b51.png)
 
 ## Data Augmentation
+
+- Shift, rotation
+- Random-elastic deformation
+
+![image](https://user-images.githubusercontent.com/80622859/213980298-faa5f22a-397c-4bde-879b-4f7f01933a10.png)
