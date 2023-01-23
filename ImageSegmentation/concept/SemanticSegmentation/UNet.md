@@ -48,3 +48,33 @@
 - Downsampling 할 때마다 channel의 크기를 2배 늘림
 
 ### Expansive path
+
+- Contracting path와 좌우로 대칭되는 구조
+- 3 x 3 filter의 합성곱층을 2번 적용한 뒤 feature map의 너비와 높이를 2배로 늘림(Upsampling)
+- Upsampling 시 마다 channel의 크기를 반으로 줄임
+- 반으로 줄인 feature map에 contracting path에서 같은 층에 있는 feature map과 합쳐줌(Concatenation, copy and crop)
+- Crop을 해주는 이유로는 feature map의 크기가 다르기 때문
+- 마지막 층에는 1 x 1 합성곱층을 사용해 우리가 분류할 class의 개수 만큼의 크기로 channel의 수를 줄여줌
+
+- 총 23 개의 CNN layer 
+
+## Training
+
+- GPU를 최대한 활용하기 위해 image file을 여러 개의 batch로 나눔
+- 학습용 dataset의 단위가 image가 아닌 image의 일부
+- Momentum = 0.99 => 현재 시점의 가중치를 상당히 많이 반영
+- Energy function : 마지막에 얻은 feature map에 pixel 단위로 softmax 연산을 수행하고, 여기에 cross entropy loss function을 적용
+
+![image](https://user-images.githubusercontent.com/80622859/213978999-6776e304-620d-42ce-882d-2886e12a6797.png)
+
+- x : feature map에 있는 각 pixel, w(x) : weight map, pixel 별로 가중치를 부과하는 역할
+
+![image](https://user-images.githubusercontent.com/80622859/213979065-5b3556d6-d70f-4349-8bfc-62ac93e10d99.png)
+
+- 같은 세포라도 pixel 값에 차이가 있으니 그러한 부분을 보완해 줌
+- d1 : 가장 가까운 class의 테두리와의 거리, d2 : 두 번째로 가까운 class의 테두리와의 거리
+- $\sigma = 5, w_0 = 10$
+
+![image](https://user-images.githubusercontent.com/80622859/213979231-cdbfa6e5-f02e-4b15-8a3a-5e15f9861b51.png)
+
+## Data Augmentation
