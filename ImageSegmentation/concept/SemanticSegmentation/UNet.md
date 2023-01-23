@@ -31,3 +31,20 @@
 - Data augmentation
 
 ## Network Architecture
+
+- Contracting path : Size가 줄어드는 경로(왼쪽)
+- Expansive path : Size가 늘어나는 경로(오른쪽)
+
+### Contracting path
+
+- 전형적인 CNN
+
+![image](https://user-images.githubusercontent.com/80622859/213978011-599fb1bd-d272-4194-9926-06fce55393d2.png)
+
+- 특성 추출을 하며 점차 feature map의 크기가 줄어드는 구조
+- 3 x 3 filter를 가진 합성곱층을 2번 적용하며 이 과정에서 활성화 함수로는 ReLU 사용
+- Max pooling(pool_size = (2,2), stride = 2) 사용
+- Downsampling
+- Downsampling 할 때마다 channel의 크기를 2배 늘림
+
+### Expansive path
