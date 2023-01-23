@@ -3,3 +3,13 @@
 
 # FCN
 - https://medium.com/@msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204
+
+# U-Net
+- https://velog.io/@minkyu4506/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-U-Net-%EB%A6%AC%EB%B7%B0
+- https://joungheekim.github.io/2020/09/28/paper-review/
+## 구조
+- https://www.jeremyjordan.me/convnet-architectures/
+## Elastic deformation
+- https://velog.io/@dldndyd01/CV%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0U-Net-Convolutional-Networks-for-BiomedicalImage-Segmentation
+
+
