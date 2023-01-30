@@ -76,3 +76,7 @@
 - 더 많은 정보를 유지하며 LiDAR에 적합
 - 이산화 오류 및 폐색과 같은 몇 가지 문제 초래
 
+#### 5.1.2 Discretization-based Methods
+
+- Point cloud to dense/sparse discrete representation(ex. volumetric and sparse permutohedral lattices)
+
