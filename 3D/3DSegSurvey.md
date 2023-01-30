@@ -172,4 +172,8 @@
 - 신경망이 차별적인 특징 표현을 학습하는데 도움을 줌
 
 - Concentric spherical shells로부터 집계된 통계를 기반으로 Shellconv라는 permutation invariant convolution 제안
+- Multi-scale concentric spheres set을 질의한 후에, max pooling 작업을 통해 통계를 요약하고 MLP 및 1D 합성곱을 사용하여 최종 합성곱 출력을 얻음
+
 - 
+
+
