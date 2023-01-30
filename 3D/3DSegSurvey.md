@@ -178,4 +178,17 @@
 - memory 및 계산 측면에서 매우 높은 효율성을 달성하기 위해 random point sampling을 사용
 - 기하학적 특징을 포착하고 보존하기 위해 local feature aggregation 
 
+###### Attention-based aggregation
+
+- Attention 사용
+- 점들 간의 관계를 modeling 하기 위해 group shuffle attention
+- 널리 사용되는 FPS 방식을 대체하기 위해 permutation invarient에 구애받지 않고 차별화 가능한 GSS(Gumbel Subset Sampling) 제시
+- 이상치에 덜 민감하고, 점의 대표적인 부분 집합을 선택할 수 있음
+
+- Point cloud space layout과 local surface를 기반으로 공간 인식 가중치를 학습하는 LSA(Local Spatial Aware) 계층을 제안
+- CRF와 유사하게, 신경망에서 생성된 분할 결과를 사후 처리하기 위해 Attention-based Score Refinement(ASR) module을 제안
+- 초기 분할 결과는 학습된 attention 가중치로 인접 지점의 점수를 pooling하여 세분화
+- 기존의 심층 신경망에 쉽게 통합되어 segmentation 성능을 향상시킬 수 있음
+
+###### Local-global concatenation
 
