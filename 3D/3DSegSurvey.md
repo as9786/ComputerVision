@@ -40,4 +40,23 @@
 ### 5.1 3D Semantic Segmentation
 
 - Point cloud가 주어지면, semantic segmentation의 목표는 point의 의미에 따라 여러 하위 집합으로 분리
-- 
+- Projection based, discretization-based, point-based 그리고 hybrid-based
+
+#### 5.1.1 Projection-based Method
+
+- 일반적으로 3D point cloud를 multi-view 및 spherical images를 포함한 2D image에 투영
+
+##### Multi-view Representation
+
+-  Multiple virtual camera views에서 3D point cloud를 2D 평면에 투영
+-  Multi-stream FCN을 사용하여 image의 pixel 단위 점수를 예측
+-  각 point의 최종 semantic label은 서로 다른 뷰와 합쳐져서 얻게 됨
+
+-  여러 camera 위치를 사용하여 point cloud의 여러 RGB 및 depth snapshots을 생성
+-  2D semantic segmentation model을 사용하여 이러한 snapshots에 pixel 단위 labeling 수행
+-  RGB에서 예측된 점수와 depth image는 residual correction을 사용하여 추가로 더해짐
+-  Point cloud가 local Euclidean surfaces에서 sampling 된다는 가정에 기초하여, dense cloud point segmentation을 위한 tangent convolution(접선 합성곱) 도입
+-  이러한 방법은 먼저 각 점 주위의 local surface geometry을 가상 접선 평면에 투영.
+-  그 다음 tangent convolution이 surface geometry에서 직접 작동
+-  뛰어난 확장성, 수백만 개의 point로 대규모 point cloud 처리 가능
+-  Projection이 정보 손실을 초래하기 때문에 기본 기히학적 및 구조적 정보를 완전히 얻을 수 없음
