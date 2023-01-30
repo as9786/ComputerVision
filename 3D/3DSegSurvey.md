@@ -193,4 +193,6 @@
 ###### Local-global concatenation
 
 - Point cloud의 local surface와 global context를 통합하기 위해 permutation invarient PS2-Net을 제안
-- EdgeConv와 NetVLAD는 local information과 scene 수준의 global 기능을 포착하기 위해 반복적으로 
+- EdgeConv와 NetVLAD는 local information과 scene 수준의 global 기능을 포착하기 위해 반복적으로 쌓임
+
+##### 
