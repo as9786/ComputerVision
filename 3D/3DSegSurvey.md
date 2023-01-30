@@ -143,4 +143,17 @@
 
 - Point based network는 irregular point cloud에서 작동
 - 그러나 point cloud는 순서가 없고 구조화되지 않아 표준 합성곱 신경망을 직접 적용하는 것은 불가능
-- Shared MLP를 사용한 point별 기능과 symmetric pooling을 사용한 global 기능을 학습하는 
+- Shared MLP를 사용한 point별 기능과 symmetric pooling을 사용한 global 기능을 학습하는 PointNet
+- Pointwise MLP methods, point convolution methods, RNN-based methods and graph-based methods
+
+![image](https://user-images.githubusercontent.com/80622859/215403988-414cc4a7-2cbf-4fc3-9c2e-6ab29f5fa4f2.png)
+
+##### Pointwise MLP Methods
+
+- 보통 높은 효율성을 위해 신경망에서 shared MLP를 기본 단위로 사용
+- 그러나 shared MLP에 의해 추출된 point별 기능은 point cloud의 local geometry와 point 간의 상호 작용을 포착할 수 없음
+- 각 지점에 대한 더 넓은 context를 포착하고 더 풍부한 local architecture를 학습하기 위해 neighboring feature pooling, attetnion-based aggregation and local-global feature concatenation
+
+###### Neighboring feature pooling
+
+- Local geometric patterns를 포착하기 위해, 
