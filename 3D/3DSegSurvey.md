@@ -31,3 +31,13 @@
 - 분류 : QA(전체 정확도), mAc(평균 class 정확도)
 - 객체 탐지 : 평균 정밀도(AP)
 - 분할 : QA, mIoU, mAcc
+
+## 5. 3D Point Cloud Segmentation
+
+- 전체적인 기하학적 구조와 각 point의 분할된 특징들을 모두 이해해야 함
+- Semantic segmentation, instance segmentation 긔리고 part segmentation으로 분류 
+
+### 5.1 3D Semantic Segmentation
+
+- Point cloud가 주어지면, semantic segmentation의 목표는 point의 의미에 따라 여러 하위 집합으로 분리
+- 
