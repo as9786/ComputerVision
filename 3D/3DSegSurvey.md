@@ -108,4 +108,8 @@
 - Voxelization은 본질적으로 이산화 산출물과 정보 손실을 초래
 - 해상도가 높으면 memory 및 계산 비용이 많이 드는 반면 해상도가 낮으면 세부 정보가 손실
 - 실제로는 적절한 grid 해상도를 선택하는 것은 중요하지 않음 
-- 
+
+##### Sparse Discretization Representation
+
+- 0이 아닌 값의 수가 차지하는 비율이 작기 때문에 volume 표현은 자연스럽게 희박
+- 공간적으로 sparse data에 밀도 높은 합성곱 신경망을 
