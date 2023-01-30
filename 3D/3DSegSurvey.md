@@ -130,3 +130,17 @@
 
 #### 5.1.3 Hybird Method
 
+- 사용 가능한 모든 정보를 추가로 활용하기 위해 3D scan에서 multi-modal features를 배우기 위해 몇몇 방법들이 제안되어 지고 있음
+- RGB 특징과 기하하적 특징을 결합하기 위한 joint 3D-multi-view network 제안
+- 특징을 추출하기 위해 3D CNN stream과 2D stream을 사용, 학습된 2D embedding과 3D 기하학적 특징을 공동으로 융합하기 위해 차별화 가능한 역투영층을 제안
+
+- Point cloud에서 2D texture shape, 3D 구조 및 global context 기능을 학습하기 위한 통합 point 기반 framework 제안
+- Voxelization 없이 희박하게 sampling 된 point set에서 local geometric feature와 global context를 추출하기 위해 point 기반 network를 직접 적용
+
+- Standard point cloud space에서 2D multi-view image의 외관 특징과 공간 기하학적 특징을 집계하기 위해 MVPNet(Multi-view PointNet) 제안
+
+#### 5.1.4 Point based Methods
+
+- Point based network는 irregular point cloud에서 작동
+- 그러나 point cloud는 순서가 없고 구조화되지 않아 표준 합성곱 신경망을 직접 적용하는 것은 불가능
+- Shared MLP를 사용한 point별 기능과 symmetric pooling을 사용한 global 기능을 학습하는 
