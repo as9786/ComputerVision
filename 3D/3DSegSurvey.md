@@ -156,4 +156,20 @@
 
 ###### Neighboring feature pooling
 
-- Local geometric patterns를 포착하기 위해, 
+- Local geometric patterns를 포착하기 위해, 인접 지점의 정보를 집계하여 각 지점에 대한 기능을 학습
+- PointNet++은 계층적으로 point를 주고 더 큰 local area에서 점진적으로 학습
+- Point cloud의 불균일성과 다양한 밀도로 인한 문제를 극복하기 위해 multi-scale grouping과 multi-resolution grouping도 진행
+
+- Orientation encoding과 scale awareness를 위해 PointSIFT module 제안
+- 3단계 합성곱을 통해 8개의 공간 방향에서 정보를 쌓고 encoding
+- 다양한 scale에 대한 적응성을 달성하기 위해 mulit-scale이 사용
+
+- K-means clustering과 KNN을 활용하여 world space와 특징 공간에서 두 개의 이웃을 별도로 정의
+- Feature space에서 동일한 class의 point가 더 가까울 것으로 예상된다는 가정에 기초하여, feature 학습을 더욱 정규화하기 위해 pairwise distance loss와 centroid loss가 사용됨
+
+- 서로 다른 점 간의 상호 작용을 modeling 하기 위해 locally-linked web을 dense하게 구성하여 local area의 모든 점 간의 관계를 탐색하는 PointWeb
+- 정보 교환 및 기능 개선을 위해 AFA(Adaptive Feature Adjustment) module이 제안
+- 신경망이 차별적인 특징 표현을 학습하는데 도움을 줌
+
+- Concentric spherical shells로부터 집계된 통계를 기반으로 Shellconv라는 permutation invariant convolution 제안
+- 
