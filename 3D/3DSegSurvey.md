@@ -112,4 +112,21 @@
 ##### Sparse Discretization Representation
 
 - 0이 아닌 값의 수가 차지하는 비율이 작기 때문에 volume 표현은 자연스럽게 희박
-- 공간적으로 sparse data에 밀도 높은 합성곱 신경망을 
+- 공간적으로 sparse data에 밀도 높은 합성곱 신경망을 적용하는 것은 비효율적
+- Indexing 구조를 기반으로 한 submanifold sparse convolutional networks 제안
+- 합성곱의 출력을 사용된 voxels만으로 제한함으로써 memory 및 계산 비용을 크게 감소시킴
+
+- MinkowskiNet : 4D 시공간 합성곱 신경망
+- 고차원 data를 효과적으로 처리하기 위해 일반화된 희소 합성곱이 제안
+- 일관성을 강화하기 위해 trilateral-stationary conditional random field를 사용
+
+- Sparse Lattice networks(SPLATNet) : Bilateral Convolutional layers(BCLs)에 기반
+- 처음 point cloud을 정다면체 희소 격자에 보간한 다음 BCL을 적용하여 희박한 격자의 점유 부분을 합성곱 계산
+- Filtering 된 출력이 다시 처음 point cloud에 보간
+- Multi view image와 point cloud의 유연한 공동 처리가 가능
+
+- LatticeNet
+- DeformsSlice라는 data-dependent interpolation module이 도입되어 격자 특징을 point cloud에 back projection 함
+
+#### 5.1.3 Hybird Method
+
