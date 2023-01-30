@@ -174,6 +174,8 @@
 - Concentric spherical shells로부터 집계된 통계를 기반으로 Shellconv라는 permutation invariant convolution 제안
 - Multi-scale concentric spheres set을 질의한 후에, max pooling 작업을 통해 통계를 요약하고 MLP 및 1D 합성곱을 사용하여 최종 합성곱 출력을 얻음
 
-- 
+- 대규모 point cloud segmentation을 위한 RandLA-Net이라는 효율적이고 가벼운 신경망
+- memory 및 계산 측면에서 매우 높은 효율성을 달성하기 위해 random point sampling을 사용
+- 기하학적 특징을 포착하고 보존하기 위해 local feature aggregation 
 
 
