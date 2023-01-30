@@ -13,4 +13,19 @@
 
 ## 2. 선행 연구
 
+### 2.1 Datasets
+
+- 분류 : Synthetic datasets와 real-world datasets
+- Synthetic datasets : 배경 X
+- Real-word datasets : 다양, noise 존재
+
+- 탐지 및 추적 : 실내 장면(Indoor scenes)과 실외 도시 장면(outdoor urban scenes)
+- Indoor scenes : Dense map 또는 3D meshes로부터 sampling된 것으로부터 변환됨
+- 실외 도시 장면 : 자율 주행 자동차를 위해서 고안, 객체들이 잘 분리되어 있고, point cloud가 희박
+
+- 분할 : Mobile Laser Scanners(MLS), Aerial Laser Scanners(ALS), static Terrestrial Laser Scanners(TLS), RGB-D cameras, 기타 등등으로 촬영
+- 형상 불완전성 및 class imbalance를 포함한 다양한 문제 해결을 위해 사용되는 dataset
+
+### 2.2 평가 지표
+
 - 
