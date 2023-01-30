@@ -42,6 +42,11 @@
 - Point cloud가 주어지면, semantic segmentation의 목표는 point의 의미에 따라 여러 하위 집합으로 분리
 - Projection based, discretization-based, point-based 그리고 hybrid-based
 
+![image](https://user-images.githubusercontent.com/80622859/215390202-1e9b4282-a571-42c2-a437-0f256088b408.png)
+
+![image](https://user-images.githubusercontent.com/80622859/215390220-5d6d9cb2-3797-48f3-a131-cd4d9db087fe.png)
+
+
 #### 5.1.1 Projection-based Method
 
 - 일반적으로 3D point cloud를 multi-view 및 spherical images를 포함한 2D image에 투영
@@ -60,3 +65,14 @@
 -  그 다음 tangent convolution이 surface geometry에서 직접 작동
 -  뛰어난 확장성, 수백만 개의 point로 대규모 point cloud 처리 가능
 -  Projection이 정보 손실을 초래하기 때문에 기본 기히학적 및 구조적 정보를 완전히 얻을 수 없음
+
+##### Spherical Representation
+
+- 빠르고 정확한 분할을 위해 squeezeNet 및 Conditional Random Field(CRF)를 기반으로 하는 end-to-end network 제안
+- 분할 정확도를 향상시키기 위해 학습하지 않은 domain이더라도 domain adaptation pipleline을 통해 문제 해결(SqueezeSegV2)
+
+- 실시간 point cloude semantic segmentation을 위해 RangeNet++ 제안
+- 2D 범위의 image의 semantic label은 먼저 3D point cloud에 전송되며, 이산화 오류 및 추론 문제를 완화하기 위해 효율적인 GPU 지원 및 KNN 기반 후처리 단계가 활용
+- 더 많은 정보를 유지하며 LiDAR에 적합
+- 이산화 오류 및 폐색과 같은 몇 가지 문제 초래
+
