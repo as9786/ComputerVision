@@ -80,3 +80,32 @@
 
 - Point cloud to dense/sparse discrete representation(ex. volumetric and sparse permutohedral lattices)
 
+##### Dense Discretization Representation
+
+- 초기 방법은 일반적으로 point cloud를 dense한 grid로 voxelized 그리고 표준 3D 합성곱을 사용
+- 처음에는 point cloud를 voxels의 집합으로 나눔, 그리고 voxel-wise segmentation을 위해 이러한 중간 data를 fully-3D CNN에 사용
+- 마지막으로 voxels 내의 모든 점에는 voxel과 동일한 semantic label이 할당
+- 이 방법은 point cloud와 voxel의 경계 산출물로 사용 X
+
+- 세분화되고 전역적으로 일관된 semantic segmentation을 위해 SEGCloud 제한
+- 3D-FCNN에 의해 생성된 coarse voxel 예측을 다시 point cloud에 사상시키기 위해 3선 보간법을 사용한 다음, 완전 연결 CRF(Fully Connected CRF)를 사용하여 point label의 공간 일관성을 적용
+
+- Voxel 내의 lcoal geometrical structures를 encoding 하기 위해 kernel based interpolate4d variational autoencoder architecture를 소개
+- 이전 표현 대신 RBF가 각 voxel에 사용되어 연속 표현을 얻고 각 voxel의 점 분포를 포착
+- VAE는 각 voxel 내의 점 분포를 잠재 공간에 사상하는데 추가로 사용
+- 그 후 대칭 그룹과 equivalence CNN을 사용하여 강건한 특징을 학습 
+
+- 3D CNN의 우수한 확장성 덕분에 volume-based network는 공간 크기가 다른 point cloud에서 자유롭게 학습 및 추론 가능
+- FCPN(Full-Convolutional Point Network)에서 다양한 수준의 기하학적 관계는 먼저 point cloud에서 계층적으로 추상화된 다음 3D 합성곱 및 가중 평균 pooling을 사용하여 특징을 추출하고, long-range dependencies를 통합
+- 대규모 point cloud를 처리할 수 있으며, 추론 중에 확장성이 좋음
+
+- ScanComplete
+- FCN의 확장성을 활용하여 훈련 및 추론 중에 다양한 입력 크기에 적용될 수 있음
+- Coarse-to-fine strategy 예측된 결과의 해상도를 향상시킴
+
+- 전체적으로 volume based representation은 3D point cloud의 이웃 구조를 자연스럽게 보존
+- 3D 합성곱을 직접 적용 가능
+- Voxelization은 본질적으로 이산화 산출물과 정보 손실을 초래
+- 해상도가 높으면 memory 및 계산 비용이 많이 드는 반면 해상도가 낮으면 세부 정보가 손실
+- 실제로는 적절한 grid 해상도를 선택하는 것은 중요하지 않음 
+- 
