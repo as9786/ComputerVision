@@ -354,3 +354,14 @@
 - Dual-set clustering과 ScoreNet은 더 나은 grouping result를 달성할 수 있도록 도와줌
 
 ### 5.3 Part Segmentation
+
+- 3D part segmentation의 어려움은 두 가지
+1. Semantic label이 동일한 형상 부분은 기하학적 변형과 모호성이 큼
+2. 같은 의미를 가진 객체의 수많은 부분이 다를 수 있다
+
+- 제한된 해결책 하에 3D voxelized data의 부드러운 part segmentation을 달성하는 VoxSegNet이 제안
+- Sparse volumetric data로부터 multi-scale discriminative features를 추출하기 위해 Spatial Dense Extraction(SDE) 제안
+- 학습된 특징들은 가중치를 다시 주고, Attention Feature Aggregation(AFA) module에 점차 적용됨으로써 합쳐짐
+- End-to-end 3D part segmentation을 하기 위해서 FCN과 surface-based CRF를 합침
+- 최적의 표면 범위를 얻기 위해 다양한 방향에서 image를 생성하고 confidence map을 생성하기 위해 2D network에 넣음
+- 전체적인 장면에 일관성 있는 
