@@ -340,4 +340,7 @@
 - 학습된 features는 semantic and instance segmentation을 위해 결합됨
 - Heuristic GroupMerging algorithms보다 유연한 Mean-shift algorithm은 이러한 점들을 instances로 group 하기 위해 사용됨
 
-- 대체적으로, multi-task learning 또한 instanvce segmentation
+- 대체적으로, multi-task learning 또한 instance segmentation
+- 각 instance의 고유한 feature embedding과 객체의 중심을 추정하기 위한 방향 정보
+- Feature embedding loss와 directional loss는 latent feature space에 존재하는 학습된 feature embeddings를 조절하기 위해서 사용
+- 
