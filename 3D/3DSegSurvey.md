@@ -297,3 +297,32 @@
 - 시간이 많이 걸리고 계산 비용이 높음
 
 #### 5.2.2 Proposal-free Methods
+
+- Object detection module을 사용하지 않음
+- Semantic segmentation 후에 후속 군집화 단계로 간주
+- 대부분의 기존 방법은 동일한 instance에 속하는 점이 매우 유사한 특징을 가져야 한다는 가정에 기초
+- 차별적인 특징 학습과 point grouping에 중점
+
+- Similarity Group Proposal Network(SGPN)
+- 처음에 각 점으로부터 특징과 semantic map에 대해 학습하고 각 쌍의 특징들의 유사성을 나타내는 유사도 행렬을 만듦
+- 보다 차별적인 특징을 학습하기 위해, semantic segmentation map과 유사도 행렬을 조정하기 위해 double-hinge loss 사용
+- 최종적으로 heuristic 그리고 비 최대 억제 방식을 비슷한 점들이 instances로 병합될 수 있도록 사용
+- 유사도 행렬을 만드는 것은 큰 memory 소비가 있기 때문에, 이 방식의 확장성은 제한되어 있음
+
+- Submanifold sparse convolution을 사용하여 각 voxel의 semantic scores와 neighboring voxels 간의 관계성을 예측
+- 예측된 관련성과 mesh topology를 기반으로 점들을 instances로 묶는 clustering algorithm을 사용
+
+- Detection-by-segmentation network in PartNet
+- 각 점들의 semantic labels를 예측하고, instance masks를 분리하기 위해 PointNet++가 backbone으로 사용
+
+- Discriminative embedding을 학습하기 위한 structure-aware loss 사용
+- Features 간의 유사도와 점들 사이의 기하학적 관계를 고려
+
+
+- Attention 기반 graph CNN은 이웃의 다른 정보를 집계하여 학습된 특징들을 적응적으로 개선하는데 추가로 사용
+
+- Point의 semantic segmentation과 instance label은 일반적으로 서로 종속적이기 때문에 이 두 작ㄷ업을 단일 작업으로 결합하는 방식 소개
+
+- 두 가지 작업을 통합하는 end-to-end이면서 학습 가능한 Associatively Segmenting Instances and Semantics(ASIS) module을 사용
+- 이 방식에서는 semantic features와 instance features가 성능 개선을 위해 서로 보완하는 역할을 함
+- 
