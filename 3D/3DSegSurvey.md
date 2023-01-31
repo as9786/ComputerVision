@@ -325,4 +325,10 @@
 
 - 두 가지 작업을 통합하는 end-to-end이면서 학습 가능한 Associatively Segmenting Instances and Semantics(ASIS) module을 사용
 - 이 방식에서는 semantic features와 instance features가 성능 개선을 위해 서로 보완하는 역할을 함
+
+- JSNet
+
+- Discriminative loss를 통해 feature space에 있는 embeddings를 규제화하고 각 점들에 label을 배정하는 Multi-Task Point-wise Network(MT-PNet)
+- 그 후에 semantic label과 embedding을 MV-CRF(Multi-Value Conditional Random Field) model에 합침
+- 마지막으로, mean-field variational inference는 semantic label과 instance label을 생산하는데 사용
 - 
