@@ -364,4 +364,25 @@
 - 학습된 특징들은 가중치를 다시 주고, Attention Feature Aggregation(AFA) module에 점차 적용됨으로써 합쳐짐
 - End-to-end 3D part segmentation을 하기 위해서 FCN과 surface-based CRF를 합침
 - 최적의 표면 범위를 얻기 위해 다양한 방향에서 image를 생성하고 confidence map을 생성하기 위해 2D network에 넣음
-- 전체적인 장면에 일관성 있는 
+- 전체적인 장면에 일관성 있는 labeling을 담당하는 surface-based CRF에 의해 집계됨
+
+- 불규칙하고 동일하지 않은 모양의 graph에서 합성곱을 적용하기 위해 Synchronized Spectral CNN(SyncSpecCNN)이 소개됨
+- Dilated convolutional kernels와 spectral trnasformer network의 spectral paramterization은 부분의 multi-scale 분석 및 형상 간 정보 공유 문제를 해결
+
+- Shape Fully Convolutional Networks(SFCN)을 도입하고 세 가지 낮은 수준의 기하학적 특징을 입력으로 취하여 3D mesh에서 segmentation을 수행
+- 투표 기반 multi-label graph cut을 사용하여 결과를 더욱 세분화
+- weakly supervised CoSegNet for 3D shape co-segmentation 
+- 분할되지 않은 3D 점들을 입력으로 넣고, 반복적으로 group consistency loss를 최소화하는 shape part label을 생성
+- CRF와 비슷하게, 사전 학습된 부분 개선 신경망은 part segmentation을 denoise하고 개선하도록 함
+
+- One-shot 또는 약한 지도 학습, 비지도 학습 모형이 Branched AutoEncoder network(BAE-NET)
+- Co-segmentatio을 representation 문제로 공식화하고 재구성 손실을 최소화하여 가장 간단한 part representation을 찾는 것을 목표
+- Encoder-decoder architecture 기반으로, 이 신경망의 각 branch는 특정 part shape에 대한 compact representation을 학습\
+- 각 branch에서 학습된 특징과 점 좌표는 decoder에 전달되어 이진 값을 생성
+- 일반화 능력이 뛰어나며, 대규모 3D shape collection을 처리할 수 있음
+- 초기 parameter에 민감
+
+- 계층적 shape segmentation을 위한 top-down recursive part decomposition network(PartNet)
+- 고정된 label set에 형태를 분할하는 기존 방식과 다르게, 이 신경망은 cascade binary labeling 문제로 공식화하고, 기하학적 구조를 기반으로 input point cloud를 임의의 part로 나눔
+- 
+- 
