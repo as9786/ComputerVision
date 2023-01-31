@@ -384,5 +384,9 @@
 
 - 계층적 shape segmentation을 위한 top-down recursive part decomposition network(PartNet)
 - 고정된 label set에 형태를 분할하는 기존 방식과 다르게, 이 신경망은 cascade binary labeling 문제로 공식화하고, 기하학적 구조를 기반으로 input point cloud를 임의의 part로 나눔
-- 
-- 
+
+- Zero-shot 3D part segmentation을 위한 학습 기반 grouping framework
+- Cross-categorical-generalization을 향상시키기 위해, 이 방법은 local context 내에서 part 수준의 feature를 학습하도록 network를 제한하는 grouping 정책을 학습하는 경향
+
+### 5.4 Summary
+
