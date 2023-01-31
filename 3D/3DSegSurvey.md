@@ -263,4 +263,23 @@
 
 #### 5.2.1 Proposal-based Methods
 
+- 두 개의 작업으로 나눔
+1. 3D object detection
+2. instance mask prediction
+
+- RGB-D scans에서 semantic instance segmentation을 하기 위해 3D fully-convolutional Semantic Instance Segmentation(3D-SIS) network 제안
+- 색깔과 기하학적 특징들을 학습
+- 3D object detection과 비슷하게, bbox location, object class labels 그리고 instance masks를 예측하기 위해 3D Region Proposal Network(3D-RPN)과 3D Region of Interesting(3D-RoI) layer가 사용됨
+
+- Analysis-synthetic strategy에 따라 high-objectness 3D proposal을 생성하기 위해 Generative Shape Proposal Network(GSPN) 제안
+- Final label은 각각 class label 마다 점별 binary mask를 예측함으로써 얻어짐 
+- Point cloud에서 3D bbox를 직접 찾는 것과 달리, 이 방법은 기하학적 이해를 적용하여 많은 양의 의미 없는 제안들을 제거
+
+- 2D panoptic segmentation을 3D mapping으로 확장함으로써 대규모 3D 재구서으 semantic labeling 및 instance segmentation을 공동으로 달성하기 위한 online volumetric 3D mapping system이 제안됨
+- 처음에 2D semantic 그리고 instance segmentation networks를 사용하여 pixel-wise panoptic labels를 얻고 이 labels를 volumetric map에 통합함
+- 정확한 분할을 달성하기 위해 fully connected CRF가 추가로 사용됨
+- 이러한 semantic mapping system은 고품질 semantic mapping system과 차별적인 객체 인식을 달성할 수 있음
+
+- Point cloud에서 instance segmentation을 하기 위해 anchor가 없고 end-to-end 훈련이 가능한 단일 단계 신경망인 3D-BoNet 제안
+- 모든 potential instance에 대해 대략적인 3D bbox를 직접 구한 다음, point 수준 이진 분류기를 사용하여 instance label을 얻음
 - 
