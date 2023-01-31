@@ -204,5 +204,42 @@
 - MLP에 의해 파라미터화되고 continuous vector space에 분포됨
 
 - Kernel Point Convolution(KPConv)
-- KPConv의 paramter는 kernel point까지의 Euclidean distances로 결정. Kernel 
+- KPConv의 paramter는 kernel point까지의 Euclidean distances로 결정. Kernel point 수는 고정되지 않음
+- Kernel point의 위치는 구면 공간에 최적의 적용 범위를 정하는 최적화 문제로 공식화
+- 반경 인접 지역은 일관된 receptive field를 유지하는데 사용되는 반면, grid undersampling은 다양한 point cloud 밀도에서 높은 견고성을 달성하기 위해 각 층에서 사용
+
+- 수용 영역이 집계 기반 방식에 미치는 영향을 보여주기 위해 ablation experiment와 시각 결과를 제공
+- K개의 가장 가까운 이웃 대신 확장된 이웃 특징을 집계하기 위해 Dilated Point Convolution(DPC) 사용
+- 수용 영역을 늘리는데 매우 효과적. 기존의 집계 기반 신경망에 쉽게 통합 가능
+
+#### RNN-based Methods
+
+- 고유한 context를 찾기 위해, RNN point cloud의 semantic segmentation이 사용
+- PointNet을 기반으로 입력 수준의 context를 얻기 위해 point block을 muti-scale block과 grid block으로 변환
+- PointNet에 의해 추출된 block 단위 기능은 출력 수준의 context를 얻기 위해 CU(Consolidation Units) 또는 RCU(Recurrent Consolidation Units)로 순차적으로 공급
+- 실험 결과는 space context를 통합하는 것이 분할 성능 향상에 중요하다는 것을 보여줌
+
+- Lightweight local dependency modeling module, slice pooling layer를 사용하여 순서가 지정되지 않은 point feature set를 feature vector의 순서가 지정된 sequence로 변환
+
+- Coarse-to-fine structure. Pointwise Pyramid Pooling(3P) module. 2개 방향 계층적 순환 신경망을 활용하여 장거리 공간 의존성을 추가로 얻음
+- RNN을 적용하여 end-to-end 학습
+- 전역 구조 특징으로 지역 이웃 특징을 집계할 대, point cloud에서 풍부한 기하학적 특징과 밀도 분포를 잃음
+
+- Dynamic Aggregation Network(DAR-Net) : Global scene complexity와 local geometric features를 고려
+- 자체 적응된 수용 영역 및 node weight를 사용하여 동적으로 작동
+
+- Point cloud의 효율적인 의미 분석을 위해 3DCNN-DQN-RNN
+- 3D CNN을 사용하여 공간 분포와 색상 특징을 학습하며, DQN은 특정 class에 속하는 개체를 localize하는데 사용됨.
+- 최종 concatenated feature vector는 최종 결과를 얻기 위해 residual RNN에 전해짐
+
+#### Graph-based Methods
+
+- 3D point cloud의 근본적인 모양과 기하학적 구조를 얻기 위해, 몇몇 방법들은 graph networks를 사용
+- Interconnected simple shapes and superpoints의 집합으로 point cloud를 표현하고, 구조와 context를 얻기 위해 attributed directed graph를 사용
+- 대규모 point cloud segmentation 문제는 기하학적으로 균일한 분할, super point embedding 및 contextual segmentation으로 나눠짐
+
+- 분할 단계를 향상시키기 위해, 지도 학습 기반의 point cloud를 pure superpoints로 oversegment하는 framework를 제안
+- Adjacency graph로 구성된 deep metric 학습 문제로 정해짐
+- 객체 간 경계 인식을 돕기 위해 graph 구조의 contrastive loss도 제안
+
 - 
