@@ -195,4 +195,14 @@
 - Point cloud의 local surface와 global context를 통합하기 위해 permutation invarient PS2-Net을 제안
 - EdgeConv와 NetVLAD는 local information과 scene 수준의 global 기능을 포착하기 위해 반복적으로 쌓임
 
-##### 
+##### Point Convolution Methods
+
+- Point cloud에 효과적인 합성곱 연산자를 제안
+- 인접한 점들이 kernel cell로 묶인 후 kernel weight로 합성곱되는 point-wise convolution operation 제안
+
+- Parametric continuous convolution layers
+- MLP에 의해 파라미터화되고 continuous vector space에 분포됨
+
+- Kernel Point Convolution(KPConv)
+- KPConv의 paramter는 kernel point까지의 Euclidean distances로 결정. Kernel 
+- 
