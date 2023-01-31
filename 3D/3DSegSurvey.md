@@ -242,4 +242,14 @@
 - Adjacency graph로 구성된 deep metric 학습 문제로 정해짐
 - 객체 간 경계 인식을 돕기 위해 graph 구조의 contrastive loss도 제안
 
-- 
+- 높은 차원의 공간에서 local geometric relationships를 더 잘 포착하기 위해, Graph Embedding Module(GEM) 그리고 Pyramid Attention Network(PAN) 기반의 PyramNet 제안
+- GEM module은 directed acyclic graph인 point cloud로 정의되며, 공분산 행렬을 사용하여 인접한 유사성 행렬의 구성을 위해 Euclidean distance로 대체
+- PAN module에서는 네 가지 크기의 convolution kernel을 사용하여 different semantic intensities를 feature와 함께 추출
+
+- Local neighboring set으로부터 관련있는 features를 선택적으로 배우기 위해 Graph Attention Convolution(GAC)가 제안됨
+- 공간적 위치와 feature differences에 기반하여 다른 이웃 점들과 feature channels에게 동적으로 attention weight를 배정
+- 분할을 위한 차별적인 features를 포착하는 것을 학습할 수 있고, CRF model에서 사용되는 비슷한 특징들을 가지고 있음
+
+- Undirected graph representation을 사용하여 channel dimension에 따라 global contextual information 얻기 위한 PointGCR(Point Global Context Reasoning)
+- Plug and play, end to end 학습
+- 기존 segmentation model에 쉽게 통합 
