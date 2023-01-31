@@ -253,3 +253,14 @@
 - Undirected graph representation을 사용하여 channel dimension에 따라 global contextual information 얻기 위한 PointGCR(Point Global Context Reasoning)
 - Plug and play, end to end 학습
 - 기존 segmentation model에 쉽게 통합 
+
+### 5-2 Instance Segmentation
+
+- Instance segmentation은 더 정확하고 세밀한 point 추론을 요구하기 때문에 더 어려움
+- 의미가 다른 점들을 구분할 뿐만 아니라 의미가 같은 점들도 분리할 필요가 있음
+
+![image](https://user-images.githubusercontent.com/80622859/215631342-eabb6af1-c5fa-40e4-a60b-92d591cab5c4.png)
+
+#### 5.2.1 Proposal-based Methods
+
+- 
