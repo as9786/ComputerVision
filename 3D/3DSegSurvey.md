@@ -282,4 +282,18 @@
 
 - Point cloud에서 instance segmentation을 하기 위해 anchor가 없고 end-to-end 훈련이 가능한 단일 단계 신경망인 3D-BoNet 제안
 - 모든 potential instance에 대해 대략적인 3D bbox를 직접 구한 다음, point 수준 이진 분류기를 사용하여 instance label을 얻음
-- 
+- 생성된 bbox를 정규화하기 위해 multi-criteria loss function 적용
+- 이 방식은 어떠한 후처리가 필요하지 않으며 계산 효율적
+
+- Large-scale outdoor LiDAR point clouds
+- 이 방식은 self-attention block을 통해 bird's-eye view의 관점으로 나타내어지는 특징 표현을 학습
+- Final instance labels는 예측된 수직의 중앙이랑 높이의 한계치를 기반으로 얻어짐
+
+- 계층 인식 Variational Denoising Recursive AutoEncoder(VDRAE)을 실내 3차원 공간의 배치를 예측하기 위해 사용
+- Object proposals는 반복적으로 생성되고, recursive context aggregation and propagation에 의해 조정됨
+
+- 전체적으로 proposal-based methods는 직관적이고 간단하며, 결과가 좋음
+- 그러나 multi-stage training 그리고 pruning of redundant proposals 필요
+- 시간이 많이 걸리고 계산 비용이 높음
+
+#### 5.2.2 Proposal-free Methods
