@@ -343,4 +343,14 @@
 - 대체적으로, multi-task learning 또한 instance segmentation
 - 각 instance의 고유한 feature embedding과 객체의 중심을 추정하기 위한 방향 정보
 - Feature embedding loss와 directional loss는 latent feature space에 존재하는 학습된 feature embeddings를 조절하기 위해서 사용
-- 
+- Mean-shift clustering 그리고 비 최대 억제는 voxels를 instances로 group할 때 사용됨
+- 이 방법은 ScanNet benchmark로 SOTA 성능
+- 예측된 방향 정보는 instances의 경계를 결정하는데 특히 유용함
+
+- Probabilisdtic embeddings to instance segmentation of point clouds
+- 이 방법은 불확실한 추정을 통합하고 군집화 단계에 대한 새로운 손실 함수를 제안
+
+- Semantic segmentation 단계와 offset prediction 단계로 구성된 PointGroup network
+- Dual-set clustering과 ScoreNet은 더 나은 grouping result를 달성할 수 있도록 도와줌
+
+### 5.3 Part Segmentation
