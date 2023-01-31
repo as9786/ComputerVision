@@ -331,4 +331,13 @@
 - Discriminative loss를 통해 feature space에 있는 embeddings를 규제화하고 각 점들에 label을 배정하는 Multi-Task Point-wise Network(MT-PNet)
 - 그 후에 semantic label과 embedding을 MV-CRF(Multi-Value Conditional Random Field) model에 합침
 - 마지막으로, mean-field variational inference는 semantic label과 instance label을 생산하는데 사용
-- 
+
+- Dynamic Region Growing(DRG) : Point cloud를 일련의 분리된 patch로 동적으로 분리하고, 비지도 학습인 K-means algorithm 모든 patch에 적용하여 grouping
+- 그런 다음 patch 간의 contextual information의 안내를 받아 multi-scale patch segmentation이 수행됨
+- 마지막으로, label이 지정된 patch는 최종 semantic 및 instance label을 얻기 위해 객체 수준으로 병합
+
+- 전체 3D 장면에서 instance segmentation을 하기 위해 BEV 표현과 point cloud의 local geometry feature에서 global consistent instance features를 공통적으로 학습한 hybrid 2D-3D network
+- 학습된 features는 semantic and instance segmentation을 위해 결합됨
+- Heuristic GroupMerging algorithms보다 유연한 Mean-shift algorithm은 이러한 점들을 instances로 group 하기 위해 사용됨
+
+- 대체적으로, multi-task learning 또한 instanvce segmentation
