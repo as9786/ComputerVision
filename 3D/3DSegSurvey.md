@@ -387,6 +387,3 @@
 
 - Zero-shot 3D part segmentation을 위한 학습 기반 grouping framework
 - Cross-categorical-generalization을 향상시키기 위해, 이 방법은 local context 내에서 part 수준의 feature를 학습하도록 network를 제한하는 grouping 정책을 학습하는 경향
-
-### 5.4 Summary
-
