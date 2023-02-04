@@ -41,3 +41,44 @@
 - 이처럼 미리 지정한 크기의 sub-window에서 max-pooling을 수행하여 고정된 크기의 feature map을 얻음
 
 ### 2. Multi-task loss
+
+- Classifier와 box regressor를 동시에 학습
+- 각각의 RoI에 대하여 mulit task loss를 사용하여 학습
+
+![image](https://user-images.githubusercontent.com/80622859/216760294-9126e45e-fe2a-4ea8-a9f1-6e34491a0be8.png)
+
+- K개의 class를 분류한다고 할 때, 배경을 포함한 (K+1) 개의 class에 대하여 분류기를 학습
+- u는 positive sample인 경우 1, negative sample인 경우 0으로 설정(Index parameter)
+- L1 loss는 R-CNN, SPPnets에서 사용한 L2 loss에 비해 이상치에 덜 민감
+- $\lambda = 1$ 
+- mAP를 상승
+
+### 3. Hierarchical Sampling
+
+- R-CNN model은 학습 시 후보 영역이 서로 다른 image에서 추출되고, 이로 인해 학습 시 연산을 공유할 수 없음
+- SGD mini-batch를 구성할 때 N개의 image를 sampling하고, 총 R개의 region proposal을 사용한다고 할 때, 각 image로부터 R/N개의 region proposals를 sampling하는 방식
+- 연산과 memory를 공유
+- N = 2, R = 128
+- 서로 다른 2장의 images에서 각각 64개의 후보 영역을 추출하여 sampling하여 mini-batch를 구상
+- 16장은 ground truth와 IoU의 값이 0.5 이상인 sample을 추출, 나머지는 negatvie sample 추출
+- 전자의 경우에는 u = 1, 후자인 경우에는 u = 0
+
+### 4. Truncated SVD
+
+- RoI를 처리할 때 전결합 계층에서 시간이 오래 걸림
+- 이러한 문제를 해결하기 위해 truncated SVD를 통해 전결합 계층을 압축
+
+![image](https://user-images.githubusercontent.com/80622859/216760648-c71f0c7e-1d3b-487c-8f52-4d1c67097c6b.png)
+
+![image](https://user-images.githubusercontent.com/80622859/216760688-dc755f26-40ed-458c-918f-8bdd98438349.png)
+
+- 전결합 계층의 가중치 행렬이 W(u x v)이라고 할 때, truncated SVD를 통해 위와 같이 근사
+- Parameter의 수를 t(u + v)로 감소
+- 전결합 계층이 두 개로 나누어 짐
+- 첫 번째 전결합 계층은 $\sum_t V^T$, 두 번째 전결합 계층은 U 가중치 행렬
+- 시간이 30% 감소
+
+# 
+
+
+
