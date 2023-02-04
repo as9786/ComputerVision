@@ -26,4 +26,22 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/216757796-4dcbe2ab-2560-4b22-afc8-db75b22768db.png)
 
+- 일반적으로 정확도와 검출율은 서로 반비례 관계
+- Precison-recall graph
 
+## Precision-recall 곡선
+
+- Confidence level에 대한 threshold 값의 변화에 따라 precision과 recall 값들이 달라짐
+- Confidence : 검출한 것에 대한 algorithm이 얼마나 정확하다고 생각하는지 알려주는 값
+- Ex) Confidence level = 0.99, 물체가 검출해야 하는 물체와 거의 일치해야 함
+- Confidence level이 높다고 무조건 좋지는 않음
+- Confidence level에 대한 threshold 값의 변화에 따라 달라지는 precision과 recall을 시각화한 곡선
+
+![image](https://user-images.githubusercontent.com/80622859/216758033-07538b3b-fb62-404a-9d9f-c56205345294.png)
+
+## Average Precision(AP)
+
+- Precison-recall algorithm은 성능을 정량적으로 비교하기에 불편
+- AP : Precision-recall graph에서 아래 쪽의 면적
+- 높을수록 성능이 좋다는 것을 의미
+- mAP : Class가 여러 개일 경우 각 class 당 AP를 구한 다음에 그것을 평균내준 값
