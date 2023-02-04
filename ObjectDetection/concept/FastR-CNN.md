@@ -78,7 +78,28 @@
 - 첫 번째 전결합 계층은 $\sum_t V^T$, 두 번째 전결합 계층은 U 가중치 행렬
 - 시간이 30% 감소
 
-# 
+# Training Fast R-CNN
+
+![image](https://user-images.githubusercontent.com/80622859/216761693-b7574474-add6-45ac-b99c-6663bb647d12.png)
+
+## 1. Initializing pre-trained network
+
+- VGG16
+
+1. VGG16 마지막 max pooling layer를 RoI pooling layer로 대체. RoI pooling의 결과값이 7 x 7이 되도록 설정
+2. 신경망 마지막 전결합 계층을 2개의 전결합 계층들로 대체.
+- 첫 번째 전결합 계층은 K개의 class와 배경을 포함한 (K+1) 개의 output unit을 가지는 분류기
+- 두 번째 전결합 계층은 각 class별로 bbox의 좌표를 조정하여 (K+1) x 4 개의 output unit을 가지는 bbox regressor
+
+![image](https://user-images.githubusercontent.com/80622859/216761851-6c8a45de-ac91-4c62-b3b4-b61e869b3b32.png)
+
+3. Conv layer3까지는 가중치값을 고정, 이후 합성곱층은 가중치 값이 학습될 수 있도록 미세 조정
+4. 원본 image와 SS를 통해 추출된 후보 영역의 집합을 입력으로 받을 수 있도록 변환
+
+## 2. Region proposal by Selective search
+
+
+- 
 
 
 
