@@ -96,13 +96,16 @@
 3. Conv layer3까지는 가중치값을 고정, 이후 합성곱층은 가중치 값이 학습될 수 있도록 미세 조정
 4. 원본 image와 SS를 통해 추출된 후보 영역의 집합을 입력으로 받을 수 있도록 변환
 
-## 2. Region proposal by Selective search
+## 2. Feature extraction by VGG16
 
-- Input : image
-- Process : Selective search
-- Output : 2000 region proposals
+- 224 x 224 x 3 크기의 원본 image를 입력하고, layer13 까지의 feature map을 추출
+- Output : 14 x 14 x 512 feature maps
 
-- 
+# Detection Fast R-CNN
+
+![image](https://user-images.githubusercontent.com/80622859/216762803-de1cf095-28d9-4704-ab79-d9e9c7d5178f.png)
+
+
 
 
 
