@@ -73,3 +73,38 @@
 - 점수에 따라 비 최대 억제(Non-Maximum Suppression, NMS)를 수행
 - 비 최대 억제 : bbox 
 - 점수가 높은 후보 영역 경계 박스를 기준으로 IoU가 특정 임계값을 넘는 다른 경계 박스는 모두 제거
+
+#### Run-time analysis 
+
+- 모든 class끼리 CNN parameter를 공유
+- CNN으로 구한 feature vector는 차원이 낮음
+- 확장 가능성
+
+### 2.3 Training
+
+#### 지도 사전 학습(Supervised pre-training) 
+
+- Image label로 사전 학습
+#### Domain-specific fine-tunning 
+
+- Warping한 후보 영역만 활용하여 CNN parameter 갱신
+- SGD, 학습율 = 0.001
+- ImageNet의 경우 class가 1000개이므로 합성곱 신경망의 최종 출력층은 1000차원
+- 객체 탐지를 위해서는 1001개의 차원으로 해야 함(1000(객체 수) + 1(배경))
+- 실제 경계 박스와의 IoU가 0.5 이상인 후보 영역 bbox만 positive, 나머지는 negative
+- Positive bbox : 해당 객체를 표시하는 bbox, negative bbox : 배경을 뜻하는 bbox
+
+#### Object category classifiers
+
+- IoU의 임계값이 0.3 일 때 성능이 제일 좋음
+- IoU가 0.3 이상이면 해당 bbox가 객체를 포함하고 있다고 인식하게 하기
+- 미세 조정과 임계값을 다르게 설정한 이유 : 성능이 더 좋게 나옴
+- SVM에 모든 bbox를 사용할 경우 memory 문제
+- 신뢰도 점수(Confidence score)를 사용해 negatvie sample(배경)을 선정하여, positivce sample과 negative sample의 수를 맞춰
+- 신뢰도 점수 = 객체일 확률 x IoU
+
+### 2.4 Results
+
+![image](https://user-images.githubusercontent.com/80622859/216757386-b7646108-02ab-4c97-abb0-a7c7b4da720d.png)
+
+![image](https://user-images.githubusercontent.com/80622859/216757393-9e2a9e74-60f4-42e3-85d9-15da47f51318.png)
