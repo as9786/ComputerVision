@@ -98,6 +98,9 @@
 
 ## 2. Region proposal by Selective search
 
+- Input : image
+- Process : Selective search
+- Output : 2000 region proposals
 
 - 
 
