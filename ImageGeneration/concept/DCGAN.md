@@ -16,3 +16,5 @@
 ### 1. Max Pooling To Strided Convolution
 
 - 별도의 pooling layer를 사용하지 않음. 대신에 strided convolution 사용 => Spatial downsampling
+- 생성기에서는 downsampling 과정도 함께 학습 가능
+- 판별기에서는 spatial upsampling 진행 가능
