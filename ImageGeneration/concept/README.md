@@ -10,3 +10,4 @@
 - https://memesoo99.tistory.com/32
 - https://deepai.org/machine-learning-glossary-and-terms/fractionally-strided-convolution
 - https://yunmorning.tistory.com/55
+- https://memesoo99.tistory.com/33
