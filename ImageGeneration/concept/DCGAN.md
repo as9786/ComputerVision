@@ -43,4 +43,27 @@
 - 모든 층에 추가하면 문제가 발생하고, G의 출력층과 D의 입력층에는 적용하지 않음
 - 이외에도 ReLU, Leaky RELU 
 
+## 결과
 
+- 생성기가 학습 image를 단순히 외우거나 베낀게 아니어야 함
+- G의 input z의 공간인 latent space에서 $z_1$에서 $z_2$로 살짝 이동하더라도 급작스러운 변화가 일어나면 안됨(부드러운 변화)
+
+- - 새로 만들어진 이미지들
+- 
+![image](https://user-images.githubusercontent.com/80622859/217158491-462c1573-dfbf-4744-a484-17bf7cb28c7a.png)
+
+![image](https://user-images.githubusercontent.com/80622859/217158400-dfe39535-b287-47cb-8ef4-41d8865908bf.png)
+
+- 각 줄은 z의 값을 조금씩 바꿔가면서 부드럽게 결과가 변경되는 것을 확인
+
+### VISUALIZING THE DISCRIMINATOR FEATURES
+
+- CNN의 black box는 중간중간 어떤 feature map이 어떤 작용을 해서 이런 결과가 나오는지를 보여줌(명확하지는 않음)
+
+![image](https://user-images.githubusercontent.com/80622859/217158853-09aa6797-9949-406f-a75b-84f042e51c60.png)
+
+### VECTOR ARITHMETIC ON FACE SAMPLES
+
+- 자연어처리에 word embedding과 같이 산술 연산 가능
+
+![image](https://user-images.githubusercontent.com/80622859/217158997-c4eedd54-b7df-4e77-8087-6badf986eda8.png)
