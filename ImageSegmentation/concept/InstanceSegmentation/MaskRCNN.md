@@ -19,7 +19,7 @@
 
 - Mask R-CNN 구조
 
-https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcx1zeb%2FbtqWX5EbBpp%2FSDi2o1RDnpCCs2ckVpA8d0%2Fimg.png
+![image](https://user-images.githubusercontent.com/80622859/217436542-4a69a3d1-9c97-4fe4-88f5-a9c2f1fea09f.png)
 
 - 분류기와 bbox regressor와 평행으로 segmentation mask를 예측하는 mask branch가 추가된 구조
 - RoI pooling을 통해 얻은 고정된 크기의 feature map을 mask branch에 입력하여 segmentation mask를 얻음
