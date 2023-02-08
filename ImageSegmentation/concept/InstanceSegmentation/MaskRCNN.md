@@ -34,3 +34,34 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 - $K^2 m$ 크기의 feature map 출력
 - K = class 수, m = feature map 크기
 
+## RoIAlign
+
+- RoI pooling으로 인해 얻은 feature와 RoI 사이가 어긋나는 misalignment가 발생할 수 있음
+- 이는 pixel mask를 예측하는데 안 좋은 영향을 줌
+
+![image](https://user-images.githubusercontent.com/80622859/217406579-a7eaf22e-ce11-4682-94ae-789a260e3f2c.png)
+
+- RPN을 통해 얻은 RoI를 추출한 feature map의 크기 맞게 투영하는 과정이 있음
+- 위의 그림의 경우 제안된 영역의 크기는 (145, 200), feature map의 크기는 (16, 16) => Sub-sampling을 통해 (4,6)으로 RoI 정해짐(실제 값은 (4.53,6.25))
+- 3 x 3의 고정된 크기를 얻기 위해 RoI pooling 진행(Stride=(1,2))
+
+![image](https://user-images.githubusercontent.com/80622859/217407133-d0e664e4-5163-426f-8298-59e9ca27d410.png)
+
+- Sub-sampling 및 RoI pooling 과정에서 실수값을 이산 수치로 제한(Quantization)
+- 이는 불일치 문제 유도
+- 위의 그림에서 초록색과 파란색 영역의 정보 손실
+- RoI pooling 시 feature map의 마지막 row에 대한 정보 손실
+- 이러한 문제를 해결하기 위해 RoIAlign 사용
+
+### RoIAlign
+
+![image](https://user-images.githubusercontent.com/80622859/217407413-39bc17bb-c410-4706-8bbe-32df92f69a59.png)
+
+1. RoI projection을 통해 얻은 feature map의 크기를 quantization 과정 없이 그대로 사용. RoI pooling도 마찬가지
+2. 분할된 하나의 cell에서 4개의 sampling point를 찾음(cell의 높이, 너비를 3등분하는 점)
+3. Bilinear interpolation 적용
+
+![image](https://user-images.githubusercontent.com/80622859/217407668-74f8231f-f40f-48e1-89cd-376ec4bfeee2.png)
+
+
+
