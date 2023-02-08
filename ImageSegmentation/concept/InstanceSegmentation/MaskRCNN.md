@@ -63,5 +63,10 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 
 ![image](https://user-images.githubusercontent.com/80622859/217407668-74f8231f-f40f-48e1-89cd-376ec4bfeee2.png)
 
+4. 2~3 과정을 모든 cell에 대하여 반복
+
+![image](https://user-images.githubusercontent.com/80622859/217409993-ad600eeb-60d8-4736-a453-fcc72386e7a4.png)
+
+
 
 
