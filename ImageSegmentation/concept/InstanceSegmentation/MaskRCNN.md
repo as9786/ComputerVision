@@ -77,4 +77,34 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 - Mask branch에서 출력된 값에 sigmoid를 씌우고 손실 함수 적용
 - Class와 mask를 구분했기 때문에 softmax가 아닌 sigmoid 
 
+# Backbone network
 
+- ResNet-FPN
+
+![image](https://user-images.githubusercontent.com/80622859/217431705-6e0fd986-c05d-4a11-be7a-1115da7ae0c2.png)
+
+
+# Training Mask R-CNN
+
+- Fast R-CNN에 FPN 추가
+
+## 1. Input image pre-processing
+
+- 원본 image의 너비와 높이 중 더 짧은 쪽으로 resize
+
+## 2. Select best RoI by Proposal layer
+
+- k = 12000
+- threshold = 0.7 (IoU >= 0.7) -> NMS
+- Feature pyramid level별로 수행. 이전 과정까지 얻은 feature pyramid level의 anchor box에 대한 정보를 이어 붙임
+- 결합된 모든 anchor box에 대하여 objectiveness score에 따라 N개의 anchor box 선정(N=2000)
+
+## 3. Feature map by RoI Align layer
+
+- 7 x 7 size
+
+## 4. Mask segment by Mask branch
+
+![image](https://user-images.githubusercontent.com/80622859/217432085-4d45ff0e-6150-4d6c-966f-d7f92e0b4ffd.png)
+
+- RoIAlign 과정을 통해 얻은 7 x 7 fea
