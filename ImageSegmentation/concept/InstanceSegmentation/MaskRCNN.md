@@ -55,7 +55,7 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 
 ### RoIAlign
 
-![image](https://user-images.githubusercontent.com/80622859/217407413-39bc17bb-c410-4706-8bbe-32df92f69a59.png)
+![image](https://user-images.githubusercontent.com/80622859/217408161-366f01a5-a54a-4d02-8a7b-8cc83f4edd89.png)
 
 1. RoI projection을 통해 얻은 feature map의 크기를 quantization 과정 없이 그대로 사용. RoI pooling도 마찬가지
 2. 분할된 하나의 cell에서 4개의 sampling point를 찾음(cell의 높이, 너비를 3등분하는 점)
