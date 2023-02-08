@@ -107,4 +107,16 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 
 ![image](https://user-images.githubusercontent.com/80622859/217432085-4d45ff0e-6150-4d6c-966f-d7f92e0b4ffd.png)
 
-- RoIAlign 과정을 통해 얻은 7 x 7 fea
+- RoIAlign 과정을 통해 얻은 7 x 7 크기의 feature map을 mask branch에 전달
+- 3 x 3 conv(ReLU) + deconv + 1 x 1(xK) conv layer => 14 x 14 x K (K는 class 개수)
+- 14 x 14 x K 크기의 feature map 중 classfication branch에서 얻은 가장 높은 score의 해당하는 feature map 선정을 하여 mask 생성
+- Sigmoid를 적용하여 0~1 사이의 값을 갖도록 함
+
+## 5. Post-preprocessing of masks
+
+- 0.5 이상인 값은 1, 나머지는 0
+
+# Inference
+
+- 1000개의 RoI만 선정
+- NMS 시 100개의 상자만을 선정
