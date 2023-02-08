@@ -67,6 +67,14 @@ https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog
 
 ![image](https://user-images.githubusercontent.com/80622859/217409993-ad600eeb-60d8-4736-a453-fcc72386e7a4.png)
 
+# Loss function
 
+![image](https://user-images.githubusercontent.com/80622859/217430934-6caf8b0a-cd4b-4578-ac3d-191ede3e4fc5.png)
+
+- Multi-task loss function
+- 분류기와 bbox regressor의 손실 함수는 Faster R-CNN과 동일
+- $L_{mask}$ : Binary cross entropy
+- Mask branch에서 출력된 값에 sigmoid를 씌우고 손실 함수 적용
+- Class와 mask를 구분했기 때문에 softmax가 아닌 sigmoid 
 
 
