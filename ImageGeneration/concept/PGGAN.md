@@ -22,4 +22,20 @@
 - Large scale : ex) 사람 얼굴에 대한 dataset이 있을 때, 전반적인 전체 얼굴의 형태
 - G와 D의 model을 점진적으로 쌓아 올려가며 학습을 하는 것
 - 처음에는 저해상도에서 보여질 수 있는 feature인 large scale들을 보면서 사람 얼굴에 대한 전반적인 내용들을 학습하고 점차 층을 쌓아 세부적인 특징들(눈, 코, 입 등)을 보면서 학습을 진행
-- 
+- 모든 large scale을 동시에 학습 X(점진적으로)
+- 모형에 층을 추가할 때 새로 추가하는 층을 부드럽고, fadein하게 넣어줌
+- 학습된 이전 단계의 층들에 대한 sudden shock을 방지
+
+![image](https://user-images.githubusercontent.com/80622859/217972780-ad9b3234-5d7a-43c7-989f-6daceedf6982.png)
+
+- 학습이 안정적
+- 해상도에 맞게 latent vector가 사상되면서 학습
+- 안정적인 고해상도 image
+- WGAN-GP Loss 사용
+
+### 2.2 학습 방법
+
+#### 생성기
+
+![image](https://user-images.githubusercontent.com/80622859/217972920-43f58e3d-fd0d-4610-b983-7165af0f7edc.png)
+
