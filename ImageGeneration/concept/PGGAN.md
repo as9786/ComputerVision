@@ -23,7 +23,7 @@
 - G와 D의 model을 점진적으로 쌓아 올려가며 학습을 하는 것
 - 처음에는 저해상도에서 보여질 수 있는 feature인 large scale들을 보면서 사람 얼굴에 대한 전반적인 내용들을 학습하고 점차 층을 쌓아 세부적인 특징들(눈, 코, 입 등)을 보면서 학습을 진행
 - 모든 large scale을 동시에 학습 X(점진적으로)
-- 모형에 층을 추가할 때 새로 추가하는 층을 부드럽고, fadein하게 넣어줌
+- 모형에 층을 추가할 때 새로 추가하는 층을 부드럽고, fade in하게 넣어줌
 - 학습된 이전 단계의 층들에 대한 sudden shock을 방지
 
 ![image](https://user-images.githubusercontent.com/80622859/217972780-ad9b3234-5d7a-43c7-989f-6daceedf6982.png)
@@ -39,4 +39,34 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/217972920-43f58e3d-fd0d-4610-b983-7165af0f7edc.png)
 
-- 
+##### Upscaling
+
+- 부족한 pixel들을 채움으로써 더 선명하게 보이도록
+
+![image](https://user-images.githubusercontent.com/80622859/218091074-75048335-d4c9-4778-a0de-67b0def3c10c.png)
+
+- 각 층 맨 앞단에 위치시켜서 진행
+
+##### Fade in
+
+![image](https://user-images.githubusercontent.com/80622859/218091657-f03fe38b-fda6-4f9a-81bb-a7a0962004c8.png)
+
+- 위의 그림에서 16 x 16을 upscaling을 할 때 32 x 32 image와 합쳐줄 때 pixel 마다 가중치를 두어서 저해상도와 새로운 image를 합침
+- 해당 가중치 $\alpha$를 새롭게 출력된 image에 곱하고, upscaling된 저해상도 image에는 $1-\alpha$를 곱해줌
+- 저해상도의 그림과 앞으로 학습시킬 고해상도의 detail이 합쳐짐
+- $\alpha$는 0에서 점차 1로 증가(이전 층의 영향력을 줄여줌)
+- 기존의 저해상도 층에서 학습된 방향을 일그러뜨리지 않고, 새로 추가된 층을 학습할 수 있음
+
+
+##### Pixel normalization
+
+- 그동안 GAN에서는 batch normalization 사용 => 공변량 변화(covariate shift) 문제 : Test data 분포가 train data 분포와 다른 상황
+- GAN에 발생하는 신호의 증폭을 완화시키기 위해 정규화 필요 -> Pixel normalization
+- 말 그대로 pixel 별로 정규화
+- 각 pixel 별로 feature vector를 단위 길이(unit of length)로 정규화 해주고, 각 층의 맨 뒷 단에 적용
+- 생성기의 upsampling 과정에서만 적용
+- 새로운 층의 가중치 초기화는 He initializer
+
+![image](https://user-images.githubusercontent.com/80622859/218093275-3f8c7324-fffe-40f0-b60d-e212591ad95a.png)
+
+#### 
