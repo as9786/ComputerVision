@@ -69,4 +69,21 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/218093275-3f8c7324-fffe-40f0-b60d-e212591ad95a.png)
 
-#### 
+#### 판별기
+
+![image](https://user-images.githubusercontent.com/80622859/218093994-b8efbb3d-f2b4-4e58-8cdb-dd40fd1de3aa.png)
+
+##### DownScaling
+
+![image](https://user-images.githubusercontent.com/80622859/218094089-6bfbc609-084b-4dab-9dce-c5a614c041a3.png)
+
+- 저해상도에서 고해상도의 정보를 유추하는 절차
+
+1. 신경망의 현재 해상도에 맞춰서 우리가 가지고 있는 training data를 downscaling하여 넣어줌. 저해상도 image로 변경되자만, 고해상도일 때 정보를 담고 있음 
+2. Fade in 기법 사용
+
+## Equalized Learning Rate(runtime weight scaling)
+
+- 생성기와 판별기 간의 공정한 경쟁을 위해 각 층이 비슷한 속도로 학습하는 것이 필수
+- Gaussian distribution으로 0~1 사이의 값으로 가중치 초기화
+- 
