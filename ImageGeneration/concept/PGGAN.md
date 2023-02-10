@@ -86,4 +86,4 @@
 
 - 생성기와 판별기 간의 공정한 경쟁을 위해 각 층이 비슷한 속도로 학습하는 것이 필수
 - Gaussian distribution으로 0~1 사이의 값으로 가중치 초기화
-- 
+- He initializer
