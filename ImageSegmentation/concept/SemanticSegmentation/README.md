@@ -13,3 +13,6 @@
 - https://velog.io/@dldndyd01/CV%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0U-Net-Convolutional-Networks-for-BiomedicalImage-Segmentation
 
 
+# Deeplabv1
+- https://bjo9280.github.io/segmantation/semantic-segmentation-deeplab/
+- https://noru-jumping-in-the-mountains.tistory.com/15
