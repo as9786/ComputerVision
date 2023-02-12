@@ -74,15 +74,7 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/218299817-8c2b389f-39a3-4665-a358-9eebaa44ce7f.png)
 
-### 3.2 Multiscale Image Representations using Atrous Spatial Pyramid Pooling
-
-- Standard multiscale processing  : 이중 선형 보간법 사용.
-- Atrous Spatial Pyramid Pooling(ASPP) : 여러 atrous convolutional layers를 만든 다음 sampling rate를 다르게 함
-- Atrous convolution layer를 통과한 각각의 feature들은 합쳐저서 하나의 최종 결과를 만듦
-
-![image](https://user-images.githubusercontent.com/80622859/218299907-cac5d22a-9aff-4ef6-a6b8-2ba684146014.png)
-
-### 3.3 Structured Prediction with Fully-connected conditional random fields for accurate boundary recovery
+### 3.2 Structured Prediction with Fully-connected conditional random fields for accurate boundary recovery
 
 - Localization accuracy랑 classification performance는 서로 대립
 - 합성곱 신경망의 층이 깊어지고 pooling 연산이 증가하면 분류에서 좋은 성능. 그러나 invariance(불변량)이 높아져 localization에는 좋지 않음
@@ -95,6 +87,22 @@
 - 첫 번째 항(unary potential)
 
 ![image](https://user-images.githubusercontent.com/80622859/218300035-51fd11e6-0e8e-4589-a42b-41c3d3e4b2be.png)
+
+- 특정 pixel i에서의 class일 확률
+- 두 번째 항(Pairwise potential) : 각 image pixel이 하나로 합쳐졌을 때 물체 및 그 위치에 대한 추론을 효율적으로 해줌
+
+![image](https://user-images.githubusercontent.com/80622859/218300319-571ae4fa-01cd-4617-b8ff-6ded75de62f7.png)
+
+- $x_i \neq x_j$ 일 때, $\mu(x_i,x_j)=1$ 로 같은 pixel끼리는 서로 연산이 불가
+- 첫 번쨰 bilateral kernel은 pixel의 위치(p)와 RGB 색깔(I) 기반으로 조정
+- 두 번째 kernel은 위치만을 기반으로 조정
+- 각 표준 편차는 Gaussian kernel의 scale을 조절
+- Bilateral kernel은 유사한 색깔 및 위치를 가진 pixel들이 비슷한 label을 가지도록, 두 번째 kernel은 smoothness를 요구할 때 위치적 가까움이 충족되었는지를 고려
+- Fully Connected CRF의 함수는 Gaussian kernel 때문에 확률적 추론이 효율적으로 이루어지게 함
+
+![image](https://user-images.githubusercontent.com/80622859/218300437-c6daffa5-b28e-4b0c-b6cf-eeaf07a7b5db.png)
+
+![image](https://user-images.githubusercontent.com/80622859/218300519-3ea926eb-8240-4922-9471-961a09224930.png)
 
 
 
