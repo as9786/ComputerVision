@@ -38,3 +38,22 @@
 
 ## 3. Method
  
+![image](https://user-images.githubusercontent.com/80622859/218298227-7c9570c0-2b69-4a54-aaea-37747cc4e320.png)
+
+### 3.1 Atrous Convolution for Dense Feature Extraction and Field-of-View Enlargement
+
+- 일반적인 합성곱 계산은 spatial resoltion이 각 층마다 대략 32배로 줄어드는 현상이 발생하여 feature map이 작아질 수 있음
+- Deconvolutional layer를 사용할 경우 추가적인 시간과 비용이 요구
+- Atrous convoluton : 특정 층을 원하는 해상도로 조정
+- 신경망이 학습된 후 사용할 수 있고, 학습과 동시에 진행될 수 있음
+
+![image](https://user-images.githubusercontent.com/80622859/218298308-6e599a25-2648-4e0e-9cf0-0772457c4ef6.png)
+
+- y[i] : Atrous convoluton output, x[i] : Input, w[k] : k x k filter, r : rate
+- r = 1 => 표준 합성곱
+
+![image](https://user-images.githubusercontent.com/80622859/218298338-53b36b14-f180-42b0-8b0f-a9e39119c46e.png)
+
+- r = 2로 설정하여 사이를 하나 띄고 filter를 적용 => receptive field 값이 커짐
+
+
