@@ -54,6 +54,50 @@
 
 ![image](https://user-images.githubusercontent.com/80622859/218298338-53b36b14-f180-42b0-8b0f-a9e39119c46e.png)
 
-- r = 2로 설정하여 사이를 하나 띄고 filter를 적용 => receptive field 값이 커짐
+- r = 2로 설정하여 사이를 하나 띄고 filter를 적용(with holes) => receptive field 값이 커짐
+
+- 일반적인 합성곱
+
+![image](https://user-images.githubusercontent.com/80622859/218299640-13a25a68-51d2-438e-8924-41b91278b445.png)
+
+- Atrous convolution(Dilated convolution)
+
+![image](https://user-images.githubusercontent.com/80622859/218299659-6aa1a351-65f6-45e3-9b43-6e7a9d3909c4.png)
+
+- dilation rate는 kernel 사이의 간격을 정의
+- 동일한 계산 비용으로 더 넓은 시야를 제공
+- zero padding을 추가해 receptive field를 늘리는 방법
+- Receptive field : Filter가 한 번 보는 영역
+- pooling을 수행하지 않고도 receptive field를 크게 가져갈 수 있음
+
+- 최종적으로는 이중 선형 보간법(bilinear interpolation)을 통해서 원본과 크기를 맞춰줌
+
+![image](https://user-images.githubusercontent.com/80622859/218299817-8c2b389f-39a3-4665-a358-9eebaa44ce7f.png)
+
+### 3.2 Multiscale Image Representations using Atrous Spatial Pyramid Pooling
+
+- Standard multiscale processing  : 이중 선형 보간법 사용.
+- Atrous Spatial Pyramid Pooling(ASPP) : 여러 atrous convolutional layers를 만든 다음 sampling rate를 다르게 함
+- Atrous convolution layer를 통과한 각각의 feature들은 합쳐저서 하나의 최종 결과를 만듦
+
+![image](https://user-images.githubusercontent.com/80622859/218299907-cac5d22a-9aff-4ef6-a6b8-2ba684146014.png)
+
+### 3.3 Structured Prediction with Fully-connected conditional random fields for accurate boundary recovery
+
+- Localization accuracy랑 classification performance는 서로 대립
+- 합성곱 신경망의 층이 깊어지고 pooling 연산이 증가하면 분류에서 좋은 성능. 그러나 invariance(불변량)이 높아져 localization에는 좋지 않음
+- Fully-Connected CRF 사용하여 localization accuracy 증가
+
+![image](https://user-images.githubusercontent.com/80622859/218300009-620fdc01-511d-448e-a7dc-deb4f919c50d.png)
+
+- E(x) 부분의 x는 pixel에 대한 분류
+- 두 개의 식으로 분리
+- 첫 번째 항(unary potential)
+
+![image](https://user-images.githubusercontent.com/80622859/218300035-51fd11e6-0e8e-4589-a42b-41c3d3e4b2be.png)
+
+
+
+
 
 
