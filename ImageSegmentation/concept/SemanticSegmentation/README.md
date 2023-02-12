@@ -16,3 +16,5 @@
 # Deeplabv1
 - https://bjo9280.github.io/segmantation/semantic-segmentation-deeplab/
 - https://noru-jumping-in-the-mountains.tistory.com/15
+- https://doubleyoo.tistory.com/3
+- https://eda-ai-lab.tistory.com/593
