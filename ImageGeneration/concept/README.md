@@ -20,6 +20,8 @@
 
 # Style transfer
 - https://blog.lunit.io/2017/04/27/style-transfer/
+# AdaIN layer
+- https://lifeignite.tistory.com/48
 # StyleGAN
 - https://blog.promedius.ai/stylegan_1/
 - https://airsbigdata.tistory.com/217
