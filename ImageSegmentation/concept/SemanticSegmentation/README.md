@@ -18,3 +18,6 @@
 - https://noru-jumping-in-the-mountains.tistory.com/15
 - https://doubleyoo.tistory.com/3
 - https://eda-ai-lab.tistory.com/593
+
+# Deeplabv2
+- https://noteforstudy.tistory.com/entry/Deeplab-v2-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0
