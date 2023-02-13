@@ -17,3 +17,9 @@
 - https://sensibilityit.tistory.com/508
 ## 공변량 변화
 - https://ko.d2l.ai/chapter_deep-learning-basics/environment.html
+
+# Style transfer
+- https://blog.lunit.io/2017/04/27/style-transfer/
+# StyleGAN
+- https://blog.promedius.ai/stylegan_1/
+- https://airsbigdata.tistory.com/217
