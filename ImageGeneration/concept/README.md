@@ -25,3 +25,6 @@
 # StyleGAN
 - https://blog.promedius.ai/stylegan_1/
 - https://airsbigdata.tistory.com/217
+
+# LSGAN
+- https://ysbsb.github.io/gan/2022/02/23/LSGAN.html
