@@ -21,3 +21,6 @@
 
 # Deeplabv2
 - https://noteforstudy.tistory.com/entry/Deeplab-v2-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0
+
+# DeepLab v3+
+- https://cake.tistory.com/41
