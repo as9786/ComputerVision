@@ -27,6 +27,23 @@
 - Pointwise convolution에서는 1 x 1 convolution 진행
 - Astrous convolution에 depthwise separable convolution 적용
 
+- 일반적인 합성곱의 경우 입력 이미지가 8 x 8 x 3이고, convolution filter가 3 x 3이라 할 때, filter 한 개가 가지는 paramter의 수는 3 x 3 x 3 = 27
+- Filter를 16개 적용 시 27 * 16 = 432
+
+![image](https://user-images.githubusercontent.com/80622859/218966015-aa108279-0857-4188-be16-1b021350529e.png)
+
+- Deptwise convolution
+
+![image](https://user-images.githubusercontent.com/80622859/218966069-b4ed5945-f759-452a-9bd2-4df67aabd8d9.png)
+
+- Channel 축을 모두 분리시킨 후 channel을 항상 1로 가지는 여러 개의 convolution filter로 대체시켜 연산
+- 그 후 pointwise 연산(Deptwise separable convolution)
+
+![image](https://user-images.githubusercontent.com/80622859/218966340-b1cfa841-912c-4da5-aed1-c4c96c04a1d4.png)
+
+- 3 x 3 x 3 + 3 x 16 = 75
+
+
 ## Encoder
 
 - Deeplab v3
