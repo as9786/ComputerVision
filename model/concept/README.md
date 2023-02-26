@@ -7,3 +7,7 @@
 
 # ResNet
 - https://gaussian37.github.io/dl-concept-resnet/
+
+# DenseNet
+- https://velog.io/@twinjuy/DenseNet-%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0
+- https://hoya012.github.io/blog/DenseNet-Tutorial-1/
