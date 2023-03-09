@@ -50,7 +50,35 @@
 
 - Encoder의 self-attention layer는 많은 연산량을 차지
 - SegFormersms patch size가 16 x 16이 아닌 4 x 4이기 때문에 더 많은 parameter 존재
-- 기존 multi-head attention은 Q, K, V를 모두 N(HxW)xC 차원을 가지는 행렬로 만들어 아래 식으로 계
+- 기존 multi-head attention은 Q, K, V를 모두 N(HxW)xC 차원을 가지는 행렬로 만들어 아래 식으로 계산
+
+![image](https://user-images.githubusercontent.com/80622859/224035293-8ee753c5-410c-4e65-873e-4a223381037d.png)
+
+- 위의 수식은 $O(N^2)$ 계산복잡도를 가짐(N은 입력 길이)
+- Large image가 입력으로 들어올 시 모형이 급격히 무거워짐
+- Reduction ratio를 사전에 정의
+- K와 V의 N(HxW) channel을 줄이는 sequence reduction process 적용
+
+![image](https://user-images.githubusercontent.com/80622859/224036554-e8257cee-a505-48c2-8da5-cb6ddbca9c05.png)
+
+- N을 R로 나누고 C에 R을 곱하여 reshape
+- C x R 선형 변환을 통해서 다시 C로 줄임
+- N/R x C 차원으로 key와 value 만들 수 있음
+- R = [64,16,4,1]
+
+### Mix-FFN
+- ViT는 지역 정보를 추가하기 위해 positional encoding을 적용
+- 이러한 방식은 입력 해상도가 고정되어야 한다는 문제가 있음.
+- 입력 해상도가 달라지게 되면 보간법을 통해 크기를 맞춰주어야 하여 성능이 하락
+- Positional encoding을 대신하여 3 x 3 convolution(stride:1/padding:1)을 FFN에 적용
+
+![image](https://user-images.githubusercontent.com/80622859/224037381-b0d855b2-e807-49e9-9c49-86f43f3debd5.png)
+
+- 기존의 ViT에서 Conv 3 x 3 layer만 추가
+- 3 x 3 convolution은 가중치를 줄이기 위해 depth-wise convolution 사용
+
+### 2. Lightweight All-MLP Decoder
+
 
 
 
