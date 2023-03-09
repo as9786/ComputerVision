@@ -79,7 +79,16 @@
 
 ### 2. Lightweight All-MLP Decoder
 
+- 저자들은 MLP layer로만 구성되어 있는 lightweight decoder를 설계
+- 다른 모형의 decoder와는 다르게 연산량이 크게 요구 X
+- 간단한 decoder를 사용할 수 있는 이유로는 hierarchical transformer encoder에서 larger effective field를 가질 수 있기 때문
 
+![image](https://user-images.githubusercontent.com/80622859/224038708-9a8d6bbf-f096-4502-9fdb-b228cf19905d.png)
+
+1. Mulit-level feature들의 channel을 모두 동일하게 통합
+2. Feature size를 original image의 1/4 크기로 통합
+3. Feature들을 이어 붙이고 이 과정에서 4배로 증가한 channel을 원래대로 돌림
+4. 최종 segmentation mask를 예측 (shape : B(batch) X N(num of class) x (H/4 x W/4))
 
 
 
