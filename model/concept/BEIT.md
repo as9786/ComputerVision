@@ -28,10 +28,11 @@
 
 ### Backbone/Image Patch
 
-- 16 x 16 patch(ViT)
+- 16 x 16 patch(ViT) (224 x 224 size)
 - 개별 patch들을 평탄화 및 선형 변환 과정을 거치고 position embedding이 더해져서 최종 입력값이 됨
 - Backbone network도 ViT 사용
 
 ### Visual Token
 
+- Image -> Discrete token sequence
 - 
