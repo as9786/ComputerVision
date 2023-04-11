@@ -34,5 +34,10 @@
 
 ### Visual Token
 
+- Image의 경우에는 사전에 정의된 tokenizer가 없었기 때문에 image를 일정하게 token으로 만들 수 없음
+- DALL-E에서 사용한 image tokenizer를 사용
+
+![image](https://user-images.githubusercontent.com/80622859/231164192-2b474623-7093-4642-8020-221385414532.png)
+
 - Image -> Discrete token sequence
-- 
+
