@@ -28,3 +28,9 @@
 
 # LSGAN
 - https://ysbsb.github.io/gan/2022/02/23/LSGAN.html
+
+# VQ-VAE
+- https://nrhan.tistory.com/entry/VQ-VAE%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4
+- https://kaen2891.tistory.com/80
+- https://greeksharifa.github.io/discrete%20representation/2021/11/07/VQVAE/
+- https://velog.io/@dien-eaststar/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-SSL-Neural-Discrete-Representation-Learning
