@@ -34,3 +34,6 @@
 - https://kaen2891.tistory.com/80
 - https://greeksharifa.github.io/discrete%20representation/2021/11/07/VQVAE/
 - https://velog.io/@dien-eaststar/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-SSL-Neural-Discrete-Representation-Learning
+
+# CycleGAN
+- https://dacon.io/forum/405902
