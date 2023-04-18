@@ -37,3 +37,7 @@
 
 # CycleGAN
 - https://dacon.io/forum/405902
+
+# VQ-VAE2 
+- https://github.com/rosinality/vq-vae-2-pytorch
+- https://greeksharifa.github.io/discrete%20representation/2021/11/26/VQVAE2/
