@@ -55,7 +55,3 @@
 
 ## Fine-Tuning
 - Image classification은 global average pooling을 사용해 최종 output vector를 모으고 선형 분류기를 통과 시킴
-
-## Experiment
-
-
