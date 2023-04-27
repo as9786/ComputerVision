@@ -40,4 +40,22 @@
 ![image](https://user-images.githubusercontent.com/80622859/231164192-2b474623-7093-4642-8020-221385414532.png)
 
 - Image -> Discrete token sequence
+- 위 그림에서 빨간 상자 안에 있는 부분이 DALL-E tokenizer
+- DALL-E tokenizer를 통해 이미지를 descrete visual token으로 만들 수 있음
+
+## Pre-Training
+- Image patch의 40%에 masking
+- Masking patches는  trainable embedding으로 교체한 뒤 masking 되지 않은 patch와 함께 ViT의 입력으로 들어감
+- ViT의 최종 hidden vector들은 입력값의 encoded representation으로 취급하며, softmax classifier(MIM head)를 통과해 최종 출력을 얻음
+- Masking 되었던 patch들의 최종 출력이 DALL-E를 통해서 미리 생성되었던 discrete token을 예측하도록 모형을 훈련(최대우도추정법)
+- 자료 형태가 image인 것을 제외하면 BERT와 유사
+- Masking selelction : Not randomly, blockwise
+- 무작위로 block 크기를 정하고, block의 위치를 정하는 과정을 masked patch가 전체의 40%가 될 때까지 반복
+- Image label은 전혀 사용하지 않았기 때문에 사전학습 과정은 온전히 비지도학습 방법론
+
+## Fine-Tuning
+- Image classification은 global average pooling을 사용해 최종 output vector를 모으고 선형 분류기를 통과 시킴
+
+## Experiment
+
 
