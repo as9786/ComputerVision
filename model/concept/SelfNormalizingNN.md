@@ -15,10 +15,10 @@
 
 ## $\alpha$-Dropout
 
-![image](https://user-images.githubusercontent.com/80622859/235626327-a2813c1f-6bc3-43ca-985c-11916515907c.png)
+![image](https://user-images.githubusercontent.com/80622859/235626725-8f781ad9-9c61-4c64-9570-0c6ad42e70e5.png)
 
 - Dropout은 ReLU에 잘 동작. SELU에 적합하도록 변형 버전
-- 복잡한 미분을 통해 $\alpha^'$ 값을 결정. Dropout rate = 5~10%(비교적 작음)
+- 복잡한 미분을 통해 $\alpha^{'}$ 값을 결정. Dropout rate = 5~10%(비교적 작음)
 
 - 아직 DL에서도 세심한 수학적 연구가 직관을 뛰어넘을 수 있다는 것을 보여줌
 
