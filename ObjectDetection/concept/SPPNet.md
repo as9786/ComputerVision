@@ -38,3 +38,18 @@
 - 위의 예시의 경우 14 bin = [3x3, 2x2, 1x1]
 - Conv5 feature map size = 13 x 13
 - Window size = ceiling(13 / 3) = 5, stride = floor(13 / 3) = 4
+- SPP layer의 출력 차원은 k x M(고정된 차원)
+- k : conv5 layer에서 출력한 feature map의 filter 수
+- M : 사전에 설정한 bin
+
+## SPPNet 동작 과정
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/ed6cf598-cb20-46cd-8c95-91511afc37f3)
+
+1. Selective search를 사용하여 약 2000 개의 region proposals 생성
+2. 영상을 CNN에 통과시켜 feature map 얻기
+3. 각 영역 제안으로 경계까 제한된 feature map을 SPP layer에 전달
+4. SPP layer를 적용하여 얻은 고정된 vector representation을 전결합 계층에 전달
+5. SVM으로 분류
+6. 경계 상자 추정으로 경계 상자의 크기를 조정하고 비 최대 억제를 사용하여 최종 경계 상자를 선별
+
