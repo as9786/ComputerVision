@@ -22,3 +22,19 @@
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/c5a7db9d-9d4c-4039-9a56-d6351d6b36c1)
 
+- Spatial bins 설정
+- 50 bin = [6x6, 3x3, 2x2, 1x1], 30 bin = [4x4, 3x3, 2x2, 1x1]
+- Spatial bin은 conv5의 feature map에 pooling을 적용하여 생성되는 출력 크기
+- 위의 그림에서는 21 bin = [4x3, 2x2, 1x1]인 경우
+- Pooling이 적용된 feature map을 평탄화
+- 하지만 압력 크기가 다양하므로 conv5의 feature map의 크기도 다양
+- 다양한 feature map에서 pooling의 결과값이 같게 나오기 위해 window size와 strdie를 조절
+- Window size(Pool size) = ceiling(feature map size / pooling size)
+- Strdie = floor(feature map size / pooling size)
+- 위의 공식을 사용하면 어떠한 크기의 feature map이 오더라도 고정된 pyramid size를 얻을 수 있음
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/49faa692-67e8-423e-bad2-2aa2b447cdec)
+
+- 위의 예시의 경우 14 bin = [3x3, 2x2, 1x1]
+- Conv5 feature map size = 13 x 13
+- Window size = ceiling(13 / 3) = 5, stride = floor(13 / 3) = 4
