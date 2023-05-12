@@ -46,8 +46,8 @@
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/ed6cf598-cb20-46cd-8c95-91511afc37f3)
 
-1. Selective search를 사용하여 약 2000 개의 region proposals 생성
-2. 영상을 CNN에 통과시켜 feature map 얻기
+1. 영상을 CNN에 통과시켜 feature map 얻기
+2. Selective search를 사용하여 약 2000 개의 region proposals 생성
 3. 각 영역 제안으로 경계까 제한된 feature map을 SPP layer에 전달
 4. SPP layer를 적용하여 얻은 고정된 vector representation을 전결합 계층에 전달
 5. SVM으로 분류
