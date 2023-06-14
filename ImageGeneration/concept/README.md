@@ -41,3 +41,16 @@
 # VQ-VAE2 
 - https://github.com/rosinality/vq-vae-2-pytorch
 - https://greeksharifa.github.io/discrete%20representation/2021/11/26/VQVAE2/
+
+# AnimeGAN
+- https://happy-jihye.github.io/gan/gan-47/
+
+## Spectral Normalization
+- https://stopspoon.tistory.com/75
+
+## Gram matrix
+- https://wansook0316.github.io/ds/dl/2020/09/18/computer-vision-15-Gram-Matrix.html
+
+## YUV channel 
+- https://comdoc.tistory.com/entry/%EC%83%89%EA%B3%B5%EA%B0%84%EC%9D%B4-%EB%AD%90%EC%A7%80-RGB-YUV
+- https://namu.wiki/w/YUV
