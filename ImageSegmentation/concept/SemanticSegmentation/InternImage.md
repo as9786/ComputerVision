@@ -83,4 +83,23 @@
 #### (2) Multi-group mechanism
 
 - Adaptive spatial aggregation과 함께 작동하며 서로 다른 위치의 다른 representation sub-space의 풍부한 정보를 효과적으로 학습
-- Spatial aggregation을 G group으로 분할, 각 group은 $\Delta p_{gk}$라는 sampling offset, $\Delta m_{gk}$라는 modulation scale
+- Spatial aggregation을 G group으로 분할, 각 group은 $\Delta p_{gk}$라는 sampling offset, $\Delta m_{gk}$라는 modulation scale -> 서로 다른 group에서는 MHSA처럼 서로 다른 spatial aggregation pattern을 가질 수 있음 => Downstream task에서 장점
+
+#### (3) Normalizing modulation scalars along sampling points
+
+- 기존의 DCN v2에서는 modulation을 계산할 때 sigmoid 활용
+- Modulation scalars의 범위는 [0,1]. Sample points의 modulation scalar 합은 0 이상으로 다양하여 값이 안정적이지 않음
+- Sigmoid 대신 softmax 사용
+- Modulation value 안정. Large-scale model 학습 시 안정적인 결과 생성
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/71f3350c-173b-4c79-a97b-7a40fe20b6ae)
+
+- G : Group convolution 개수, K : Sampling point의 개수
+
+- 장점
+1. Long-range dependencies 및 adaptive spatial aggregation 측면에서 합성곱보다 장점이 있음
+2. 적은 학습과 시간으로 모형을 더 효율적으로 만듦
+3. 최적화하기 쉬움
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/798417b4-19e3-43af-932b-5f7df83ae145)
+
