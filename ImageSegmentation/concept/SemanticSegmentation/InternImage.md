@@ -44,8 +44,43 @@
 - HaloNet, Swin Transformer는 local attention과 shfited window를 통해 정보 전송
 
 ### Large-Scale Models
-
 - 모형을 확장하는 것은 자연어 처리 영역에서 잘 연구된 특징 표현을 향상시키는 중요한 전략
-- ViT와 CNN의 장점을 결합하여 hybrid-ViT를 만들기도 함
-- 
+- ViT와 CNN의 장점을 결합하여 Hybrid-ViT를 만들기도 함
 
+## Deformable Convolution v3
+
+### Convolution vs MHSA
+
+(1) Long-Range Dependencies
+
+- Effective receptive field가 큰 모형은 대게 downstream vision task에서 더 잘 수행됨
+- 3 x 3 convolution에 의해 stacked CNN은 실질적인 effective field는 상대적으로 작음
+- 매우 깊은 모형에서도 합성곱 신경망 기반의 모형은 long-range dependencies를 얻을 수 없음
+
+(2) Adaptive Spatial Aggregation
+
+- 가중치가 입력에 의해 동적으로 조정되는 MHSA와 다르게 convolution은 정적인 가중치를 가지고, 2D locality, neighborhood structure, translation equivalence 특성을 가진 operation
+- 편향이 높은 트성을 이용하여 ViT에 비해 빨리 수렴되고 training data가 덜 필요할 수 있지만 합성곱 신경망이 large-scale data에 정보를 학습하는 것을 제한
+
+### DCN v2
+
+- $\Delta p_k$를 이용하여 long-ragne dependencies를 포착할 수 있고, short-range까지 cover가 가능하다고 주장
+- Adaptive spatial aggregation의 경우 samlping offset $\Delta p_k$와 modulation $\Delta m_k$ 모두 학습할 수 있어 MHSA와 유사한 특성을 제안한다고 주장
+- 정적인 가중치가 아니라 합성곱을 취할 때마다 가중치를 변경시킴.
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/8455a5fc-99e5-42b8-bd80-74c85ea7148f)
+
+### Extending DCN v2 for VIsion Foundation Models
+
+#### (1) Sharing weights among convolutional neurons
+
+- 일반 합성곱과 유사하게 DCN v2는 각 convolution neuron마다 독립적인 가중치를 가짐
+- 그러므로 parameter와 memory complexity가 sampling point 숫자에 대해 선형적으로 늘어남
+- Depthwise Separable Convolution처럼 가중치 $W_k$를 depthwise, pointwise로 분리
+- Depthwise part는 location-aware modulation scalar $m_k$가 담당
+- Pointwise part는 shared projection weights w among sampling points로 진행
+
+#### (2) Multi-group mechanism
+
+- Adaptive spatial aggregation과 함께 작동하며 서로 다른 위치의 다른 representation sub-space의 풍부한 정보를 효과적으로 학습
+- Spatial aggregation을 G group으로 분할, 각 group은 $\Delta p_{gk}$라는 sampling offset, $\Delta m_{gk}$라는 modulation scale
