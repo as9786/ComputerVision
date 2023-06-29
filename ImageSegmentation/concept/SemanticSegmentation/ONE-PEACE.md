@@ -27,8 +27,33 @@
 - 위의 설계는 미세 조정 성능을 향상시킴과 동시에 cross modal retrieval 기능 유지
 - 모든 modality에 보편적으로 적용이 되므로 개별 설계 불필요
 
+
+
 ## Related Work
 
 ### Vision-Language Pretraining
 
+- 수많은 작업이 transformer를 사용하여 우수한 성능을 보임
+- 사진과 언어의 대조 학습
+- Encoder-decoder model을 사용하여 모든 vison-language 작업을 생성 작업으로 변환
+- Multiway transformer를 사용하여 vision language data를 처리. Text token과 공동 학습을 위해 CLIP 사용 => Image token
+
+  ### Audio-Language Pretraining
+  - Audio-text joint pretraining
+
+## Method
+
+### Architecture
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/8091cfcf-4370-4780-bd88-c533ce54af8f)
+
+- 3 가지 modality adapter와 modality fusion encoder로 구성
+
+#### Modality Adapters
+- 서로 다른 raw input을 feature로 변환하기 위함
+- 서로 상호 작용 X
+- Transformer, 합성곱 신경망, 순환 신경망 등과 같이 adapter에 적합한 신경망을 유연하게 선택 가능
+
+#### Vision Adapter(V-Adapter)
+- 사진이 주어지면 계층적 MLP를 사용하여 patch size를 16 x16으로 점진적으로 증가시켜 image patching
 - 
