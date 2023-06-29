@@ -7,4 +7,6 @@
 - Modal에 구애 받지 않는 cross-modal aligning contrast와 intra-modal denosing contras는 서로 다른 modality의 의미 공간을 정렬하고 modality 내에서 세밀한 detail을 포착 가능
 - 무한한 modality로 확장할 수 있는 잠재력을 가지고 있음 
 - 사전 학습된 computer vision 및 language를 사용하지 않고 좋은 성능
-- 
+
+## Introduction
+- 대량의 data로부터 학습한 representation model은 다양한 downstream task에서 강력한 일반화 능력을 보여줌 
