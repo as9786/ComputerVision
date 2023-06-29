@@ -56,4 +56,63 @@
 
 #### Vision Adapter(V-Adapter)
 - 사진이 주어지면 계층적 MLP를 사용하여 patch size를 16 x16으로 점진적으로 증가시켜 image patching
-- 
+- 서로 다른 patch 간에는 상호  작용 X
+- $E^V = {e^V_{cls}, e^V_1,...,e^V_M}$
+
+#### Audio Adapter(A-Adapter)
+
+- Audio가 주어지면 sampling speed를 16kHz로 설정하고 raw audio wave를 표준화
+- 정규화된 파형이 convolution feature extractor에 의해 처리되어 audio embedding 생성
+- Relative positional embedding 사용
+- $E^A = {e^A_{cls}, e^A_1,…,e^A_{N}}$
+
+#### Language Adapter(L-Adapter)
+
+- BPE
+- 문장의 시작과 끝에 두 개의 special token 추가([CLS],[EOS])
+- Absolute positional encoding
+- $E^L = {e^L_{cls}, e^L_1,…,e^A_{K},e*L_{eos}}$
+
+#### Modality Fusion Encoder
+
+- Transformer architecture
+- 각 transformer block에 shared self-attention layer와 세 가지 FFN 설정
+- Shared self-attention은 서로 다른 modality 간 상호 작용을 가능하게 함
+- FFN(V-FFN, A-FFN, L-FFN)은 각각의 modality 내에서 feature를 추가로 추출
+
+#### Sub-LayerNorm
+- Slef-attention layer와 FFN layer 전에 층 정규화 사용
+
+#### GeGLU Activation Function
+- FFM의 중간 차원은 embedding 차원의 4배
+
+#### Relative Position Bias(RPB)
+- Text와 audio에 대한 1D 상대 위치 편향. 사진에 대한 2D 상대 위치 편향
+- 사전 훈련 단계에서 서로 다른 self-attention layer의 상대적 위치 편향이 공유
+- 미세 조정 단계에서 각 self-attention layer의 상대적 위치 편향을 분리하고 사전 훈련된 상대 편향의 가중치를 상속 받음
+
+#### LayerScale
+
+- Residual block의 출력을 동적으로 조정
+- 잔차에 추가하기 전에 각 계층의 출력을 학습 가능한 대각 행렬로 곱하여 값이 1e-6으로 초기화
+- Sharing-separated는 다양한 modality의 작업을 처리하는 서로 다른 분기로 분해 가능
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/591a5065-3ffb-4cde-a248-0b7ad80a785a)
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/bc7d3ad5-11c5-45f0-b7e9-a2e449bad243)
+
+- N : 배치 크기, i, j : 배치 내의 식별자, w : 학습 가능한 온도 매개 변수(0.07로 초기화),
+- Cross mode contrastive loss는 모든 GPU 장치에서 negative feature를 수집하여 계산
+- Cross mode contrastive loss를 각각 $L_{CL-VL}$과 $L_{AL-VL}$로 표시되는 image-text, audio-text 쌍에 적용
+
+#### Intra-Modal Denosing Contrastive Learning
+- Cross mode contrastive loss는 주로 서로 다른 modal 간의 특징을 정렬하는데 중점
+- 하지만 위의 손실은 downstream task에서 최적의 성능을 발휘 X
+- 이를 해결하기 위해 denosing contrastive learning 학습
+- 미세한 mask feature와 그렇지 않은 사이에서 대조적 손실 계산
+- Image patch, text token, audio wave feature
+- Sequence 내 무작위 masking
+- Unmasked unit만 modality fusion encoder에 입력
+- Encoded unmasked features는 학습 가능한 masked token과 연결되어 masked feature를 생성하는 경량화된 transformer decoder에 입력
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/2c86ebd2-10ec-46b9-a930-5aee5c099cc5)
