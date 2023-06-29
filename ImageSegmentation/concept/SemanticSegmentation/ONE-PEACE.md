@@ -9,4 +9,8 @@
 - 사전 학습된 computer vision 및 language를 사용하지 않고 좋은 성능
 
 ## Introduction
-- 대량의 data로부터 학습한 representation model은 다양한 downstream task에서 강력한 일반화 능력을 보여줌 
+- 대량의 data로부터 학습한 representation model은 다양한 downstream task에서 강력한 일반화 능력을 보여줌
+- Uni-modal representation model은 우수한 결과를 보여주지만 image-text, audio-text와 같이 multi-modal data를 효과적으로 활용하는데 어려움
+- General representation model은 다음 조건을 충족해야 함
+1. 모형 구조는 다양한 modality를 수용하고 multi-modality 간 상호 작용을 지원할 수 있을 만큼 유연해야 함
+2. 
