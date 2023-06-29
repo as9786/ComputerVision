@@ -20,4 +20,15 @@
 - 각 modality에서는 raw input을 feature sequence로 변환하는 adapter가 장착
 - Modality fusion encoder는 transformer architecture의 feature sequence에서 작동
 - 각 transformer block에는 shared self attention alyer와 multi modality FFN이 포함
+- Self-attention layer는 attention mechanism을 통해 multi modal features 간의 상호 작용을 가능하게 함. Modality FFN은 modality 내에서 feature 추출을 용이하게 함
+- 사전 훈련하기 위해 두 가지를 설계
+1. Modal 간 대조 학습 => Modality 간 semantic space를 효과적으로 정렬
+2. Modal 내 잡음 제거 대조 학습
+- 위의 설계는 미세 조정 성능을 향상시킴과 동시에 cross modal retrieval 기능 유지
+- 모든 modality에 보편적으로 적용이 되므로 개별 설계 불필요
+
+## Related Work
+
+### Vision-Language Pretraining
+
 - 
