@@ -116,3 +116,22 @@
 - Encoded unmasked features는 학습 가능한 masked token과 연결되어 masked feature를 생성하는 경량화된 transformer decoder에 입력
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/2c86ebd2-10ec-46b9-a930-5aee5c099cc5)
+
+### Training
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/da3d1cef-6fb1-4b13-929b-224225153a80)
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/a02e04a1-1378-428d-877b-3da342dd695e)
+
+## Pretraining Detils
+
+### Pretraining Datasets
+
+- Image-text : LAION-2B
+- Audio-text : Open source
+
+### pretraining Settings
+- 4B 매개변수를 가짐
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/126249b9-50e8-44cc-bf60-83c5f59528dc)
+
