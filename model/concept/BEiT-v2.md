@@ -44,4 +44,38 @@
 ### Training Visual Tokenizer
 
 - Visual tokenizer는 image를 일련의 visual token, code에 사상
+- Tokenizer는 vision transformer encoder와 quantizer로 구성
+- Tokenizer는 먼저 input image를 vector로 encoding
+- Vector quantizer는 각 patch representation $h_i$에 대해 codebook에서 가장 가까운 이웃을 찾음
+- i 번째 image patch의 양자화된 code는 다음과 같음
 
+![image](https://github.com/as9786/ComputerVision/assets/80622859/50494ee6-304d-46b3-8251-eda8a0ce6ddf)
+
+- j와 L-2 정규화는 codebook 조회에 사용
+- 위의 거리는 cosine similarity 
+- Codebook embedding을 decoder에 전달
+- Decoder는 mulit-layer transformer
+- Output vector는 CLIP과 같이 교사 모형의 특징을 가짐(재구성)
+- Decoder output $o_i$와 정답인 $t_i$의 유사성을 최대화
+- 양자화 식은 미분이 불가능. 경사는 decoder input에서 encoder output으로 복사
+- Quanitizer는 encoder output에 대해 가장 가까운 code를 찾고, codebook embedding의 경사는 encoder에 대한 최적 값을 찾음
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/fa3f9c53-0378-43e9-989b-32deb000e422)
+
+### Improving codebook utilization
+
+- Codebook의 극히 일부만 사용하게 됨
+- VQ-KD
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/97820e25-1c9e-418e-913e-06b53cdb4c1b)
+
+- Embedding dimension을 32 차원으로 줄이면서 가장 가까운 code를 찾기 위해 L-2 distance 사용
+- 저차원 codebook embedding은 decoder에 공급되기 전에 고차원 공간에 사상
+- Codebook embedding을 최신화하기 위해 지수 이동 평균 사용 => 더 안정적
+
+## Pretraining BEIT V2
+
+- MIM 설정에 따라 ViT를 사전 학습
+- Input image x가 주어지면 약 40%가 block으로 masking
+- M : Masking position
+- 학습 가능한 embedding $e_{[M]}$을 사용하여 원래 image patch embedding을 $e_i$로 대체
