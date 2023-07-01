@@ -79,3 +79,25 @@
 - Input image x가 주어지면 약 40%가 block으로 masking
 - M : Masking position
 - 학습 가능한 embedding $e_{[M]}$을 사용하여 원래 image patch embedding을 $e_i$로 대체
+- 학습 가능한 [CLS] token을 image patch embedding과 함께 입력에 추가하여 ViT에 공급
+- MIM head를 단순한 FCL로 설계, 손성된 정보를 기반으로 masking position의 visual token을 예측
+- Softmax로 분류
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/dafdc52f-6351-4f74-b7a9-ae47bed46780)
+
+### Pretraining global representation
+
+- Global image representation을 위해 [CLS] token을 사전 훈련
+- Patch 수준의 사전 훈련과 image 수준의 표현 집계 간 불일치 완화
+- 마지막 층의 [CLS] token을 사전 학습하기 위해 중간 층의 patch vector와 연결 
+- 그 후 연결된 vector들을 두 개의 transformer block decoder에 공급하여 다시 MIM
+- Parameter는 두 MIM head에 대해 공유
+- 새로 추가된 decoder는 사전 훈련 때만 사용
+
+## Experiments
+
+### Pretraining Setup
+
+#### Visual tokenizer training
+
+- Code size : K = 8192, D = 32
