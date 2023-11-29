@@ -15,3 +15,6 @@
 
 # VAE
 - https://littlefoxdiary.tistory.com/74
+
+# SimCLR
+-https://kyujinpy.tistory.com/39
