@@ -22,7 +22,25 @@
 - z가 auto encoder의 encoding 과정을 거쳐서 얻은 모수 분포 q(z)에서 나온 것인지, 아니면 사용자가 직접 정의한 분포에서 나온 것인지 구별
 
 
-### 학습
+## 학습
 - Reconstruction phase(AE) : AE와 동일하게 encoder-decoder 학습
 - Regularization phase(Adversarial networks) : AAE의 latent vector z를 학습
-1. 
+1. p(z)와 q(z)를 구분할 수 있도록 판별기 학습
+2. p(z)와 q(z)를 구분할 수 없도록 생성기 학습
+
+## Three types of encoder q(z|x)
+- Aggregated posterior distribution
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/da679e6f-1f2c-45d7-a04e-56f2ddc58fcc)
+
+- Data distribution과 모형의 분포가 모두 담겨져 있는 사후 분포
+
+### (1) Deterministic
+- q(z|x)를 x에 대한 deterministic funtion으로 가정
+- $p_d (x)$를 통해서만 q(z)의 확률성(stochasticity)를 얻음
+
+### (2) Gaussian posterior
+
+- q(z|x)가 정규 분포를 따른다고 가정
+- 
+
