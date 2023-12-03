@@ -38,9 +38,23 @@
 ### (1) Deterministic
 - q(z|x)를 x에 대한 deterministic funtion으로 가정
 - $p_d (x)$를 통해서만 q(z)의 확률성(stochasticity)를 얻음
+- AE는 data에 의해서만 학습
 
 ### (2) Gaussian posterior
 
 - q(z|x)가 정규 분포를 따른다고 가정
-- 
+- $p_d (x)$와 더불어 encoder 내 output에서의 Gaussian distribution으로부터 q(z)의 확률성을 얻음
+- VAE와 마찬가지로 reparameterization trick 사용
 
+### (3) Universal approximator posterior
+
+- Encoder가 x와 noise n을 입력으로 받는 함수 f(x,n)이라 가정
+- q(z)는 $p_d (x)$와 n으로부터 확률을 얻음
+- n은 gaussian 등 고정된 분포에서 추출
+- 여러 n을 표본 추출 후, 임의의 사후 분포 q(z|x)를 구할 수 있음
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/1b310958-7ba1-42af-8786-37abea9c9422)
+
+- Gaussian posterior처럼 사후 분포 q(z|x)는 굳이 gaussian일 필요가 없고 입력이 주어졌을 때, 임의의 사후분포를 학습
+- q(z)는 encoder 내에서 역전파로 학습
+- 
