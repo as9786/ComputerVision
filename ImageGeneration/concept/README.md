@@ -54,3 +54,6 @@
 ## YUV channel 
 - https://comdoc.tistory.com/entry/%EC%83%89%EA%B3%B5%EA%B0%84%EC%9D%B4-%EB%AD%90%EC%A7%80-RGB-YUV
 - https://namu.wiki/w/YUV
+
+# AAE
+- https://velog.io/@sjinu/AAE
