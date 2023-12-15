@@ -32,3 +32,10 @@
 - H x W x C를 대표하는 feature map
 
 ### Excitation operation
+
+- Squeeze operation 결과로 1 x 1 x C가 나옴
+- 선형 변환을 통해서 C/r로 node 수를 줄인 후, ReLU 통과
+- 다시 선형 변환을 통해서 최종적으로 C만큼 값을 출력하여 sigmoid 함수를 통해 0~1 사이의 값을 지닌 C차원 vector 생성
+- 차원을 줄이고 ReLU를 적용한 이유는 channel 간에도 비선형성을 가해주기 위함(Channel relationship)
+- 최종적으로 해당 vector들을 U에 곱해줌
+- SE block을 통해 U에서 어떤 channel에 집중해줄지 골라줌
