@@ -26,4 +26,9 @@
 - $F_{tr}$ 함수에 받아온 feature map U를 압축
 - U는 각각 학습된 filter로부터 생성된 특징. 각 feature map channel들은 그 지역 밖에서는 맥락적인 정보로는 이용할 수 없음
 - H x W x 6 size feature map에서 6 개의 channel은 서로 바라보는 관점이 다름
-- 
+- 위와 같이 각각 다른 시선을 가지고 있기 때문에 전체 맥락적으로는 이용 X. 정보 활용이 제한
+- U를 global average pooling을 통해 1 x 1 x C로 압축
+- 압축된 feature map을 channel descriptor라고 함
+- H x W x C를 대표하는 feature map
+
+### Excitation operation
