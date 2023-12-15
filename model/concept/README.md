@@ -14,3 +14,7 @@
 
 # Beit
 - https://velog.io/@rucola-pizza/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0BEIT-Pre-Training-of-Image-Transformer
+
+# SENet
+- https://jayhey.github.io/deep%20learning/2018/07/18/SENet/
+- https://inhovation97.tistory.com/48
