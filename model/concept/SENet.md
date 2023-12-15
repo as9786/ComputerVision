@@ -20,3 +20,10 @@
 ## Squeeze-and-Excitation Blocks
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/825a4967-e0e3-45fe-9e51-6e6a99442809)
+
+### Squeeze operation
+
+- $F_{tr}$ 함수에 받아온 feature map U를 압축
+- U는 각각 학습된 filter로부터 생성된 특징. 각 feature map channel들은 그 지역 밖에서는 맥락적인 정보로는 이용할 수 없음
+- H x W x 6 size feature map에서 6 개의 channel은 서로 바라보는 관점이 다름
+- 
