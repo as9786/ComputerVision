@@ -18,3 +18,6 @@
 
 # SimCLR
 -https://kyujinpy.tistory.com/39
+
+# CutMix
+- https://eumgill98.tistory.com/41
