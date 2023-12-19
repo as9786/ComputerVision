@@ -24,5 +24,17 @@
 2. 객체를 탐지하고 해당 부분을 localization
 
 - 1 번 문제는 keypoint를 찾고, 2번 문제는 각 부분을 분할하여서 해결
-- 
+- Pixel classification으로 framing하고 hypercolumn을 pixel descriptor로 사용하여 이러한 작업과 다른 세분화된 지역 작업을 처리하기 위한 일반적인 framework 제시
+- 해당 방법은 신경망을 사용하여 종단 학습 가능
+
+
+## 2. 관련 연구
+
+### Combining featurea across multiple levels
+
+-  Laplacian pyramid
+-  Edge orientation, 곡률 등을 추정하기위해 특정 차수까지의 부분 도함수인 jet 사용
+-  Texture 구분을 위해 a bank of filters의 출력 사용
+-  A bank of filter는 여러 크기를 포함하지만 여전히 단순한 선형 필터인 반면, hypercolumn representation의 많은 기능은 비선형적 함수
+-  합성곱 신경망도 multiple levels의 추상적 표현과 크기를 결합
 
