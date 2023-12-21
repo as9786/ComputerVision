@@ -37,4 +37,22 @@
 -  Texture 구분을 위해 a bank of filters의 출력 사용
 -  A bank of filter는 여러 크기를 포함하지만 여전히 단순한 선형 필터인 반면, hypercolumn representation의 많은 기능은 비선형적 함수
 -  합성곱 신경망도 multiple levels의 추상적 표현과 크기를 결합
+-  해당 논문에서는 하위 층의 해상도를 유지하고 높은 층을 표본 추출하여 결합
 
+## 3. Pixel classification using hypercolumns
+
+### Problem setting
+- Object detection system은 여러 집합의 탐지들을 제공한다고 가정
+- 각 탐지들은 category label과 점수가 있는 경계 상자로 제공
+- 이러한 탐지들은 이미 비 최대 억제를 수행한 것으로 가정
+- 모든 탐지에 대해 객체를 분할하거나, keypoints를 예측
+- 각 작업에 대해 탐지의 경계 상자를 약간 확장하고 확장된 상자에서 heatmap을 예측
+- Heatmap이 encoding하는 정보의 유형은 특정 작업에 따라 다름
+- 분할의 경우, heatmap은 특정 위치가 객체 내부에 있을 확률
+- Part labeling의 경우 각 part에 대해 별도의 heatpmap을 예측하며, 각 heatmap은 해당 위차가 해당 부분에 속할 확률을 나타냄
+- Keypoint prediction의 경우에도 각 keypoint에 대해 별도의 heatmap을 출력하여, 각 heatmap은 keypoint가 특정 위치에 있을 확률
+- 각각의 경우 50 x 50 heatmap을 예측하여 확장된 경계 상자의 크기에 맞게 크기를 조정하고 사진에 표시
+
+ ### Computing the hypercolumn representation
+ - 경계 상자를 잘라서 고정된 크기로 조정하고 합성곱 신경망에 입력
+ - 합성곱 신경망의 모든 중간 출력들은 feature map
