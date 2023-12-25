@@ -56,3 +56,9 @@
  ### Computing the hypercolumn representation
  - 경계 상자를 잘라서 고정된 크기로 조정하고 합성곱 신경망에 입력
  - 합성곱 신경망의 모든 중간 출력들은 feature map
+ - CNN 층들은 서로 다른 해상도를 지니고 있음
+ - 이는 어떠한 단위가 어느 특정 위치에 있는지 모호하게 함
+ - 위와 같은 문제를 쌍선형 보간법으로 해결
+ - 이처럼 몇몇 feature map 또는 모든 feature map을 이어 붙이게 되면 각 위치에서의 hypercolumn을 알 수 있음
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/adc3f5d8-1855-4ebb-b8a3-15133d29b5bb)
