@@ -41,5 +41,12 @@
 - L1 loss와 GIoU loss를 사용한 전체 경계 상자 손실은 위와 같음
 - $\lambda_{iou}$, $\lambda_{L1}$은 두 term 사이를 조정하는 scalar hyperparameter
 - 두 손실은 mini-batch 내 객체의 수에 따라 정규화
--  
+
+## Transformer for NLP task vs DETR transformer
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/958f2978-f17f-4ede-ad04-d4eddde12632)
+
+
+
+
 
