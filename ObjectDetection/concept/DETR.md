@@ -46,7 +46,10 @@
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/958f2978-f17f-4ede-ad04-d4eddde12632)
 
-
+- Encoder-Decoder
+- DETR은 encoder에서 image feature map을 받음
+- CNN backbone에서 feature map을 추출한 이후, 1 x 1 convolution filter를 거쳐 차원을 줄임. 그리고 평탄화하여 encoder에 입력
+- x, y, axis가 있는 2D 크기의 feature map을 입력받기 때문에 기존의 postional encoding 2D 차원을 일반화시켜 spatial postional encoding 수행
 
 
 
