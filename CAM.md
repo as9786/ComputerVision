@@ -14,6 +14,8 @@
 - 그 결과 GAP layer로 들어오는 feature map의 channel 수와 동일한 길이의 vector를 얻게 됨
 - GAP에서 산출된 vector를 입력으로 사용
 
+## 과정
+
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/6ba73560-98a6-4aa8-92c0-cc2b19fbfeb1)
 
 - 위의 그림에서는 6차원 vector가 입력
@@ -21,7 +23,13 @@
 - 가중치는 학습을 통해서 계산
 - 가중치 1부터 가중치 6까지를 각 feature map에 곱한 뒤 각 pixel 별로 더해주어 최종 heatmap 출력
 
+## 결론
 - 단순하지만 그럴 듯한 결과를 보임
 - 마지막 합성곱 층을 통과한 feature map은 입력 사진의 전체 내용을 함축하기 때문
 - 중간에 존재하는 feature map에 대해서는 CAM을 통해 heatmap을 추출할 수 없음
+
+## 단점
+- GAP과 전결합 계층을 반드시 사용하여야 함
+- 전결합 계층의 가중치를 구하기 위해 학습해야 함
+- 마지막 feature map만 활용 가능
 
