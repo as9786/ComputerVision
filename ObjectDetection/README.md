@@ -14,3 +14,7 @@
 
 ### DarkNet-53
 - https://kr.mathworks.com/help/deeplearning/ref/darknet53.html
+
+# WBF
+- https://velog.io/@seongkeun/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0-Weighted-boxes-fusion-Ensembling-boxes-from-different-object-detection-models
+- https://lv99.tistory.com/74
