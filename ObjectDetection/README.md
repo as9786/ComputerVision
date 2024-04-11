@@ -6,6 +6,7 @@
 ### 비 최대 억제
 - https://deep-learning-study.tistory.com/403
 - https://wikidocs.net/163295
+- https://ctkim.tistory.com/entry/Non-maximum-Suppression-NMS
 
 ## YOLOv3
 - https://ropiens.tistory.com/43
