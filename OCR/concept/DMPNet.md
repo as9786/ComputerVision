@@ -43,4 +43,24 @@
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/510c5ce3-7ad6-49cf-b815-514e59ef3760)
 
+### 2.2 Finely localize text with quadrangle
+
+- 4개의 좌표를 예측
+- 4개의 좌표 순서를 정해주는 것이 중요
 - 사각형이 아닌 다각형의 영역을 계산
+
+#### Sequential protocol of coordinates
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/e96ee9dd-1b58-47de-8d6f-a4d6976984fb)
+
+- 먼저 최소값 x를 갖는 첫 번째 점을 결정. 두 점이 동시에 최소값 x를 가지면, 더 작은 값 y를 가진 점을 첫 번째 점으로.
+- 둘째로 첫 번째 점과 나머지 세 점을 연결하고, 중간 기울기를 갖는 선에서 세 번째 점을 찾음.
+- 두 번째, 네 번째 지점은 중간선의 반대편에 있다.
+- 두 개의 좌표와 8개의 길이를 예측 $(x, y, w_1, h_1, w_2, h_2, w_3, h_3, w_4, h_4)
+- x,y는 중앙 좌표
+- $w_i, h_i$는 i 번째 점에서의 상대적 위치
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/1805e10b-5df1-4c62-a62e-82779677e681)
+
+
+
