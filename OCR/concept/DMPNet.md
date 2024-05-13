@@ -62,5 +62,17 @@
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/1805e10b-5df1-4c62-a62e-82779677e681)
 
+### 2.3 Smooth Ln loss
+
+- Smoothing L1 loss는 L2 loss에 비해 이상치에 덜 민감
+- 그러나 data를 조정하는데 있어서 충분히 안정적이지 않음
+- Smoothing Ln loss는 조금의 미세한 조정이 회귀선을 크게 움직이지 않게 만들고, 작은 문자에 대한 성능을 향상
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/6c93f451-4cbf-4ace-bfd6-35715b741bc9)
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/da902a90-ce6d-4375-bb75-ae473689aa23)
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/539a89c1-712c-49ba-a974-110cd2110e40)
+
 
 
