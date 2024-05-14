@@ -42,4 +42,6 @@
 - 전통적으로 text detection은 문자들을 검출하기 위해 hand-crafting features를 사용하는 방식으로 연구
 - 객체 탐지와 객체 분할의 발전으로 text detection 연구 방향의 변화가 생김
 - SSD와 faster R-CNN family 등을 활용하여 text detector 구축
-- Text에 대해 회귀 기반 모형을 적용한 논문은 TextBoxes(SSD에 종횡비가 긴 기본 상자 추가) 
+- Text에 대해 회귀 기반 모형을 적용한 논문은 TextBoxes(SSD에 종횡비가 긴 기본 상자 추가)
+- 회귀 기반 모형들이 방향에 대처할 수 있도록 모형 수정(DMPNet, Rotation-Sensitive Regression Detector)
+- 
