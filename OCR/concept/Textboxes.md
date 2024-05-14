@@ -30,4 +30,19 @@
 
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/f13ab115-5e7a-489b-8770-01121c967f3d)
 
+- 파란색(중심, 종횡비 1), 검은색(중심, 종횡비 5), 빨간색(아래, 종횡비 1), 초록색(아래, 종횡비 5)
 
+#### 손실 함수
+- 수 만개의 기본 상자에서 (dx, dy, dw, dh, c1, c2) 값이 산출
+- Total loss = Confidence loss + location loss
+- Confidence loss : Softmax, location loss : Smoothing L1 loss
+- 모든 기본 상자에서 나온 예측 값을 사용하지 않음. Positive와 negative로 분류
+- Jaccard overlap >= 0.5 => Positive
+- Jaccard overlap < 0.5 => Negative
+- Negative : Positive = 3 : 1(Hard negative mining)
+- Location loss에서는 positive box만 사용. Confidence loss에서는 둘 다 사용
+
+### 2.2 Non Maximum Suppresion
+
+- 수많은 예측값 중 진짜 예측 값을 정해야 함
+- NMS로 예측값 확정
