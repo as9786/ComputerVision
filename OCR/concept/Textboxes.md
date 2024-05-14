@@ -1,4 +1,4 @@
-![image](https://github.com/as9786/ComputerVision/assets/80622859/d7c20189-f8e5-48e9-9f60-b27f9b976c8f)# Textboxes: A Fast Text Detector with a single Deep Neural Network(2016)
+# Textboxes: A Fast Text Detector with a single Deep Neural Network(2016)
 
 ## 1. 서론
 
