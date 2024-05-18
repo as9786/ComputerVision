@@ -44,4 +44,18 @@
 - SSD와 faster R-CNN family 등을 활용하여 text detector 구축
 - Text에 대해 회귀 기반 모형을 적용한 논문은 TextBoxes(SSD에 종횡비가 긴 기본 상자 추가)
 - 회귀 기반 모형들이 방향에 대처할 수 있도록 모형 수정(DMPNet, Rotation-Sensitive Regression Detector)
+- Text에 맞춰 조정된 자체적인 신경망 개발
+- 객체 탐지 모형은 IoU와 F1 score를 사용하여 평가
+- 후보 경계 상자와 정답 경계 상자가 겹치는 정도를 총 공간으로 나눈 값
+- 임계값을 선택하여 어떤 상자가 true positive로 계산되는지 결정(나머지는 false positive)
+
+#### 3.1.2 Text Detection as Instance Segmentation
+- Text는 보통 조밀하며, 문서는 자연 영상보다 훨씬 더 많은 text 정보를 포함
+- 이러한 밀도 문제를 대처하기 위해 instance segmentation task로 철
+- 영상 내 pixel을 미리 정의된 특정한 category로 분류
+- Text boundary, characters, 인접한 characters 간의 관계에 대한 확률을 추정
+- FCN과 같은 분할 기법 사용. Text가 잘못 정렬되었거나 왜곡된 경우를 위해 객체 탐지 모형 개선
+- 분할 결과로부터 직접 경계 영역을 추출하여 단어 경계 영역 확보
+- TextSnake는 FCN에서 text 영역, 중심선, 방향, 후보 반경 등을 예측
+- Striding algorithm과 결합하여 중앙 축 점(central axis points)를 추출하여, text instance 재구성
 - 
