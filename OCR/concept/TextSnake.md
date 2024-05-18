@@ -15,4 +15,19 @@
 ![image](https://github.com/as9786/ComputerVision/assets/80622859/16e96169-997e-4853-ba0f-9210a38eefdb)
 
 - (a)는 일반적인 경계 상자. Text의 비중은 절반이고, 나머지는 text 영역이 아님
-- 
+- (b)의 경우에는 경계 상자를 기울이며 영역을 높임. 그럼에도 상자의 영역을 벗어나는 부분 존재
+- (c)도 영역의 비중이 높지 않음
+- (d)는 문자 영역에 최대한 비중을 두어 글자 외의 배경을 최소화
+
+## 방법
+
+### 표현
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/1ffd9532-98dc-4f82-a50e-2ffa5e5c3038)
+
+- Disk로 영상을 탐지
+- 글자 중심을 기준으로 disk의 위치 c, 반지름 r, tangent 방향 $\theta$ 값으로 영상 내에서 글자를 표시
+
+### Pipeline 
+
+
