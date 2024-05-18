@@ -8,3 +8,8 @@
 
 ## EAST
 - https://eureka7.tistory.com/54
+
+# Text recognition
+
+## TextSnake
+- https://eair.tistory.com/63
