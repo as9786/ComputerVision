@@ -58,4 +58,9 @@
 - 분할 결과로부터 직접 경계 영역을 추출하여 단어 경계 영역 확보
 - TextSnake는 FCN에서 text 영역, 중심선, 방향, 후보 반경 등을 예측
 - Striding algorithm과 결합하여 중앙 축 점(central axis points)를 추출하여, text instance 재구성
-- 
+
+### 3.2 Word-level versus character-level
+
+- CRAFT는 FCN model을 사용하여 각 문자에 대한 2차원의 gausiian heatmap 출력
+- 그 후 서로 가까운 문자들은 문자들의 집합으로 묶음
+- RPN을 사용하여 획득한 global, word-level, character-level의 특징들을 결합
