@@ -17,4 +17,8 @@
 - CNN을 backbone으로 사용하지 않음. 단순하지만 효과적
 - ViT를 따라 입력 영상을 384 x 384 크기로 조정하고, 해당 영상은 16 x 16 patch sequence로 분할되어 입력으로 사용
 - Self attention은 encoder와 decoder에서 활용되며, 입력 영상에서 인식된 글자로서 wordpiece 단위가 생성
-- 
+- TrOCR 모형을 효과적으로 학습하기 위해, encoder는 사전 학습된 ViT를 사용, decoder는 pretrained BERT
+- 장점
+1. 외부 언어 모형이 필요가 없음
+2. Backbone을 위한 어떠한 합성곱 신경망도 필요하지 않음
+3. 특정 귀납적 편향이 존재하지 않아 모형을 매우 쉽게 구현할 수 있음
