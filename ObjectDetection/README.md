@@ -1,3 +1,9 @@
+# 객체 탐지
+
+- Computer vision과 image processing과 관련된 computer technique
+- Digital image and video로 특정한 계열의 semantic segmentation instance를 감지하는 일
+- 얼굴 검출, 보행자 검출이 포함
+
 # YOLO 
 
 ## YOLOv1
