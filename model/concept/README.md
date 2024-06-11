@@ -21,3 +21,6 @@
 
 # DCN
 - https://deep-learning-study.tistory.com/575
+
+# Swin transformer v2
+- https://silhyeonha-git.tistory.com/14
