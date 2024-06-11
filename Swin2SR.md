@@ -14,4 +14,16 @@
 - 전통적인 방식보다 deep learning based method가 더 좋은 성능을 보임
 - 하지만 합성곱 신경망 기반은 문제가 있음
 - Transformer는 전역 정보를 포착하면서 몇몇 vision problems에서 괄목할만한 성과를 보임
-- 
+1. Transformer는 long-range dependency modeling이 가능(Shifted window mechanism)
+2. 적은 가중치로도 더 좋은 성능을 보임
+
+## Our method
+
+- SwinIR은 기반으로 수정
+- RSTB를 swin transformer v2 사용
+- 또한 bicubic interpolation 사용
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/549c96f9-0cdf-4038-9d6d-0c2b24583020)
+
+
+
