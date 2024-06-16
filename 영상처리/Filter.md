@@ -18,4 +18,8 @@
 - 평균과 표준 편차에 따라 분포 모양이 결정(영상에서는 주로 평균이 0인 분포 사용)
 - 평균이 0이고 표준 편차가 $\sigma$인 1차원 정규 분포의 함수식은 아래와 같음
 - $G_\sigma (x) = \frac{1}{\sqrt{2\pi \sigma^2}}exp^{-\frac{x^2}{2\sigma^2}}$
-- 
+
+![image](https://github.com/as9786/ComputerVision/assets/80622859/da4820da-ffe0-4d6f-bb37-30dfb2cadca5)
+
+- 2차원일 경우는 아래와 같음
+- $G_\sigma (x,y) = \frac{1}{\sqrt{2\pi \sigma^2}}exp^{-\frac{x^2+y^2}{2\sigma^2}}$
