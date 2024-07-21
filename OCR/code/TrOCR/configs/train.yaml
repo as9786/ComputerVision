@@ -1,0 +1,14 @@
+device: 'cuda:3'
+
+data: 
+  train_img_dir: "/workspace/ojt/OCR/dataset/TextRecognition/ori/"
+  train_csv_dir: "/workspace/ojt/OCR/dataset/TextRecognition/ori/final_data.csv"
+  valid_rate: 0.3
+
+max_length: 32
+
+train:
+  epochs: 20
+  batch_size: 128
+  learning_rate: 0.0001
+

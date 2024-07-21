@@ -1,0 +1,4 @@
+infer_dir: '/workspace/ojt/OCR/dataset/infer/text_data/'
+checkpoint: null
+output_path: './output.csv'
+device: 'cuda:3'
