@@ -1,0 +1,13 @@
+model_name: "yolov8n.pt"
+data_yaml: './configs/ocr.yaml'
+resume: True
+resume_checkpoint: '/workspace/ojt/OCR/YOLO/runs/detect/best_yolov8n_add/weights/last.pt'
+
+train:
+  epochs: 100
+  image_size: 4096
+  batch_size: 4
+  patience: 5
+  learning_rate: 0.0001
+
+save_name: 'best_yolov8n_add'

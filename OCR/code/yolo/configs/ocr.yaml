@@ -1,0 +1,8 @@
+path: /workspace/ojt/OCR/dataset/yolo/datasets
+train: /workspace/ojt/OCR/dataset/yolo/datasets/train
+val: /workspace/ojt/OCR/dataset/yolo/datasets/val
+test: test
+
+names:
+  0: Background
+  1: Text
