@@ -24,3 +24,7 @@
 
 # Swin transformer v2
 - https://silhyeonha-git.tistory.com/14
+
+# RepVGG
+- https://mi-nye.tistory.com/14
+- https://mole-starseeker.tistory.com/87
