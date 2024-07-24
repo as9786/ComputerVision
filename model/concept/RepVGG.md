@@ -57,3 +57,9 @@
 - 1 x 1 convolution weights와 identity conv를 모두 3 x 3 conv로 바꾸는 것. conv + BN을 conv + bias로 교체
 
 ![image](https://github.com/user-attachments/assets/46ebafd6-32b2-48fb-ac2d-b51ca6c79230)
+
+- zero padding을 통해서 각 conv filter를 3 x 3 conv filter 형태로 바꾸어 줌
+
+![image](https://github.com/user-attachments/assets/e1cd11ed-fca3-44ba-a860-e9ab72405597)
+
+- 바꾸어 주게 되면 활성화 함수가 없기 때문에 3 x 3 합성곱층이 선형적으로 쌓여 있는 구조로 변환
