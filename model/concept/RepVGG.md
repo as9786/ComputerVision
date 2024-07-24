@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/27e3f094-246a-4650-bf2a-b5cba25b99ae)- 훈련 때는 3 x 3, 1 x 1, identity convolution으로 이루어진 multi-branch 모형을 사용하되, 추론 때는 re-parameterization이라는 기법을 사용해 multi-branch를 3 x 3 convolution으로만 이루어진 plain modle로 바꾸어 활용
+![image](https://github.com/user-attachments/assets/27e3f094-246a-4650-bf2a-b5cba25b99ae)- 훈련 때는 3 x 3, 1 x 1, identity convolution으로 이루어진 multi-branch 모형을 사용하되, 추론 때는 re-parameterization이라는 기법을 사용해 multi-branch를 3 x 3 convolution으로만 이루어진 plain model로 바꾸어 활용
 - 이를 통해 multi-branch로 더 정교하게 훈련된 가중치와 더 빠른 추론 속도를 얻음
 - 3 x 3 convolution filter에 최적화된 추론용 hardware에 적합한 모형
 
