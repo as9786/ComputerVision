@@ -24,3 +24,6 @@
 
 # CAM
 - https://wikidocs.net/135874
+
+# Dynamic label assignment
+- https://velog.io/@hsbc/dynamic-Label-Assignment-Strategy
