@@ -69,3 +69,20 @@
 
 ![image](https://github.com/user-attachments/assets/b52519c5-f8b0-4e8e-b20e-ad8dc2848acc)
 
+#### Vanilla RNN
+- 입력층과 출력층 사이에 은닉층을 가짐
+- Sequence가 길어지게 되면 경사 소실 문제 발생
+
+#### LSTM
+- Memory cell, input gate, output gate, forget gate로 구성
+- 장기의존성 보존
+
+#### Bidirectional LSTM
+- LSTM은 방향성이 있고, 오직 과거의 문맥 사용
+- Image sequence에서는 양방향성으로 나온 문맥이 훨씬 유용하고 상호 보완적
+
+#### Transcription
+- 순환 신경망으로부터 만들어진 frame 당 예측을 label sequence로 변환하는 과정
+- Frame 당 예측이 가장 높은 확률과 함께 label sequence를 찾는 것
+- 사전이 있는 lexicon-based transcriptions, 사전이 존재하지 않는 lexicon-free
+
