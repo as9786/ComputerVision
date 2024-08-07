@@ -73,5 +73,12 @@
 
 ![image](https://github.com/user-attachments/assets/c864e500-0269-43a0-8b0e-2ab5f3feefec)
 
+- $Z_T$는 index sequence의 가능한 모든 순열 집합을 의미
+- Text label y를 실제로 섞을 필요는 없음
+- z에 의해 구체적인 순서를 강요하는 attention mask를 생성
+- Input sequence와 output sequence의 순서는 유지되는 반면, 네 가지 순열이나 factorization order에 의해 지정된 다른 자기 회귀 모형
+- 기존의 자기 회귀 모형은 하나의 순열만이 사용된 PLM의 special case
+- 하지만 모든 T에 대해서 순열 집합을 계산하는 것은 비효율적
+- 
 
 
