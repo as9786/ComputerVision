@@ -54,6 +54,9 @@
 - Position token은 예측된 target position을 encode
 - 각각의 출력은 specific position에 대응
 - Mask는 학습동안, 임의의 순열으로부터 생성. 추론 시에는 left-to-right mask, cloze mask, no mask가 생성
+
+![image](https://github.com/user-attachments/assets/aaa4e289-80df-463b-af8f-8ff1914d8e2d)
+
 - 두 번째 MHA에서는 image-position attention이 사용
 
 ![image](https://github.com/user-attachments/assets/529ced6d-1385-40a2-8bfd-6756bb945d9c)
@@ -79,6 +82,26 @@
 - Input sequence와 output sequence의 순서는 유지되는 반면, 네 가지 순열이나 factorization order에 의해 지정된 다른 자기 회귀 모형
 - 기존의 자기 회귀 모형은 하나의 순열만이 사용된 PLM의 special case
 - 하지만 모든 T에 대해서 순열 집합을 계산하는 것은 비효율적
-- 
+- T! 중에서 K개만을 사용(K는 균등분포에서 추출)
+- 앞의 절반은 left-to-right permutation([1,2,3,...,T])와 K/2 - 1 순열을 선택
+- 나머지 절반은 처음 구성된 순열을 뒤집음
+
+![image](https://github.com/user-attachments/assets/bc840576-351c-4789-a228-421c3a800b07)
+
+- Padding token은 연산에서 제외
+
+### Decoding Schemes
+
+#### 자기 회귀
+- 각 반복당 하나의 새로운 token을 생성
+
+#### Non-AutoRegressive(NAR)
+- 모든 출력 token을 한 번에 생성
+- Attention mask가 사용되지 않음
+
+#### Iterative refinement
+
+- Cloze attention mask가 사용
+
 
 
