@@ -42,4 +42,17 @@
 - 그러므로 항상 시간이 오래 걸림
 
 ### 단어 단위 방법
+- 일반적인 객체 탐지 방법 사용
+- CTPN(CNN+RNN), TextBoxes, TextBoxes++
+- 해당 방식은 직사각형에 어울림
+- 다양한 형태의 글자에 대비하기 위해 instance segmenation 방법들이 제안됨
+- SPCNet, PSENet
+
+## 3. 방법론
+
+### 3.1 Framework
+- 여러 단계에서 특징 표현을 추출하고 이를 합치는 과정
+- 5개의 구성 요소(FPN, RPN, 의미적 분할, 탐지, instance segmentation)
+- Backbone : ResNet + FPN
+- 글자 영역 제안을 위해 RPN 사용
 - 
