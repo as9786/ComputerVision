@@ -55,4 +55,6 @@
 - 5개의 구성 요소(FPN, RPN, 의미적 분할, 탐지, instance segmentation)
 - Backbone : ResNet + FPN
 - 글자 영역 제안을 위해 RPN 사용
+- Semantic segmentation branch를 도입함으로써, 입력 사진의 전역 단계의 특징들을 얻는데 도움을 줌
+- 그 후 category를 예측하고 경계 상자 회귀를 채택하여 글자 영역 제안을 조정하는 detection branch에서 단어 및 전역 수준의 정보들을 융합하여 단어와 문자 모두를 감지
 - 
