@@ -75,3 +75,23 @@
 
 ![image](https://github.com/user-attachments/assets/3db77b9b-d6fc-4d30-a317-dc2336259b38)
 
+- Mask branch에서는 문자, 단어, 전역 단계의 특징들을 합침
+- 다른 경로에서 multi-level features를 추출하고, 더 풍부한 정보를 위해 합침
+
+![image](https://github.com/user-attachments/assets/abb5f628-50a2-445e-b657-19e8408417d7)
+
+- $r_i$ : 입력 단어, $C_i$ : 문자 결과, b : 경계 상자, $c_j$: 문자, T : 임계값(기본값=0.8)
+- $C_i$가 단어 후보 영역에 속하는지 교차 비율을 기준으로 식별
+- 단어 상자가 문자를 완벽히 덮으면 1, 그렇지 않으면 0
+- 감지된 단어에 대해 문자들의 수가 고정되어 있지 않기 때문에, 해당 단어에 속하는 문자들의 특징을 하나의 통합된 표현으로 나타냄
+
+### 전체 목표
+
+![image](https://github.com/user-attachments/assets/56e57d8d-40c0-407b-b46c-68de9686319f)
+
+### 3.4 약한 지도 학습
+- TextFuseNet은 단어와 문자를 모두 학습해야하기 때문에 annotation이 많이 필요
+- 하지만 모든 dataset이 textfusenet에 맞는 정보를 제공하지 않음
+- Character annotation을 만드는 것은 비용이 많이 들기 때문에 약한 지도 학습 방법 제시
+- 
+
