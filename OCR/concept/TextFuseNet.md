@@ -57,4 +57,21 @@
 - 글자 영역 제안을 위해 RPN 사용
 - Semantic segmentation branch를 도입함으로써, 입력 사진의 전역 단계의 특징들을 얻는데 도움을 줌
 - 그 후 category를 예측하고 경계 상자 회귀를 채택하여 글자 영역 제안을 조정하는 detection branch에서 단어 및 전역 수준의 정보들을 융합하여 단어와 문자 모두를 감지
-- 
+- Mask branch : Detection branch에서 탐지된 객체에 instance segmentation 적용.
+- 최종적으로는 각 branch에서 추출된 특징들을 합쳐서 글자 탐지
+
+### 3.2 Multi-level Feature Representation
+- ROIAlign 사용
+- Semantic segmentation brach는 FPN 구조
+- 병합을 위해 1 x 1 convolution filter 사용
+
+### 3.3 Multi-path Fusion Architecture
+- Detection branch와 mask branch에 적용
+- Detection branch에서 전역 및 단어 단위의 정보를 추출함
+- Detection branch에서는 아직 문자 예측을 안했기 때문에 문자 단위의 정보를 활용할 수 없음
+- FPN의 결과에서 RoIAlign을 적용하여 정보 추출
+- 그 후 원소별 합과 합성곱층을 통해서 최종적인 feature map 추출
+- 해당 feature map은 분류와 경계 상자 회귀에 사용됨
+
+![image](https://github.com/user-attachments/assets/3db77b9b-d6fc-4d30-a317-dc2336259b38)
+
