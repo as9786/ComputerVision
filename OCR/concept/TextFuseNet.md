@@ -93,5 +93,12 @@
 - TextFuseNet은 단어와 문자를 모두 학습해야하기 때문에 annotation이 많이 필요
 - 하지만 모든 dataset이 textfusenet에 맞는 정보를 제공하지 않음
 - Character annotation을 만드는 것은 비용이 많이 들기 때문에 약한 지도 학습 방법 제시
-- 
+- 문자와 글자를 모두 학습한 사전 학습 모형 준비
+- 단어 데이터셋 A에 대해, 사전 학습된 모형 M을 통해서 문자를 추론하는 것이 목표 
+- 먼저, A에 대해 M을 적용
+- 문자 후보 표본을 얻을 수 있음
+- $R={r_0(c_0,s_0,b_0,m_0), r_1(c_1,s_1,b_1,m_1)..., r_i(c_i,s_i,b_i,m_i)}$
+- c : Category, s : Confidence score, b : Bounding box, m : Mask, r : 영역
+- Confidence score 임계값과 단어 수준의 정답을 기반으로 false positive를 거르고, positive character samples를 얻음
+
 
