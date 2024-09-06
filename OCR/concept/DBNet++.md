@@ -19,4 +19,11 @@
 - Pixel clustering과 같은 heuristic technique 사용(Group pixel -> 글자 영역)
 - 이는 분할 신경망의 학습 과정 이외로 처리해주어야 함
 - 효과적으로 하기 위해 이진화 작업을 분할 신경망에 추가(Joint optimization, 빨간색 선)
-- 
+- DBNet과 다른 점은 크기 견고성을 향상시키기 위해 multi-scale feature maps를 합침(ASF module)
+
+## 2. 방법
+
+![image](https://github.com/user-attachments/assets/cd5994f1-b011-4339-acec-bb42efa7ce02)
+
+
+
