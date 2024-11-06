@@ -63,6 +63,32 @@
 
 - n : 꼭짓점 수
 - 글자 감지 영역을 설정하기 위해 원래의 글자 다각형 영역(G)을 축소하여 positive area 생성(Vatti clipping algorithm)
+
+![image](https://github.com/user-attachments/assets/679054a9-0af6-42d6-872f-0616a6df2519)
+
+- D : offset of shrinking, L : 둘레, A : 넓이, r : shrink ratio(default=0.4)
+- 비슷한 과정으로 threshold map으로부터 labels를 생성할 수 있음
+- 기존 축소된 text polygon $G_{s}$과 유사하게 G를 D만큼 확장하여 $G_d$ 생성. $G_d$는 글자 경계 너머의 외곽 영역을 포함
+- $G_s$와 $G_d$ 사이의 공간을 경계 영역으로 간주
+- 경계 영역 내의 각 pixel에 대해 이 pixel이 글자 경계에 얼마나 가까운지 가장 가까운 G의 선분까지의 거리를 계산
+- 이 거리가 threshold map 각 pixel label이 됨
+- 경계에 가까운 pixel은 낮은 값, 멀리 떨어진 pixel은 높은 값으로 설정
+
+#### 최적화
+
+- $ L = L_s + \alpha \times L_b + \beta \times L_t$
+- $L_s$ : Probability map loss, $L_b$ : Binary map loss, $L_t$ : Threshold map loss, $\alpha$ : default=1, $\beta$ : default=10
+- $L_s$, $L_b$는 BCE loss 사용
+- Hard negative mining 적용
+
+![image](https://github.com/user-attachments/assets/ec1ce869-d52c-4284-bc93-9aef27156145)
+
+- $S_l$ : 표본 집합. Positive sample : Negatvie sample = 1 : 3
+- $L_t$는 L1 loss 사용
+
+![image](https://github.com/user-attachments/assets/d3a91ad5-198b-4dfc-8a2c-76303b052b89)
+
+- $R_d$ : $G_d$ 내부 pixel, $y^*$ : threshold label
 - 
 
 
