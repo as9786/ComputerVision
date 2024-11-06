@@ -20,14 +20,51 @@
 - Pyramid features는 같은 크기로 up-sampled된 후 위로부터 정보 전달이 되어 F라는 feature 생성 
 - Feature pyramid 구조를 통해서 크기 변화에 강건하게 만듦
 - F를 사용해서 probability map(P)과 threshold map(T) 생성
-- Binary map($\hatB$)dms P와 F에 의해서 계산 
+- Binary map($\^{B}$)은 P와 F에 의해서 계산
+- 학습 기간 동안, P, T, $\^{B}$가 최신화됨. P와 $\^{B}$는 같은 손실 함수를 공유
+- 추론 과정에서는 box formulation module을 통한 $\^{B}$ 또는 P로부터 경계 상자를 얻음
 
-![image](https://github.com/user-attachments/assets/f88b915f-f400-4801-a261-48f1fe3a3af9)
+### 이진화
 
-- i, j : 좌표, t : 미리 정의한 임계점, T : Adaptive threshold, K : Amplifying factor, $\hat B$ : Approximate binary map
-- 고정된 숫자에서 0과 1을 나누는 것이 아니라, 학습된 값을 기준으로 나누도록 DB 적용
+#### 표준 이진화(Standard binarization)
 
-![image](https://github.com/user-attachments/assets/3667d020-8bc6-4377-8f7a-9cce009bea3a)
+- 분할 신경망으로부터 생성된 $P \in R^{HXW}$가 주어졌을 때, 이것을 binary map ($P \in R^{HXW}$)으로 전환
+- 글자가 있는 영역은 1
+- 보통 binarization map은 아래와 같이 표현
 
-- (a) : Input image, (b) L Probability map, (c) : Threshold map without supervision, (d) : threshold map with supervision
-- 합성곱 신경망은 입력 영상의 종횡비가 획일적이라 다양한 종횡비를 대처하기 어려우므로 deformable convolution network 사용
+![image](https://github.com/user-attachments/assets/14e05db0-c7a2-4ebd-8a2d-9263f2ec555f)
+
+- t : 사전 정의된 임계값
+
+#### Differentiable binarization
+
+- 표준 이진화는 학습 동안 분할 신경망과 함께 최적화될 수 없음
+- 이 문제를 해결하기 위해 근사 계단 함수를 통해서 이진화를 수행
+
+![image](https://github.com/user-attachments/assets/96519264-ca2d-499b-aae9-35692a87a749)
+
+- k : Amplifying factor(기본값 = 50)
+- 표준 이진화와 유사하지만 분할 신경망 학습 도중에 같이 최적화되는 부분이 차이
+- 이는 배경과 글자를 분리하는데 도움을 줄 뿐만 아니라 서로 다른 text instances를 분리하는데도 도움을 줌
+
+#### Adaptive threshold
+- 글자와 배경을 효과적으로 구분하기 위해 pixel마다 다르게 설정되는 임계값
+
+#### Deformable convolution
+- 보다 유연한 수용 영역을 제공. 이는 극단적인 종횡비를 가진 text instance에서 장점을 가짐
+
+#### Label generation
+
+![image](https://github.com/user-attachments/assets/8c69bde5-f698-439e-b7dc-9df22985d515)
+
+- 글자 영상이 주어졌을 때, 글자 영역의 각 다각형은 부분 집합으로 표현됨
+
+![image](https://github.com/user-attachments/assets/34c29663-29e8-4218-81cf-951fadb213a8)
+
+- n : 꼭짓점 수
+- 글자 감지 영역을 설정하기 위해 원래의 글자 다각형 영역(G)을 축소하여 positive area 생성(Vatti clipping algorithm)
+- 
+
+
+
+
