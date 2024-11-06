@@ -5,7 +5,7 @@
 - 해당 방법은 회전되거나 기울어진 영상에서도 좋은 성능을 보이나 후처리가 복잡해 연산량이 많음
 - 정확도 향상을 위해 progressive scale expansion을 숭핸 PSENet, 분할 결과에 pixel embedding을 하는 방법으로 pixel 간 거리를 군집화하는 방법이 SOTA
 - 기존 방식은 분할 신경망을 이진화된 영상으로 만들기 위해 고정된 임계값을 사용
-- 해당 논문은 임계값을 학습
+- 해당 논문은 이진화 과정을 분할 신경망에 직접 삽입하여, 분할과 이진화를 함께 최적화 => 각 위치마다 적응형 임계값(adaptive threshold)을 자동으로 예측 
 - Joint optimization = Binarization operation + Segmentation network
 
 ![image](https://github.com/user-attachments/assets/356ea1c8-44bf-412d-9536-22b97de317ff)
