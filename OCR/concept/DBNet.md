@@ -16,9 +16,11 @@
 
 ![image](https://github.com/user-attachments/assets/4f1f9da5-1938-448f-8e78-b480302ce849)
 
-- 입력 영상은 Feature-Pyramid Backbone(FPB)으로 넣음
+- 입력 영상은 Feature-Pyramid Backbone으로 넣음
+- Pyramid features는 같은 크기로 up-sampled된 후 위로부터 정보 전달이 되어 F라는 feature 생성 
 - Feature pyramid 구조를 통해서 크기 변화에 강건하게 만듦
-- 최종적인 feature map을 사용해서 probability map과 threshold map 생성
+- F를 사용해서 probability map(P)과 threshold map(T) 생성
+- Binary map($\hatB$)dms P와 F에 의해서 계산 
 
 ![image](https://github.com/user-attachments/assets/f88b915f-f400-4801-a261-48f1fe3a3af9)
 
