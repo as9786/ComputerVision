@@ -25,5 +25,20 @@
 
 ![image](https://github.com/user-attachments/assets/cd5994f1-b011-4339-acec-bb42efa7ce02)
 
+1. 영상을 FPN에 입력
+2. Pyramid features는 같은 크기로 upsampling 후에 ASF(Adaptive Scale Fusion)의 입력으로 들어감. 그 후, contextual feature F를 출력. F는 probability map(P)와 threshold map(T)를 예측하는데 사용
+3. P와 F를 통해서 approximate binary map($\^{B}$)을 계산
+- 학습 시에는 지도 학습 방식이 P, T, $\^{B}$에 적용($\^{B}$와 P는 손실 함수를 공유)
+- 추론 시에는 $\^{B}$ 또는 P을 통해서 경계 상자를 예측
+
+### 3.1 Adaptive Scale Fusion
+
+- 다른 크기의 특징들은 다른 수용 영역을 지님. 그러므로 다른 크기의 text instances에 집중을 하게 됨
+- 얕고, 크기가 큰 특징들은 작은 글자들을 잡아냄.
+- 단순히 더하거나 연쇄적으로 합치는 기존의 분할 방법과 다르게, ASF는 동적으로 다른 크기의 특징들을 합침
+- ASF module에 들어가기 전에 모든 feature maps은 같은 크기로 조정
+
+![image](https://github.com/user-attachments/assets/ee5273d3-edfa-42aa-b698-2444139b4404)
+
 
 
