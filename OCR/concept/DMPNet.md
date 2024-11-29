@@ -1,5 +1,7 @@
 # Deep Matching Prior Network: Toward Tighter Multi-oriented Text Detection
 
+$\approx$
+
 ## 초록
 
 - 그 동안은 직사각형의 경계 상자만을 사용
