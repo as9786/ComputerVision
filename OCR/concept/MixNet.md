@@ -17,3 +17,8 @@
 
 ![image](https://github.com/user-attachments/assets/98073091-25c7-4011-83b6-23e300f2d289)
 
+- FSNet과 후처리를 통해서 글자 윤곽의 점들을 구함
+- 해당 윤곽의 점들중 P개의 점들과 image sequence가 CTBlock의 입력으로 사용
+- 첫 번째 transformer module은 sample point의 x와 y의 offset을 예측하고, 이들을 사용하여 글자 윤곽의 중심선을 생성
+- 해당 중심선은 sampling되고, 대략적인 윤곽의 feature seqeunce와 결합된 다음, 두 번째 transformer module에 전송되어 더 정교한 글자 윤곽을 생성
+- 
