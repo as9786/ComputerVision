@@ -12,6 +12,9 @@
 ## DBNet
 - https://suintodev.tistory.com/16
 
+## MixNet
+- https://pnnote.tistory.com/entry/MixNet-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-Text-Detection
+
 # Text recognition
 
 ## TextSnake
