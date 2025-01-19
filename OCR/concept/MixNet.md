@@ -37,3 +37,13 @@
 - Down-sample block : Downsampling
 - Shuffle layer : 각 해상도의 feature channel을 입력 수 N으로 나눔. 이 층에서의 연산은 여러 크기 간의 특징을 교환.
 - 위 세 가지 module을 통해 다양한 크기의 글자들을 noise에 덜 민감하게 함 
+
+### CTBlock
+
+- 이전 연구에서는 text instance의 주변 sampling point를 활용
+- 하지만 위와 같은 sampling point는 배경 특성을 포함하기 때문에, 글자에만 집중하는 것을 방해
+- Encoder(세 개의 층으로 구성된 tranformer block)-Decoder(Simple MLP) transformer. 
+- 각 block head에는 multi-head self attention과 MLP 포함
+- Transformer의 장점으로 주변 특징과 중심선 특징의 조합을 통해 더욱 정확한 글자 윤곽을 생성
+- 두 text instance가 가까이 위치하면, 인접한 영역의 윤곽 특징이 방해를 받을 수 있는데 중심선은 이를 분리해줌
+
