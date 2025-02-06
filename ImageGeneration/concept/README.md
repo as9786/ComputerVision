@@ -60,3 +60,6 @@
 
 # SwinIR
 - https://aistudy9314.tistory.com/76
+
+# GAN Augmentation
+- https://hellopotatoworld.tistory.com/7
