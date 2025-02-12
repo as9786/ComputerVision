@@ -15,4 +15,16 @@
 - 각 class의 평균으로 prototype을 만듦. Euclidean distance를 사용해 query point와 거리 계산
 - 가장 가까운 거리의 prototype을 결정하고 해당 class로 예측
 
+## Prototypical Networks
+
+- Few shot classification에서는 N개의 support set example이 존재. $S={(x_1,y_1), (x_2,y_2),...,(x_N,y_N)}$. $S_k$ : class k에 대한 dataset
+
+![image](https://github.com/user-attachments/assets/5f5ff1d1-b312-4a3f-b973-0444c4493caf)
+
+![image](https://github.com/user-attachments/assets/2b06e5e0-c86f-4d07-9224-948facd6df1d)
+
+- Negative log probability를 최소화. 확률적 경사 하강법 적용. Training episode는 training set에서 임의의 class를 선택하여 만듦
+- 남은 것 중 일부를 query point로 사용
 - 
+
+
