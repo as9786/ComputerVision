@@ -9,4 +9,10 @@
 ## 서론
 - Few-shot learning은 train dataset에는 없는 새로운 class에 대해 적은 data만을 가지고 있을 경우, 새로운 class를 분류하는 작업
 - ProtoNet은 각 class에 대해 single prototype representation이 있는 embedding을 기초로 접근
+- 신경망을 사용하여 embedding space를 학습. Embedding space에서 설정된 support set의 평균으로 class prototype 생성
+- ProtoNet은 각 class의 prototype 역할을 하기 위해 meta-data를 공유 공간(shared space)에 embedding하는 것을 학습
+- 분류를 수행할 때, Embedding된 query point에서 가장 가까운 class prototype을 찾음
+- 각 class의 평균으로 prototype을 만듦. Euclidean distance를 사용해 query point와 거리 계산
+- 가장 가까운 거리의 prototype을 결정하고 해당 class로 예측
+
 - 
