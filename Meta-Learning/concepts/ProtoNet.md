@@ -25,6 +25,8 @@
 
 - Negative log probability를 최소화. 확률적 경사 하강법 적용. Training episode는 training set에서 임의의 class를 선택하여 만듦
 - 남은 것 중 일부를 query point로 사용
-- 
+- Support set에 대해 혼합 밀도 추정 사용
+- 거리 계산으로는 Bregman divergences 사용(사실상 squared Euclidean distance)
+
 
 
