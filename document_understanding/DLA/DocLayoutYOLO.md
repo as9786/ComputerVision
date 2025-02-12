@@ -17,9 +17,15 @@
 2. Layout diversity : 학술 논문, 잡지, 신문 등 다양한 형식
 
 
-## Mesh-candidate BestFit
+### Mesh-candidate BestFit
 
 ![image](https://github.com/user-attachments/assets/17dbd165-6c7b-41f9-a75b-ec4b8bcfd83f)
 
-- 
-
+## 전처리
+- 문서를 유형별로 분류 후에 element pool을 구성
+- Data augmentation
+    - 뒤집기
+    - 밝기 및 대조
+    - 자르기
+    - 가장자리 추출(Sobel filter)
+    - Elastic transform & Gaussian noisification(p=1)
