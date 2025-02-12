@@ -29,3 +29,20 @@
     - 자르기
     - 가장자리 추출(Sobel filter)
     - Elastic transform & Gaussian noisification(p=1)
+
+## Layout generation
+- 2D bin packing. Layout의 다양성과 일관성을 보장. Layout으로 만들어진 사용 가능한 grid를 다양한 크기의 bins로 보고, 반복적으로 최상의 매칭을 수행하여 layout의 다양성과 미적 부분의 균형을 맞춤. => 보다 다양하고 합리적인 document layouts
+
+## G2L_CRM(Global-to-Local model architecture)
+- 자연스러운 사진과 달리 문서의 다양한 요소는 한 줄 제목, 표와 같이 크게 다를 수 있음
+- 이러한 규모 변화를 처리하기 위해서 CRM(Controllable Receptive Module)과 GL(Global-to-Local design) 두 가지 주요 구성 요소들로 구성된 계측정인 구조 도입
+- CRM : 다양한 규모와 세분화된 기능을 유연하게 추출하고 통합. GL : Global context에서 medium scale, local context 정보에 이르는 계층적인 인식 단계를 제공
+
+### CRM
+
+![image](https://github.com/user-attachments/assets/f01d69c3-4ddf-4fdd-8db5-61b07d5afa4a)
+
+- Weight-shared convolution layer(Feature extraction)
+- Dilated convolution => 다양한 세분성
+- 
+
