@@ -19,7 +19,7 @@
 ![image](https://github.com/user-attachments/assets/62d871b7-c7ff-4a9c-8802-f1754c0db191)
 
 - Vertical Sobel filter. y축을 기준으로 좌우 pixel 간의 미분을 사용
-- 수평 수직 경계를 검출기 위해서는 수평과 수직 둘 다 사용. $\sqrt{sobel_{horizontal}^2 + sobel_{vertical}_^2}
+- 수평 수직 경계를 검출기 위해서는 수평과 수직 둘 다 사용. $\sqrt{sobel_{horizontal}^2 + sobel_{vertical}_^2}$
 
 
 
