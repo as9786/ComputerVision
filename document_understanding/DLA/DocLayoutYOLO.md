@@ -44,5 +44,14 @@
 
 - Weight-shared convolution layer(Feature extraction)
 - Dilated convolution => 다양한 세분성
-- 
+
+### GL
+
+![image](https://github.com/user-attachments/assets/5da75044-7a95-4167-8881-1052f40cdb99)
+
+- Global level : Dilated convolution
+
+![image](https://github.com/user-attachments/assets/03fa2a10-d4dd-42e4-b932-c65a5e3ec34f)
+
+
 
