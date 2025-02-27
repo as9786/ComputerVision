@@ -94,6 +94,23 @@
 
 ## 4. $D^4LA Dataset$
 
+### 문서 요약
+- RVL-CDIP에서 추출
+- 12개의 문서 유형을 선택. 각 유형마다 1000장을 직업 라벨링
+- Filtering
+
+![image](https://github.com/user-attachments/assets/e561edfd-1c12-4f18-8c50-d53325c7fb57)
+
+### Category Description
+- 27가지의 layout categories
+- Key-Value로 구성된 RegionKV와 그렇지 않은 RegionList로 분류
+
+![image](https://github.com/user-attachments/assets/abceee48-5697-4719-9446-6f629dfad134)
+
+### 특징
+- 다양한 유형과 특징
+- 다만, 저화질이 많기 때문에 이를 해결해야 함
+
 
 
 
