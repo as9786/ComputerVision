@@ -51,5 +51,18 @@
 
 ![image](https://github.com/user-attachments/assets/9b431790-354e-4db8-b703-be506f75d07d)
 
+- GiT는 MGLM과 SLM으로 사전 학습
+
+### 3.1 Vision Transformer
+- 일반적이 ViT
+
+### 3.2 Grid Transformer
+- ViT와 유사
+- PDFPlumber를 사용해서 경계 상자의 단어들을 추출
+- 사진들에 대해서는 open-sourced OCR 적용
+- Tokenizer를 통해서 단어들을 sub-word로 쪼개고, 이를 단어 상자의 너비 또한 sub-word와 동일하게 나눔
+- Background pixel은 special token [PAD]로
+- 
+- 
 
 
