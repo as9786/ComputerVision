@@ -62,7 +62,38 @@
 - 사진들에 대해서는 open-sourced OCR 적용
 - Tokenizer를 통해서 단어들을 sub-word로 쪼개고, 이를 단어 상자의 너비 또한 sub-word와 동일하게 나눔
 - Background pixel은 special token [PAD]로
-- 
-- 
+
+### 3.3 Pre-Training for Grid Transformer
+- MGLM & SLM
+- VGT는 Grid 입력 내에서 시각과 언어 사전 학습을 분리. 오직 GiT만 사전 학습
+- 이유
+    1. 유연성 : ViT에는 다른 사전 학습을 적용 가능
+    2. GiT 자체에 공간적 정보를 포함하고 있음
+    3. 효율성 : 속도를 위해 
+
+#### Masked Grid Language Modeling(MGLM) 
+- MLM 2D version
+- - FPN을 통해서 GiT feature 출력
+- RoIAlign을 통해서 region textual feature를 추출
+- 이후 masking 된 지역을 복원
+- 이는 2D 공간 정보를 보존
+
+#### Segment Language Modeling(SLM)
+- Token-level의 정확도는 크게 중요하지 않음
+- Segment-level이 더 중요
+- SLM을 통해 segment level 학습
+- PDFMiner를 통해서 줄을 추출
+- 언어 모형(BERT 등)을 사용해서 segment $l_i$에 대한 특징 $e_i$를 pseudo target으로 둠
+- Semantic feature $e_{l_i}$는 line box로부터 RoIAlign을 통해 추출
+- 대조 학습을 통해서 최적화(Cosine similarity)
+
+### 3-4. Multi-Scale Multi-Modal Feature Fusion
+- FPN은 다양한 크기의 특징을 추출하기 위해서 사용됨
+- 4개의 다른 transformer block을 사용 후, FPN을 통해 합침
+- GiT와 ViT의 출력을 요소별 합으로 최종 특징 출력
+
+## 4. $D^4LA Dataset$
+
+
 
 
