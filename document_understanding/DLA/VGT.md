@@ -40,6 +40,16 @@
 ![image](https://github.com/user-attachments/assets/394cf8c3-ae1b-4a63-a9e4-9a47579f10a3)
 
 ## 2. 관련 연구
+- 이전에는 규칙 기반 접근. Pixel 및 문맥 정보 활용
+- 단순 vision tech로 접근(합성곱 신경망)
+- 자기 지도 학습 기반의 사전 학습 방법론은 좋은 효과를 보임
+- 이후 많은 모형들이 사전 학습 및 multi-modal 방법론을 사용했지만 text embedding 과정 없이 vision backbone을 사용
+- Grid based는 text 정보를 사용하지만 단순히 입력으로만 사용
+- 또한, news, 논문, 잡지 등에 국한되어 있었음
+
+## 3. Vision Grid Transformer 
+
+![image](https://github.com/user-attachments/assets/9b431790-354e-4db8-b703-be506f75d07d)
 
 
 
