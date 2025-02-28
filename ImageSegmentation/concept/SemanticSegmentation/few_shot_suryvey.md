@@ -43,3 +43,14 @@
 ### 2-2. 전이 학습
 - Pretrained feature extractors or backbones
 
+## 3. Methodology spectrum
+
+![image](https://github.com/user-attachments/assets/e2eff7b8-41e7-4aeb-9857-843a00e346bb)
+
+### 3.1 Conditional Networks
+
+![image](https://github.com/user-attachments/assets/5275adb1-1e74-4cda-890c-a0e4030cacfa)
+
+- Two parallel branch : Conditioning branch and segmentation branch
+- 
+
