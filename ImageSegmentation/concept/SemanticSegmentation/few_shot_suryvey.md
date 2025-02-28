@@ -22,8 +22,24 @@
 - Class l이 주어졌을 때, k개의 쌍으로 구성된 support set을 구성
 - $S(l)={(I^i, M_l^i)}_{i=1}^k$
 - $I^i$ : RGB image of shape [H,W,3], $M_l^i$  : Binary mask of shape [H,W]
-- 목적 함수 : $\hat{M_q}=f_{\theta}(I_q,S(l))
+- 목적 함수 : $\hat{M_q}=f_{\theta}(I_q,S(l))$
 - Traditional algorithm X
 - Episodic training(meta-learning), 전이 학습 등 활용
 
 ### 2.1 Episodic training 
+- Meta-leraning
+- Episode : a support set of labeled images S, a query image $I_q$ 그리고 이에 대응되는 GT mask $M_q$
+- 모형은 각 episode마다 예측값과 정답값의 손실을 최소화하기 위해 학습
+- 모형은 나중에 unseen classes에 대해 시험
+- Trainset($D_{train}$)으로부터 class set(C)를 받은 후, 훈련($C_{train}$)과 시험($C_{test}$)을 나눔($C_{train}\capC_{test}=0)
+- $C_{train}$에서 임의의 class c를 하나 뽑아 training episode 구성
+- c를 고정하고, 해당 c에 해당하는 k개의 사진과 정답으로 support set S를 구성. c에 대한 query image($I_q$)와 정답($M_q$)도 같이 구성
+- 목적 함수
+
+![image](https://github.com/user-attachments/assets/3f5c25eb-214b-45df-9c08-a65591e95618)
+
+- 각 episode에서 최적화 값을 찾으며 제한된 support set에 대해서도 일반화 가능
+
+### 2-2. 전이 학습
+- Pretrained feature extractors or backbones
+
