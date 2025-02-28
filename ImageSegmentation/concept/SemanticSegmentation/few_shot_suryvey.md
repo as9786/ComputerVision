@@ -52,5 +52,34 @@
 ![image](https://github.com/user-attachments/assets/5275adb1-1e74-4cda-890c-a0e4030cacfa)
 
 - Two parallel branch : Conditioning branch and segmentation branch
-- 
+- Conditioning branch(g)는 Support set(S)을 입력으로 받고, parameter $\theta$를 생성
+- Segmentation branch(h)는 query image($I_q$)와 $\theta$를 받고, 예측값($\hat{M_q}$) 출력
+- 시험 동안에는 h의 사전 학습된 특징 추출기를 사용하여 $I_q$로부터 dense map을 추출
+- 그 후, h가 최종적인 예측값 출력
+
+ #### Few-shot segmentation propagation with guided networks.
+ - 첫 번째 실험에서는 S에서 뽑은 $\theta$를 h의 query feature와 결합
+ - 최종 feature map은 작은 합성곱 신경망을 통해 binary mask로 변환
+ - 두 번째 실험에서는 선형 분류기 가중치로
+ - 첫 번째 접근법의 성능이 더 좋음
+
+#### Simpler is better: Few-shot semantic segmentation with classifier weight transformer
+- 최적값을 찾기 위해 transformer 사용
+- 이전 실험과 비슷하게 $\theta$는 final mask를 생성하기 위해 사용. Feature extractor는 g와 h 사이에서 사전 학습
+- 핵심은 g를 선형 분류기 가중치를 Q, feature vector를 K, V로 사용
+
+#### Rich Embedding Features for One-Shot Semantic Segmentation
+
+- 서로 다른 parameter를 사용 시 도움이 됨 
+- 해당 parameter들을 사용하여 서로 다른 3개의 similarity maps를 제안. 해당 maps는 최종 예측을 생성하기 위해 순서대로 결합됨
+- 첫 번째 parameter set(Termed Peak Embedding) query image에서 구별되는 특징들을 확인하고 강조
+- 이는 embedding에 대해서 상대적으로 높은 값을 강조하여 중요한 사진 영역으로 attention을 유도함
+- 두 번째 parameter set(Global Embedding)은 support image 내에 물체에서 중요한 정보를 포착하는데 집중
+- 객체 지역 내에 features의 평균 값을 계산하고, 정확한 분할을 위한 전역 정보를 압축
+- 마지막으로 adaptive embedding은 attention을 사용하여 객체 관련 pixel의 상대적 중요도를 식별
+- 이는 입력의 문맥과 정보를 기반으로한 집중을 동적으로 조정할 수 있게 하여 복잡한 상황에서도 좋은 성능을 이끌어 냄
+
+
+
+
 
