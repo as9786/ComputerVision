@@ -115,4 +115,42 @@
 - 해당 문제를 해결하기 위해, 활성화되지만 label이 없는 영역에 대해 pseudo-class를 도입
 - 해당 접근 방식을 통해 새로운 class를 추론함으로써 limited support set을 더 잘 활용 
 
+### 3.3 Latent space optimization
+- GAN을 활용한 잠재 공간 활용
+- 대조 학습
+- VAE
+
+#### 3.3.1 생성 모형
+- 사진 자체를 구하는 것은 쉬울 수 있으나, label을 구하는 것은 어려움
+- GAN은 의미적 정보와 기하학적 정보를 효과적으로 종합하고, 변하는 잠재 요인을 풀기 위해 사진들의 내부 표현을 가지고 있음
+- 서로 다른 사진의 latent codes들을 보간해도 우수한 합성 사진을 생성
+- GAN으로 생성된 내부 표현은 다른 방법보다 더 많은 정보를 담고 있음
+- StyleGAN의 잠재 공간을 통해 예측
+
+1. 정답이 없는 data들에 대해서 생산적 적대 모형을 학습해 잠재 공간 최적화
+2. 생성된 사진 중 k개는 labeling 후 training set으로 활용
+3. 전체 모형이 학습되면, latent code 최적화를 수행하여 생산적 적대 모형이 시험 사진에 최대한 가까운 사진들을 생성하고, 내부 표현을 기록하도로 제안
+4. 최종적으로 생성된 사진과 내부 표현을 통해 예측 
+
+![image](https://github.com/user-attachments/assets/d668977a-8b10-4b98-b63f-ea152ff31fc4)
+
+- Latent code optimization은 계산 비용이 비쌈
+- 생성된 사진이 시험 사진과 유사하지 않으면 성능 하락
+- 해당 문제를 해결하기 위해 아예 새로운 training set 구축
+
+![image](https://github.com/user-attachments/assets/92db6f10-a589-4d16-8011-7296a6e8dc36)
+
+- GAN은 복잡한 훈련 과정을 지니고 있지만, 한 번 학습하면 특징 추출기로 활용 가능
+- 1 ~ 5 shot과 같은 고전적 방식의 conditional and prototypical network과 달리 제한이 없음
+
+#### 3.3.2 대조 학습
+- 특징 추출기를 위한 대조 학습을 사용함으로써 GAN보다 더 나은 잠재 표현을 얻음. 계산 복잡도도 하락
+- 두 개의 사진이 같은지 아닌지를 학습
+- U-Net 등에 적용
+
+#### 3.3.3 VAE
+- Prototypical network는 결정론적인 특성. One-shot에서 변형과 noise를 처리하는데 한계가 있음
+- 주어진 class에 대한 확률 분포를 학습하는 신경망
+- Attention mechanism 적용
+
 
