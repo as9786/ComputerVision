@@ -153,4 +153,16 @@
 - 주어진 class에 대한 확률 분포를 학습하는 신경망
 - Attention mechanism 적용
 
+### 3.4 Foundation Models
+
+- SAM(Segment Anything)
+
+#### 3.4.1 Prompt engineering
+- Object class에 대한 추가적인 prompt form이 필요
+- DINOv2 feature extractor를 사용하여 support and query images를 embedding
+- Feature volume의 공간적 위치와 image patch 간의 대응 관계를 고려해, 특징 간 유사도 행렬을 계산하여 사진과 유사한 patch를 식별
+- 높은 유사도 점수를 달성하는 patch 내의 point는 SAM에 대한 prompt로 선택
+- PerSAM : SAM을 one-shot data로 활용
+    - 특징 유사도를 기반하여 target object에 대한 confidence map을 생성
+    - 
 
