@@ -27,4 +27,17 @@
 
 ## 2. 관련 연구 
 
+### 2.1 Image Blending
+- Alpha blending
+- Gradient domain blending
+- GP-GAN
+
+### 2.2 Other Image Editing Techniques
+- 초해상도
+- Image harmonization
+- Style transfer
+
+## 3. Background - Poisson Image Editing
+
+- 
 
