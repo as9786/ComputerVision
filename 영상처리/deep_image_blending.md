@@ -39,5 +39,16 @@
 
 ## 3. Background - Poisson Image Editing
 
+- 경계 조건에 따른 image gradient matching과 discrete solution 두 단계를 거쳐 수행
+
+![image](https://github.com/user-attachments/assets/5718191f-f624-42b7-a49a-862e7096f3d7)
+
+- 기본적인 방법은 사진 B의 물체의 특성을 유지하면서 A의 색상을 B의 내부로 혼합
+- 사진 경사를 유지하면서 경계면으로부터 A의 색상을 B의 내부 방향으로 혼합
+- H를 A에 색상에 맞게 개선된 B라고 하면, 식은 아래와 같이 표현
+- $H(x,y)=A(x,y)\forall(x,y) \in \partialB$
+
 - 
+
+
 
