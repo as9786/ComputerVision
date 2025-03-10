@@ -86,4 +86,25 @@
 - 두 번째로 혼합 사진의 경사와 source image and target image의 경사 간의 차이를 최소화
 - Target image의 경사는 혼합 사진의 혼합 영역을 제외한 경사와 동일하기 때문에, 혼합 영역에 대해서만 경사 계산
 
+### 4.2. Style and Content Loss
+
+- 첫 번째 단계의 손실 함수 
+![image](https://github.com/user-attachments/assets/94a696c1-ad8d-4624-8176-735ae76166da)
+
+- L : 합성곱층의 수, $N_l$ : the number of channels in activation, $M_l$ : the number of flattened activation values in each channel
+- $F_l[\cdot] \in \mathbb{R}^{N_l \times M_l}$ : F라는 신경 망의 l번째 층에서 계산된 activation matrix
+- $G_l[\cdot]=F_l[\cdot]F_l[\cdot]^T \in \mathbb{R}^{N_l \times N_l}$ :lth activation matrix에 대응되는 Gram matrix
+- Gram matrix는 channel features간 유사한 관계를 포착. Encode the image style and texture. 공간 구조에 대한 정보를 0으로 만듦
+- $\alpha_l$과 $\beta_l$은 content and style loss를 계산할 때 각 층의 영향을 제어하는 가중치
+- 두 번째 단계의 손실 함수 
+
+![image](https://github.com/user-attachments/assets/21281f4b-f601-4f91-9338-4a0c63cc62a7)
+
+![image](https://github.com/user-attachments/assets/1099c871-e8dc-459b-be07-3177f18d1406)
+
+
+
+
+
+
 
