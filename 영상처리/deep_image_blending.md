@@ -62,8 +62,10 @@
 - 두 단계
 - 첫 번째 단계에서는 Poisson gradient loss, style loss and content loss를 이용해 예비 합성 사진 생성
 - 두 번째 단계에서는 예비 합성 사진이 목표 사진과 더 유사한 style을 갖도로 추가 변환
-- $I_S$ : Source image, $I_T$ : target image, $I_B$ : blending image, $I_{BR}$ : refined blending image, M : mask
-- 
+- $I_S$ : Source image, $I_T$ : target image, $I_B$ : blending image, $I_{BR}$ : refined blending image, M : mask, $I_Z$: reconstructed pixels
+- Source image가 M을 통해 이미 잘려져 있다고 가정
+- Joint loss는 1단계에서 $I_Z$로, 2단계에서 $I_{BR}$로 역전파. 최적화는 본질적으로 $I_Z$ 또는 $I_{BR}$의 pixel을 조정 
+  
 
 
 
