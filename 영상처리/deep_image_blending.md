@@ -49,7 +49,22 @@
 - $H(x,y)=A(x,y)\forall(x,y) \in \partial B$
 - Discrete solution에서 위의 식을 품
 - 해당 식은 이산적인 방법으로 풀 수 있음
-- 사진
+- 사진은 pixel들의 집합이며, pixel의 위치는 수평 방향과 수직 방향의 정수 위치로 표현
+- B의 경사 값은 아래와 같이 표현 가능
+
+- $ |\\nabla B(x,y)| = 4B(x,y) - B(x-1,y)-B(x+1,y)-B(x,y-1)-B(x,y+1)$
+- 경계면의 RGB 값을 고정하고 위의 식을 계산
+
+## 4. 방법
+
+![image](https://github.com/user-attachments/assets/70775fb9-e5d4-45aa-ad87-fad151220cf1)
+
+- 두 단계
+- 첫 번째 단계에서는 Poisson gradient loss, style loss and content loss를 이용해 예비 합성 사진 생성
+- 두 번째 단계에서는 예비 합성 사진이 목표 사진과 더 유사한 style을 갖도로 추가 변환
+- $I_S$ : Source image, $I_T$ : target image, $I_B$ : blending image, $I_{BR}$ : refined blending image, M : mask
+- 
+
 
 
 
