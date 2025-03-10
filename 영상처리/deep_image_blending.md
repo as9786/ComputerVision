@@ -102,6 +102,23 @@
 
 ![image](https://github.com/user-attachments/assets/1099c871-e8dc-459b-be07-3177f18d1406)
 
+### 4.3. Regularization Loss
+
+- 혼합 영역의 style transform을 안정화하고 공간적 부드러움을 위해서 histogram loss와  total variation loss를 추가
+- Histogram loss는 각 출력 계층의 해당 feature map에 대해 target image와 blended output 간의 histogram matching을 수행
+- 매 반복마다 위 작업을 수행
+- $F_l(I_B)$는 혼합 사진의 각 계층에서의 activation output. $R_l(I_B)$는 혼합 사진과 target image 사이의 histogram matching이 이루어진 활성화 값
+- 해당 손실은 style transfer를 안정화. 혼합 사진의각 계층에서 filter 별 marginal distribution을 target image의 marginal distribution과 일치시키는 방식으로 작동
+- Histogram loss에 사용된 activation value는 style loss에서 사용된 값과 동일 
+
+![image](https://github.com/user-attachments/assets/40d7bef7-4a94-4059-9b1e-c1baa4ec26bc)
+
+- Total variation(tv) loss는 원하지 않는 정보를 제거하기 위해 사용
+
+![image](https://github.com/user-attachments/assets/6354595f-38f8-4a12-bd3f-7c115acddbbd)
+
+
+
 
 
 
