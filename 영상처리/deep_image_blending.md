@@ -65,8 +65,25 @@
 - $I_S$ : Source image, $I_T$ : target image, $I_B$ : blending image, $I_{BR}$ : refined blending image, M : mask, $I_Z$: reconstructed pixels
 - Source image가 M을 통해 이미 잘려져 있다고 가정
 - Joint loss는 1단계에서 $I_Z$로, 2단계에서 $I_{BR}$로 역전파. 최적화는 본질적으로 $I_Z$ 또는 $I_{BR}$의 pixel을 조정 
-  
 
+### 4.1. Poisson Gradient Loss
 
+![image](https://github.com/user-attachments/assets/648946f1-f6ad-4dc9-b4cc-e7751a5ba15f)
+
+- Poisson image equation은 blending image와 source image 간의 gradient domain의 일치성을 강화시키며 blending region의 pixel을 재구성
+- Blending image의 경사는 처음에 the boundary pixels of the target image에서 계산되어 내부로 전파
+- 이는 자연스러운 사진을 만드는데 도움을 주지만, 계산이 복잡하고 어려움
+- 그래서 해당 손실을 아래와 같이 미분 가능하게 변형 
+
+![image](https://github.com/user-attachments/assets/abb178b9-a9d5-4bb3-ad6a-69f611832ff7)
+
+- $\nabla$ : Laplacian gradient operator
+
+![image](https://github.com/user-attachments/assets/af85e3aa-b224-4406-b1c9-aa01381d2e56)
+
+- 위 손실 함수는 Poisson equation과 같음
+- 처음에 입력 사진은 혼합 사진을 구성하기 위해 바로 target image와 결합. 그리고 혼합 사진에 대해 Laplacian filter를 적용.
+- 두 번째로 혼합 사진의 경사와 source image and target image의 경사 간의 차이를 최소화
+- Target image의 경사는 혼합 사진의 혼합 영역을 제외한 경사와 동일하기 때문에, 혼합 영역에 대해서만 경사 계산
 
 
