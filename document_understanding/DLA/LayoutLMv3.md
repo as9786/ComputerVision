@@ -44,7 +44,20 @@
 4. Vector sequence로 평탄화($L=HW/P^2$)
 
 ### 사전 학습 목표
-- MLM : Text token의 30% masking
-- Span masking($\lambda=3$)
-- $L_{MLM}(\theta)=-\sum{log p_{\theta}(y_l|X_{M'},Y_{L'})}$ 
+- MLM
+    - Text token의 30% masking
+    - Span masking($\lambda=3$)
+    - $L_{MLM}(\theta)=-\sum{log p_{\theta}(y_l|X_{M'},Y_{L'})}$
+- MIM
+    - 40% block masking
+    - Image tokenizer 사용
+    - $L_{MIM}(\theta)=-\sum{log p_{\theta}(x_m|X_{M'},Y_{L'})}$
+ - 단어-패치 정렬(WPA)
+   - Text와 image patch 간의 정밀한 정렬 학습
+   - 이진 분류 문제(정렬/비정렬)
+   - $L_{WPA}(\theta)=-\sum{log p_{\theta}(z_l|X_{M'},Y_{L'})}$
+
+- 합성곱 신경망이 없는 최초의 문서 인공 지능 모형
+- 통합된 사전 학습 목표
+
 
