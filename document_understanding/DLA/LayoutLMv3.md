@@ -27,4 +27,24 @@
 - 간단
 
 ## LayoutLMv3
-- 
+
+### 입력 구성 
+
+- Text-image multi-modal transformer를 사용하여 교차 양식 표현을 학습
+- 입력 :  Text embedding sequence, image embedding sequence
+- Text embedding은 RoBERTa
+- Positional embedding
+    - 1D : Text sequence 내 token index
+    - 2D layout : Text의 경계 상자 좌표
+    - Segment level layout position
+- Image embedding은 linear projection 사용
+1. 문서를 H x W로 조정
+2. P x P 크기의 균일한 patch로 분할
+3. Patch를 D 차원으로 선형 투영
+4. Vector sequence로 평탄화($L=HW/P^2$)
+
+### 사전 학습 목표
+- MLM : Text token의 30% masking
+- Span masking($\lambda=3)$
+- $L_{MLM}(\theta)=-\sum{log p_{\theta}(y_l|X_{M'},Y_{L'})$ 
+
