@@ -45,6 +45,6 @@
 
 ### 사전 학습 목표
 - MLM : Text token의 30% masking
-- Span masking($\lambda=3&)
+- Span masking($\lambda=3$)
 - $L_{MLM}(\theta)=-\sum{log p_{\theta}(y_l|X_{M'},Y_{L'})$ 
 
