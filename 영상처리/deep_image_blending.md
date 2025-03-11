@@ -117,6 +117,19 @@
 
 ![image](https://github.com/user-attachments/assets/6354595f-38f8-4a12-bd3f-7c115acddbbd)
 
+## 4.4. Two-Stage algorithm
+- 첫 번째 단계에서는 배경에 객체를 자연스럽게 혼합. 두 번째 단계는 질감 및 style 조정
+- VGG16을 사용하여 특징을 추출
+- Gradient blending loss를 계산하기 위해 Laplacian filter 사용
+
+![image](https://github.com/user-attachments/assets/b8dac7a3-820e-465f-baee-0bd1d4f78188)
+
+![image](https://github.com/user-attachments/assets/87185d08-1fc6-4d21-a7df-466b6c76eb6b)
+
+
+
+
+
 
 
 
