@@ -19,3 +19,28 @@
 - 사전 학습된 합성곱 신경망의 다른 의미적 계층 간의 상관 관계를 고려
 
 ## 2. 관련 연구 
+- 크게 재구성 기반이나 embedding similarity-based methods로 분류
+
+### 2.1 재구성 기반 방법(Reconstruction-based methods)
+- AE, VAE, GAN은 오직 정상 사진만 복원하도록 학습
+- 그래서 비정상은 잘 복원되지 않기 때문에 검출될 수 없음
+
+### 2.2 Embedding similarity-based methods
+- 이상 탐지를 위한 전체 사진이나 anomaly localization을 위한 image patch를 묘사하는 meaningful vector를 추출하는 DNN 사용
+- 해당 방법은 이상 사진의 어떤 부분이 높은 이상 점수에 대해 기여하는 알 수 없음. 해석이 어려움
+- 이상 점수는 reference vector와 시험 사진 간의 embedding vector distance
+
+## 3. Patch Distribution Modeling
+
+### 3.1 Embedding extraction
+
+![image](https://github.com/user-attachments/assets/5346941b-2442-41e0-95bf-967afc9d984a)
+
+- 학습 중에, 정상 사진의 각 patch는 pretrained CNN activation map에서 공간적으로 대응되는 activation vector와 연관
+- Fine-grained and global context를 encoding 하기 위해서, 다른 semnatic level과 해상도로부터 정보를 가지고 있는 embedding vector를 얻고자 다른 층들로부터의 activation vector를 이어 붙임
+- Activation maps가 입력 사진보다 낮은 해상도를 가지기 때문에 많은 pixel들은 동일한 embedding을 가지게 됨. 또한, 원본 사진 해상도에서 겹치는 부분이 없는 pixel patch를 형성
+
+### 3.2 Learning of the normality
+- (i,j)에서 정상 사진 특성을 학습하기 위해, 첫 번째로 N개의 normal training image로부터 (i,j)에서의 patch embedding vector의 집합을 계산
+- 이 집합으로부터 얻어지는 정보를 요약하기 위해, $X_{ij}$가 multivariate Gaussian distribution에 의해서 생성되었다는 가정을 만듦.
+- 
