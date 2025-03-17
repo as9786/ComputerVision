@@ -43,4 +43,12 @@
 ### 3.2 Learning of the normality
 - (i,j)에서 정상 사진 특성을 학습하기 위해, 첫 번째로 N개의 normal training image로부터 (i,j)에서의 patch embedding vector의 집합을 계산
 - 이 집합으로부터 얻어지는 정보를 요약하기 위해, $X_{ij}$가 multivariate Gaussian distribution에 의해서 생성되었다는 가정을 만듦.
-- 
+
+### 3.3 Inference : computation of the anomaly map
+- Test image의 (i,j)에 있는 patch에 대해서 anomaly score를 만들어내고자 Mahalanobis distance를 사용
+- Test patch embedding과 학습된 분포 간 거리
+- 점수가 높을 수록, anomalous area가 많음
+
+## 4. 실험
+- 객체들은 항상 중앙에 있음
+- Random rotation(-10, 10) + random crop(224 x 224)
