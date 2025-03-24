@@ -41,4 +41,21 @@
 ### 3.1. Locally aware patch features
 - Memory bank M 사용
 - 학습 과정에서 생성된 mid level feature representation으로 구성된 patch level feature들로 이뤄짐. ImageNet에 대한 편향 줄임
-- 주변의 patch 정보를 포함할 수 있도록 
+- 주변의 patch 정보를 포함할 수 있도록 아래와 같이 식 계산
+- Neighbor patch
+
+![image](https://github.com/user-attachments/assets/0eca3d45-d1c5-4dbb-802b-86361cfe620f)
+
+- (h,w)에서의 locally aware feature 계산식
+
+![image](https://github.com/user-attachments/assets/a31c4e38-34b9-4877-bc44-682464135e8d)
+
+- $f_{agg}$는 주변의 feature vector 정보를 합쳐주는 함수
+- PatchCore에서는 adaptive average pooling 사용
+- 각 feature map에 대한 local smoothing의 효과
+- (h, w) 쌍 각각에 대해 해당 위치에 대응되는 하나의 d 차원의 single representation이 결과로 나옴
+- 여러 계층의 특징들을 사용하는 것이 성능이 좋음
+- 
+
+
+
