@@ -29,3 +29,16 @@
 
 ## 2. 관련 연구 
 
+- PatchCore에 사용된 요소들은 SPADE와 PaDiM과 유사
+
+### SPADE
+- Pretrained backhone으로부터 추출된 nominal feature의 memory bank 사용
+- Image-level and pixel-level 각각에 대해 분리된 접근 방식 사용
+- 다양한 특징 계층으로 구성된 memory bank를 활용해 KNN 기반의 이상 분할과 image level anomaly detection 수행
+
+## 3. 방법
+
+### 3.1. Locally aware patch features
+- Memory bank M 사용
+- 학습 과정에서 생성된 mid level feature representation으로 구성된 patch level feature들로 이뤄짐. ImageNet에 대한 편향 줄임
+- 주변의 patch 정보를 포함할 수 있도록 
