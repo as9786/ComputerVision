@@ -62,6 +62,14 @@
 - Focal loss를 통해 불균형 문제 해결
 
 #### Refinement of the textual space
-- 
+- CLIP에서의 대조 손실은 class 인식에만 도움
+- Self-attention을 사용하면 특정 token에만 집중하는 것을 볼 수 있지만, 이는 local visual semantic에는 방해가 됨
+
+![image](https://github.com/user-attachments/assets/42da537f-4d0d-4c1b-bdcc-e52c3084de15)
+
+- Diagonally prominent attention map이 더 나음
+- V-V self attention
+
+
 
 
