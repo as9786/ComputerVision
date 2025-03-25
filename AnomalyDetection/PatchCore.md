@@ -55,6 +55,21 @@
 - 각 feature map에 대한 local smoothing의 효과
 - (h, w) 쌍 각각에 대해 해당 위치에 대응되는 하나의 d 차원의 single representation이 결과로 나옴
 - 여러 계층의 특징들을 사용하는 것이 성능이 좋음
+- 사용된 특징의 공간적 해상도와 일반성을 유지하기 위해 중간의 두 특징 계층만을 사용
+
+![image](https://github.com/user-attachments/assets/1b7f69ff-264e-4598-8d48-4caaf3a07636)
+
+- 보간법을 통해 j+1 feature map을 j번째와 합쳐줌
+
+### 3.2. Coreset-reduced patch-feature memory bank
+- Training data가 커짐에 따라 memory bank M도 매우 커짐
+- M이 large image size와 count를 찾을 수 있도록 함
+- 논문에서는 coreset subsampling mechanism 제안
+- Coreset selection time을 줄이기 위해 iterative greedy approximation 사용
+
+### 3.3. Anomaly Detection with PatchCore
+- image level anomaly score 예측
+- Distance score 중 최댓값ㅇ르 anomaly score로 가짐
 - 
 
 
