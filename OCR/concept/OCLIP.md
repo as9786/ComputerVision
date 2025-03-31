@@ -59,7 +59,7 @@
 
 ![image](https://github.com/user-attachments/assets/6e0648ba-bc6c-4610-81a8-373544f21391)
 
-- $T={t_0, t_1, ..., t_{n-1}$ : Annotated text instances, $t_i = [c^i_0, c^i_1,...,c^i_{k_1}]$ : Sequence of characters, $W_c$ : Character embedding matrix
+- $T={t_0, t_1, ..., t_{n-1}}$ : Annotated text instances, $t_i = [c^i_0, c^i_1,...,c^i_{k_1}]$ : Sequence of characters, $W_c$ : Character embedding matrix
 - 문자를 고정된 크기의 vector로 변환하고, poisitional encoding PE를 더함
 - ce는 transformer encoder를 통과
 - 무작위로 몇 개의 text instance masking
