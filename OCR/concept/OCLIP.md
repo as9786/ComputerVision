@@ -42,7 +42,29 @@
 
 ![image](https://github.com/user-attachments/assets/6b074556-9f64-4ecd-bc30-413c66111889)
 
-  
+- 입력 사진으로부터 image embedding을 얻음(ResNet-50 + Multi-head attention layer)
+- Character-aware text encoder는 각 text instance 내에 sequence of characters를 encoding함으로써 입력 사진 내의 text instances의 transcriptions로부터 문맥적 정보를 추출하도록 고안
+- 추출된 시각적 정보와 문맥적 정보는 visual-textual decoder로 들어감
+- 학습 중에, 각 text instance에 무작위로 masking. 신경망은 masked characters를 예측하도록 최적화
+
+## 3.1 Character-Aware Text Encoder
+
+- 일반적인 VL 작업에서는 글자들은 보통 sequences of text tokens로 구성된 문장들
+- 이에 따라, VL 작업들은 순차적인 방식으로 글자들을 encode
+- 하지만 OCR에서는 하나 이상의 text instances를 포함
+- OCR에서 text instances들은 모두 연관이 있는 것은 아님
+- 이러한 부분이 OCR에서의 VL 작업을 어렵게 함
+- 위 문제를 해결하기 위해 character-aware text encoder를 사용
+- 이 encoder는 문자열 연속인 text instances로부터 instance-level text embedding을 추출
+
+![image](https://github.com/user-attachments/assets/6e0648ba-bc6c-4610-81a8-373544f21391)
+
+- $T={t_0, t_1, ..., t_{n-1}$ : Annotated text instances, $t_i = [c^i_0, c^i_1,...,c^i_{k=1}]$ : Sequence of characters, $W_c$ : Character embedding matrix
+- 문자를 고정된 크기의 vector로 변환하고, poisitional encoding PE를 더함
+- ce는 transformer encoder를 통과
+- 무작위로 몇 개의 text instance masking
+- 
+
 
 
 
