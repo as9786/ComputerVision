@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c0f50c5c-fafc-4c81-9c2f-5265c146d492)# Language Matters: A Weakly Supervised Vision-Language Pre-training Approach for Scene Text Detection and Spotting
+# Language Matters: A Weakly Supervised Vision-Language Pre-training Approach for Scene Text Detection and Spotting
 
 ## 초록
 
