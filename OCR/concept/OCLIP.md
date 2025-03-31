@@ -59,10 +59,28 @@
 
 ![image](https://github.com/user-attachments/assets/6e0648ba-bc6c-4610-81a8-373544f21391)
 
-- $T={t_0, t_1, ..., t_{n-1}}$ : Annotated text instances, $t_i = [c^i_0, c^i_1,...,c^i_{k_1}]$ : Sequence of characters, $W_c$ : Character embedding matrix
+- $T={t_0, t_1, ..., t_{n-1}}$ : Annotated text instances, $t_i = [c^i_0, c^i_1,...,c^i_{k-1}]$ : Sequence of characters, $W_c$ : Character embedding matrix
 - 문자를 고정된 크기의 vector로 변환하고, poisitional encoding PE를 더함
 - ce는 transformer encoder를 통과
 - 무작위로 몇 개의 text instance masking
+
+![image](https://github.com/user-attachments/assets/87f93b95-bbfc-4dea-884d-467404b19435)
+
+- Attention map
+
+## 3.2 VIsiual-Textual Decoder
+- 현존하는 text pre-training 기술들은 fully-annotated data가 필요
+- Unlabelled texts를 무시하면서 입력 사진과 각각의 annotated text 간의 상호 작용을 모형화하는 visual-textual decoder 제안
+- Image embedding(ie)와 text embedding(te) 간의 관계를 학습
+- 6개의 층으로 구성(Multi-head attention layer + feed-forward network)
+- te : Query, ie : Keys and values
+- Self-attention 사용 X => 서로 다른 text instances 무시
+
+## 3.3 Network Optimization
+- Masking 된 글자를 찾도록 최적화
+- CLIP에서 사용한 방식으로 batch-level contrastive loss 사용
+
+
 - 
 
 
