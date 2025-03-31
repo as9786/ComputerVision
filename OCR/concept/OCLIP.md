@@ -1,4 +1,4 @@
-# Language Matters: A Weakly Supervised Vision-Language Pre-training Approach for Scene Text Detection and Spotting
+![image](https://github.com/user-attachments/assets/c0f50c5c-fafc-4c81-9c2f-5265c146d492)# Language Matters: A Weakly Supervised Vision-Language Pre-training Approach for Scene Text Detection and Spotting
 
 ## 초록
 
@@ -29,7 +29,19 @@
 3. 더 나은 성능
 
 ## 2 관련 연구
-- 
+
+### 2.1 Scene Text Detection and Spotting
+- 대부분의 최신 글자 탐지기들은 fully-annotated data로 학습
+1. 문자 단위 탐지 후, 군집화를 해나가는 방식(Bottom-Up)
+2. 객체 탐지 문제로 치환
+- 게다가 많은 방법들이 data bias를 다루기 위해 고안됨
+
+### 2.2 Vision-Language Pre-training
+
+## 3 방법
+
+![image](https://github.com/user-attachments/assets/6b074556-9f64-4ecd-bc30-413c66111889)
+
   
 
 
