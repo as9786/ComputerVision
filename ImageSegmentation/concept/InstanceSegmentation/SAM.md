@@ -65,4 +65,16 @@
 - 모형은 주석 입력 없이 mask 생성
 
 ### Assisted-manual stage
-- 
+- 직접 labeling
+- 개체에 label을 지정하는데 의미론적 제약을 부과 X
+- 주석 작성자를 따로 두어, 개체에 label을 지정
+- 충분한 주석 후, 새로 주석이 달린 mask만 사용하여 재학습
+
+## Semi-automatic stage
+- 분할 능력을 향상시키기 위해 mask의 다양성을 높임
+
+## Fully automatic stage
+1. 이 단계를 시작할 때, 이전 단계의 다양한 mask를 포함하여 모형을 크게 개선할 수 있는 충분한 mask 수집
+2. 모호한 경우에도 유효한 mask를 예측할 수 있도록, 모호성 인식 모형 개발
+- 주석은 완전히 자동으로 이루어짐
+
