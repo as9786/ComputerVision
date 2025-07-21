@@ -40,3 +40,29 @@
 2. Dense(Mask)
 - CLIP text encoder를 사용하여 각 prompt type과 자유 형식 text에 대해 pre-trained embedding으로 합산된 positional encoding으로 점과 상자를 나타냄
 - Mask는 합성곱을 사용하여 embedding되고 image embedding과 함께 원소별 합산
+
+### Mask decoder
+- Image embedding, prompt embedding, output token을 mask에 효율적으로 사상
+- Transformer decoder block을 수정하고 dynamic mask prediction head를 사용
+- Prompt self-attention과 corss-attention을 두 방향으로 사용
+- 위 블록들을 지난 후, image embedding을 upsampling. MLP는 ouput token을 dynamic linear classifier로 사상한 다음 각 image position에서 mask 예측
+
+### 모호성 해결
+- 모형은 모호한 prompt가 주어지면 여러 개의 유효한 mask를 하나의 출력으로 평균화
+- 단일 prompt에 대해 여러 출력 mask를 예측하도록 모형 수정
+- 3개의 mask 출력이 대부분의 일반적인 경우를 처리하기에 충분하다고 판단
+- 학습 중에는 mask 중 최소 손실만을 역전파
+- Mask 순위를 매기기 위해 모형은 각 mask에 대한 신뢰도 점수를 예측(Ex. IoU)
+
+### 손실과 학습
+- DETR에서 사용된 focal loss와 dice loss의 선형 결합
+
+## Segment Anything data engine
+- Data engine 구축
+1. Model-assisted annotation을 사용하는 수동 단계
+2. 자동으로 예측된 mask와 model-assisted annotation이 혼합된 반자동 단계
+3. 완전 자동 단계
+- 모형은 주석 입력 없이 mask 생성
+
+### Assisted-manual stage
+- 
