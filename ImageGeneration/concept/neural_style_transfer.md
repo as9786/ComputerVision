@@ -28,5 +28,21 @@
 
 <img width="358" height="151" alt="image" src="https://github.com/user-attachments/assets/430c811c-6a71-4d81-aacf-88fe590aee72" />
 
+- Feature map들 간의 euclidean distance 최소화
+- 해당 feature map은 pre-trained VGG19로부터 얻어짐
+
+<img width="1176" height="712" alt="image" src="https://github.com/user-attachments/assets/81c99eb2-1b11-406a-8a9f-011486cb2a94" />
+
+### Style loss
+- Style representation은 feature map의 filter(channel)간의 상관관계로 정의
+- 특징 상관관계를 gram matrix로 내적을 이용해 계산
+
+<img width="204" height="47" alt="image" src="https://github.com/user-attachments/assets/60d2dc49-70e3-42ea-b06e-bd3b0d92b8b7" />
+
+- 생성된 사진과 style image 간의 euclidean distance 최소화
+- 최종 손실은 content loss + style loss
+
+<img width="1047" height="577" alt="image" src="https://github.com/user-attachments/assets/bdac563e-6eb5-43f9-99cb-1db0661c25ab" />
+
 
 
