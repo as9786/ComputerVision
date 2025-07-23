@@ -23,4 +23,10 @@
 - 사진을 생성하는 방법
   1. G 초기화
   2. 경사하강법을 통해 J(G) 최소화
-- 
+
+### Content loss
+
+<img width="358" height="151" alt="image" src="https://github.com/user-attachments/assets/430c811c-6a71-4d81-aacf-88fe590aee72" />
+
+
+
