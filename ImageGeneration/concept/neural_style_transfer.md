@@ -19,4 +19,8 @@
 ## 비용 함수
 - $J(G)=\alpha J_{content}(C,G)+ \beta J_{style}(S,G)$
 - G : 생성된 사진, C : Content image, S : Style image, $\alpha$, $\beta$ : Weighting factor
-- $\frac{\alpha}{\beta}=10^{-3}$ or $10^{-4}$로 설정 
+- $\frac{\alpha}{\beta}=10^{-3}$ or $10^{-4}$로 설정
+- 사진을 생성하는 방법
+  1. G 초기화
+  2. 경사하강법을 통해 J(G) 최소화
+- 
