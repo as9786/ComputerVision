@@ -17,3 +17,13 @@
 - Mosaic + Mixup
 - 기존 DETR에서 사용되는 손실 함수(VariFocal Loss)는 상대적으로 적은 dense anchor 환경에 맞추어 설계
 - VFL은 IoU는 높지만 신뢰도가 낮은 경우 강하게 규제하고, low quality matching은 거의 무시
+- Low quality matching을 해결하고 dense O2O를 더욱 향상시키기 위해 MAL 제안
+- MAL은 matched query와 target 간의 IoU와 분류 신뢰도를 함께 반영해 matchability에 따라 penalty 조정
+- High quality matching에 대해서는 VFL과 유사하게 동작. Low quality matching에는 더 큰 가중치 부여 -> Positive sample의 효용을 높임. 수식도 더 간결
+- DEIM은 dense O2O와 MAL을 결합해 효과적인 training framework 구성
+
+## 2. 방법
+
+### 3-1. 사전 지식
+- 전통적인 객체 탐지에서는 O2M(One-to-Many) 할당 전략을 많이 씀
+- 
