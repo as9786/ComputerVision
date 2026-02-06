@@ -32,5 +32,8 @@
 
 ### 2-2. Matchability-Aware loss
 
- ### VFL의 한계
-- Low-Quality matches : IoU 값이 낮은 경우에는 손실이 매우 낮아, 성능 개선에 한계  
+### VFL의 한계
+- Low-Quality matches : IoU 값이 낮은 경우에는 손실이 매우 낮아, 성능 개선에 한계
+
+### MAL
+- 
