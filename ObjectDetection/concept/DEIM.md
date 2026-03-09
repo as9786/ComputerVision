@@ -31,8 +31,14 @@
 - Desne O2O는 O2M 수준의 지도 학습 효과를 보이면서 복잡도 증가가 거의 없음
 
 ### 2-2. Matchability-Aware loss
+### The limitation of VFL 
+- VariFocal Loss는 focal loss를 기반으로 DETR model에서 객체 탐지 성능을 개선
 
-### VFL의 한계
+<img width="527" height="92" alt="image" src="https://github.com/user-attachments/assets/abe4335a-c42f-473d-a11c-d61da5e4a355" />
+
+- q : The IoU between the predicted bbox and GT bbox, p : The predicted probabaility for the foreground class, $\alpha, \gamma$ : The tuning parameter of rhe focal loss 
+- 
+
 - Low-Quality matches : IoU 값이 낮은 경우에는 손실이 매우 낮아, 성능 개선에 한계
 
 ### MAL
