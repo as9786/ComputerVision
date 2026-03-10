@@ -36,10 +36,23 @@
 
 <img width="527" height="92" alt="image" src="https://github.com/user-attachments/assets/abe4335a-c42f-473d-a11c-d61da5e4a355" />
 
-- q : The IoU between the predicted bbox and GT bbox, p : The predicted probabaility for the foreground class, $\alpha, \gamma$ : The tuning parameter of rhe focal loss 
-- 
+- q : The IoU between the predicted bbox and GT bbox, p : The predicted probabaility for the foreground class, $\alpha, \gamma$ : The tuning parameter of rhe focal loss
+- 한계점
+    - Low-Quality matches : High IoU 값에 집중하여, low IoU에서는 손실 값이 매우 작아 모형이 해당 상자를 충분히 개선하지 못함
+    - Processing negative sample : VFL에서는 정답이 IoU. 겹침이 전혀 없는 match를 negative sample로 간주해 positive sample 수를 줄이므로, 효과적인 학습이 제한(타 모형들은 IoU threshold 기준으로 나눔)
 
-- Low-Quality matches : IoU 값이 낮은 경우에는 손실이 매우 낮아, 성능 개선에 한계
+### Matchability-Aware Loss(MAL)
+- Matchability is directly incorporated into the loss function, enabling the model to respond more sensitively to low-quality matches
 
-### MAL
-- 
+<img width="506" height="78" alt="image" src="https://github.com/user-attachments/assets/dfdbb121-a6a8-45dc-9cd9-1a58a7fbf8fd" />
+
+1. Target label을 q에서 $q^{\gamma}$로 바꾸어 negative/positive smaple의 가중치를 단순화
+2. 양성-음성 균형을 위해 사용되던 초매개변수 $\alpha$ 제거
+- 이는 고품질 경계 상자에 과도하게 집중되는 현상을 방지하고 전반적인 학습 개선
+
+<img width="617" height="561" alt="image" src="https://github.com/user-attachments/assets/e14afdc6-87cc-48bf-af20-daf3a01814dd" />
+
+## 3. 실험
+
+### 3-1. 학습 세부사항
+- Mosaic and mixup => Additional positive sample
