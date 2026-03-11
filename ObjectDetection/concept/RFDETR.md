@@ -13,6 +13,9 @@
 - 즉, 학습 중에 모형이 동작하는 설정을 계속 바꿔가면 학습
 - 하나의 큰 모형이 여러 형태의 작은 모형들을 대표하도록 학습되고, 추론 때 원하는 설정만 골라서 사용
 
+<img width="758" height="548" alt="image" src="https://github.com/user-attachments/assets/01e7d060-90a6-4f5e-9e50-3384947de900" />
+
+
 ## 2. 방법론
 - Change LW-DETR backbone CAEv2 to DINOv2 backbone
 - Although DINOv2 is slower, its time is improved through NAS
@@ -25,3 +28,5 @@
 - 학습은 매 반복마다 구성을 무작위로 뽑고 진행
 - 하나의 큰 모형이 매번 다른 방식으로 학습
 - Path embedding interpolation : Patch size를 계속 변경하여 학습
+
+<img width="680" height="447" alt="image" src="https://github.com/user-attachments/assets/6e936200-b73e-413b-bc49-ebf8e06ac338" />
