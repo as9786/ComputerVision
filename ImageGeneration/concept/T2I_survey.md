@@ -32,5 +32,36 @@
 ### DDPM(Denoising Diffusion Probabilistic Models)
 - The process of adding Gaussian noise to the data is carried out as a Markov process
 -  The noise-corrupted data is restored to its original state through Markov process. Reverse process = training
-  
+- DPM : 개념, DDPM : 그 개념을 실제로 구현한 대표 방법
+- Parameterized Markov Chain
+    - During inference, an image is generated from noise through finite transitions
+    - Finite transition : 정해진 개수의 단계를 거치는 복원 과정
+    - The transition kernel is learned in the reverse direction of adding Gussian noise to the image
+    - At each step, noise is added and this is used as the optimization target
+- Forward pass
+    - DDPM : Markov chain. Each step, add Gaussian noise
+    - $x_T ~ q(x_T|x_{T-1})$
 
+<img width="380" height="101" alt="image" src="https://github.com/user-attachments/assets/eeffd1a0-46c9-4efc-9ab7-cf669b6e819f" />
+
+- Reverse pass
+  - $p_{\theta}(x_0) ~ q(x_0)$
+  - Similiar to SGM objective
+  - 최적화 목표
+
+<img width="630" height="80" alt="image" src="https://github.com/user-attachments/assets/a41c6e19-ec99-4f0f-b305-942cbad1a22c" />
+
+### Guidance in diffusion-based image synthesis 
+- In GAN, class labels have been shown to improve image quality
+- Conditional GAN
+    - Add class label to input layer
+    - Class-Conditional normalization statistics
+- AC-GAN : 보조 분류 손실(Auxiliary classifier loss)추가
+- 확산 모형에도 위와 같은 방식 추가
+- Guided Diffusion Model
+    - Class-Induced gradients are added to the sampling process
+    - Classifier-free guidance
+        - 분류기 없이도 생성 모형 자체에서 안내를 얻음
+        - 조건이 없는 모형과 조건이 있는 모형을 동시에 학습
+        - 분류기처럼 품질과 다양성 상충 관계
+     
