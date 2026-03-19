@@ -64,4 +64,6 @@
         - 분류기 없이도 생성 모형 자체에서 안내를 얻음
         - 조건이 없는 모형과 조건이 있는 모형을 동시에 학습
         - 분류기처럼 품질과 다양성 상충 관계
-     
+
+## 3. Pioneering text-to-image diffusion models
+
