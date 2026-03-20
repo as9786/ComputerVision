@@ -60,10 +60,16 @@
 - 확산 모형에도 위와 같은 방식 추가
 - Guided Diffusion Model
     - Class-Induced gradients are added to the sampling process
-    - Classifier-free guidance
+    - Classifier-free guidance(CFG)
         - 분류기 없이도 생성 모형 자체에서 안내를 얻음
         - 조건이 없는 모형과 조건이 있는 모형을 동시에 학습
         - 분류기처럼 품질과 다양성 상충 관계
+        - 조건을 강하게 반영해서 표본을 생성
+        - Condition diffusion : p(x|c) => 모형이 조건을 약하게 함
+        - 추론 시
+        - $\epsilon = \epsilon_{cond} + s \cdot (\epsilon_{cond} - \epsilon_{uncond})$
+        - s : 크기 인자(보통 5~10). $\epsilon_{cond} - \epsilon_{uncond}$ : 조건이 만들어낸 차이 => 증폭
+        - 크기 인자가 너무 크면 영상 깨지거나 다양성 감소 
 
 ## 3. Pioneering text-to-image diffusion models
 - A diffusion prior can be categorized based ont whether it operates in the pixel space or the latent space.
@@ -104,3 +110,41 @@
 - Classifier-Free guidance 
 
 <img width="592" height="287" alt="image" src="https://github.com/user-attachments/assets/8224fbb3-123b-4a83-b095-8f9a30b8c7fa" />
+
+### DALL-E2
+- In a multimodal latent space, image embeddings and text encodings meet in the same representation space
+- CLIP latent space -> Diffusion -> Generate
+-  A diffusion model is used to learn a prior in order to reduce the gap between CLIP text and image latent spaces
+
+<img width="625" height="270" alt="image" src="https://github.com/user-attachments/assets/ace55935-ea76-4d12-b96c-6dbf1679067c" />
+
+- Negative prompt : 사용자가 출력물에 원하지 않은 부분을 명시
+
+## 4. 모형 발전
+
+### 4-1. 구조 최적화
+- On the cohice of guidance : Combining an LLM with cross-modal guidance improves how well the model reflects the text
+- Denoising process
+    - 초기 단계에서는 글자에 집중하고, 후반에는 영상 품질 개선에 집중하는 현상 발견
+    - Using different denoiser parameters at each step improves performance
+- 모형 구조
+    - Free-U
+    - DiT
+
+<img width="657" height="282" alt="image" src="https://github.com/user-attachments/assets/9ce13042-6ada-43e8-b78a-8baa3719825d" />
+
+    - Pixart-$\alpha$
+    
+- Model acceleration
+    - 표분 추출 과정이 느림. 수많은 반복이 필요
+    - V-prediction
+    - Flow Matching(FM
+    - REPresentation Alignment(REPA)
+
+### 4-2. 유연한 조종을 통한 영상 합성
+- Textual inversion for comcept control
+    - 글자로는 원하는 의미를 충분히 표현하지 못하는 경우
+    - 참조 영상(Reference image)을 문맥적 묘사(text embedding space)로 바꾸고 이걸 영상 생성에 활용
+    - Dreambooth uses this technique, with the main differecne being whether the model id fine-tuned or kept frozen
+- Difficult to control spatial layout 
+
