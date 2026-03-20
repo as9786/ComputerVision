@@ -146,5 +146,17 @@
     - 글자로는 원하는 의미를 충분히 표현하지 못하는 경우
     - 참조 영상(Reference image)을 문맥적 묘사(text embedding space)로 바꾸고 이걸 영상 생성에 활용
     - Dreambooth uses this technique, with the main differecne being whether the model id fine-tuned or kept frozen
-- Difficult to control spatial layout 
+- Difficult to control spatial layout
+    - SPaText
+        - Spatio-Textual representation
+        - Input segmented image object into CLIP image encoder
+- Versatile content control : ControlNet, T2I-adapter, Uni-ControlNet, GLIGEN, Composer, HumanSD, HyperHuman
+- Retrieval for out-of-distribution generation 
+    - 특이한 것을 만들 때, 분포를 벗어나는 문제 발생(out-of-distribution)
+    - Fully parametric models -> Semi-parametric model
+
+## 5. 모형 평가
+
+### 5-1. 기술적 평가
+- 평가 지표 : Frechet Inceoption Distance(FID), CLIP score, Inception Score(IS)
 
