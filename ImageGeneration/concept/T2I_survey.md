@@ -66,4 +66,14 @@
         - 분류기처럼 품질과 다양성 상충 관계
 
 ## 3. Pioneering text-to-image diffusion models
-
+- A diffusion prior can be categorized based ont whether it operates in the pixel space or the latent space.
+- Diffusion prior : 데이터 분포를 생성하는 역할. 어떤 표현 공간(latent or pixel) 위에서 데이터의 확률 분포 p(x) or p(z)를 학습
+    1. 표현 공간
+        - Pixel space : 영상 그 자체
+        - Latent space : 압축된 특징 공간
+    2. Prior
+        - 해당 공간에서 그럴듯한 데이터는 어떤 분포를 가지는가
+- $z~p_{\theta} (z) $ : Diffusion prior가 학습한 분포
+- $\int p(x|z)p(z)dz$
+- p(z) : Diffusion prior(Latent가 어떻게 생겼는지 정의), p(x|z) : Decoder
+- 
