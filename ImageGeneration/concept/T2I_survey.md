@@ -76,4 +76,31 @@
 - $z~p_{\theta} (z) $ : Diffusion prior가 학습한 분포
 - $\int p(x|z)p(z)dz$
 - p(z) : Diffusion prior(Latent가 어떻게 생겼는지 정의), p(x|z) : Decoder
-- 
+- If a diffusion prior is in pixel space
+    - Generate in high-dimensional pixel level image
+    - GLIDE, Imagen
+
+### GLIDE
+- First T2I in DM
+- In conditional diffusion, text is used instead of class labels during training
+- Classifier-free guidance
+- Text encoder based on transformer
+- Text encoder를 image-text data를 활용해서 diffusion prior와 함께 학습
+
+### Imagen
+- Classifier-Free guidance
+- A pretrained frozen LLM is used as the text encoder
+- Can be trained not only on image-text data but also text-only corpus
+
+- If a diffusion prior is in the latent space
+    - 영상 -> 저차원 공간 -> 생성
+    - Stable diffusion
+
+### Stable diffusion
+- In Dall-E, train visual notebook by VQ-VAE
+- In stabe diffusion, utilize VQ-GAN in latent-representation stage
+- Denoising with pretrained VAE
+- Cross-Attention is used to handle conditions such as text
+- Classifier-Free guidance 
+
+<img width="592" height="287" alt="image" src="https://github.com/user-attachments/assets/8224fbb3-123b-4a83-b095-8f9a30b8c7fa" />
