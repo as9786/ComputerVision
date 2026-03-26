@@ -22,5 +22,13 @@
     - 주어진 영상에서 서로 다른 시각인 집합 V 구성
     - $V = {x_1^g, x_2^g, ..., local\ view_i}$
     - Local view -> Student model, Gloal view -> Teacher model
-  
+
+### 교사 모형
+- 학생 모형의 이전 반복을 교사 모형으로 사용
+- 교사 모형은 학습 동안 가중치를 얼림
+- 학생 가중치에 지수 이동 평균을 사용하는 momentum encoder
+- Update rule : $\theta_t \leftarrow \lambda \theta_t + (1-\lambda)\theta_s$
+- 
+- $\theta_t <- \lambda \theta_t + (1-\lambda)\theta_s$
+- 
 
