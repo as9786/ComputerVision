@@ -1,0 +1,26 @@
+# Emerging Properties in Self-Supervised Vision Transformers
+
+## 1. 서론
+-  By directly predicting the outputs of a teacher network constructed with a momentum encoder using cross-entropy loss, self-supervised training is simlified
+- Work both CNN and ViT
+
+## 2. 방법
+
+### SSL with Knowledge Distilation
+
+<img width="242" height="231" alt="image" src="https://github.com/user-attachments/assets/24d26af1-16de-4535-aedf-58133b60de4a" />
+
+- 자기 지도 학습 방법들과 구조가 같음. 지식 증류와 유사
+
+<img width="262" height="51" alt="image" src="https://github.com/user-attachments/assets/3765b137-b48f-4805-84e4-8deb2577aec4" />
+
+- 입력 사진은 교사 모형과 학생 모형으로 입력
+- 출력 결과에 softmax 적용
+- $\tau$ : Temperature parameter. 출력 분포의 뾰족함
+- 교사 모형과 학생 모형의 분포를 일치시킴 <- cross entropy
+- Multi-Crop strategy
+    - 주어진 영상에서 서로 다른 시각인 집합 V 구성
+    - $V = {x_1^g, x_2^g, ..., local\ view_i}$
+    - Local view -> Student model, Gloal view -> Teacher model
+  
+
