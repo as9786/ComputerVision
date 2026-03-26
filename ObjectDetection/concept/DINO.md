@@ -28,7 +28,15 @@
 - 교사 모형은 학습 동안 가중치를 얼림
 - 학생 가중치에 지수 이동 평균을 사용하는 momentum encoder
 - Update rule : $\theta_t \leftarrow \lambda \theta_t + (1-\lambda)\theta_s$
-- 
-- $\theta_t <- \lambda \theta_t + (1-\lambda)\theta_s$
-- 
+
+### 신경망 구조
+- ViT or ResNet backbone (f) + Projection head (h)
+- 배치 정규화 사용 X
+- h = MLP(3 layers) + L2 normalization
+
+### 붕괴 회피
+- Centering + Sharpening
+- Centering : 특정 쏠림 방지 => 평평하게
+- Sharpening : Centering의 반대 효과 => 뾰족하게
+
 
