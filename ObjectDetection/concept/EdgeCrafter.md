@@ -59,6 +59,10 @@
 - Decoder
   - DETR
   - Stacked self-attention, deformable corss-attention, FFN
+ 
+### 3-2. Task-Specialized Distillation
+- Detection-specialized teacher
+  - 
 
 ### 3-2. Task-Specialized Distillation(Detection-specialized teacher)
 - 
