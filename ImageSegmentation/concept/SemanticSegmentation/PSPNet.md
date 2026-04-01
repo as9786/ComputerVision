@@ -22,4 +22,11 @@
 - A hierarchical global prior enables the model to capture information across different scales and sub-regions
 1. Four different pyramid scales
 2. 1x1 convolution to reduce dimension
-3. 
+3. 쌍선형 보간법
+
+<img width="802" height="237" alt="image" src="https://github.com/user-attachments/assets/f2d1490f-33b5-4813-8ef3-e057c1435ca1" />
+
+- Pre trained ResNet
+- 보조 손실 함수 적용
+
+
