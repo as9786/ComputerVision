@@ -16,4 +16,13 @@
 - Queue로 설정 시 사전 크기가 mini batch보다 커질 수 있음(기존 방법들은 보통 일치함)
 
 ### 2-3. 손실 함수(InfoNCE)
-- $L_q = -log \frac{exp(q \cdot k_{+}/\tau)}{\sum_{i=0}^K exp(q \cdot k_i / \tau)}$ 
+- $L_q = -log \frac{exp(q \cdot k_{+}/\tau)}{\sum_{i=0}^K exp(q \cdot k_i / \tau)}$
+- q : Encoded query, k : Key(Encoded sample)
+
+### 2-4. Momentum 
+- Queue dictionary 사용 시, 구성이 계속 바뀌어 역전파 불가
+- $\theta_k \leftarrow m\theta_k + (1-m)\theta_q$
+- m : Momentum coefficient
+- Query encoder만 학습
+- Key encoder는 학습 불가 -> Momentum으로 최신화
+
