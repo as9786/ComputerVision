@@ -6,3 +6,5 @@
 - Since most samples are negative, inefficiencies arise during the training
 - Before : A two-stage cascade approach was used to filter region proposals end eliminate background samples + Sampling heuristic
 - 위 방법들은 한 단계 탐지기에서는 적용이 어려움 
+- 한 단계 탐지기는 영역 제안 과정이 없어 풜씬 더 많은 후보 영역을 생성
+- 
