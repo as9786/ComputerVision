@@ -30,5 +30,15 @@
 
 <img width="747" height="200" alt="image" src="https://github.com/user-attachments/assets/711926d0-9e96-49bb-af2d-18d99fefba55" />
 
-- 예시가 잘못 분류되고, 가능도가 작으면 
+- $p_t$ : 정답 class에 대한 예측 확률. 얼마나 확신하는지
+- $p_t$가 낮으면 어려운 예시, 반대의 경우 쉬운 예시
+- $p_t$ ↓ -> $(1-p_t)^{\gamma} \approx 1$ -> 손실 거의 변화 X => 모형이 더 집중
+- $p_t$ ↑ -> $(1-p_t)^{\gamma} \approx 0$ -> 손실 크게 감소 X => 영향 ↓
+- $\gamma$는 쉬운 예시에 대한 가중치를 부드럽게 조절
+- $\gamma = 0$ = Cross entropy. As the $\gamma$ value increases, the influence of the modulating factor becomes stronger
+
+### 2-2. RetinaNet
+- Feture pyramid by ResNet + FPN
+- Classification subnetwork
+- Bounding box regression subnetwork
 
