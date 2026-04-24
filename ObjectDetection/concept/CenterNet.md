@@ -16,4 +16,5 @@
 - R : stride, C : Keypoint type(Class type)
 - 각 개체가 중심점이 될만한지 판단
 - $\hat Y_{x,y,c}$=1 : Keypoint(Center point)
-
+- Anchor-Free
+- 객체 하나 = 중심점 하나
