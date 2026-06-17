@@ -42,4 +42,21 @@
     - 모든 위치를 균일하게 다루는 것이 아닌, 상황에 따라 조정 정도를 정함 
 
 ### GO-LSD
-- 기존의 D
+
+<img width="1296" height="458" alt="image" src="https://github.com/user-attachments/assets/9af88158-1fdf-4824-9a1d-41a174d2aa2e" />
+
+- 정제된 분포로부터 얻은 위치 정보를 초기 층에 증류
+- As training progresses, the final layer produces increasingly precise soft labels
+- The early layers align their predictions with these soft labels, leading to more accurate predictions
+- As the accuracy of the initial predictions improves, the subsequent layers can focus on refining smaller residuals
+- This mutual reinforcement creates a synergistic effect, enabling progressively more precise localization
+- As shown in the figure above, it is performed by applying Hungarian matching to the predictions of each layer, identifying bounding box matches as each model layer and generating a single unified union set across all layers
+- By using this union set, the most accurate candidate predictions can be shared across different layers, allowing the model to fully benefit from the distillation effect
+- 정제된 정보를 shallow decoder layer까지 학습 신호로 되돌려주는 장치
+1. 각 decoder layer가 경계 상자와 분포를 예측
+2. 각 층의 예측에 hungarian matching 적용
+3. 층 별로 정답과 잘 사상된 경계 상자 후보 찾음
+4. 여러 층에서 얻은 matching index를 모아 하나의 union set 생성
+5. 이 집합을 기반으로 최종 층의 조정된 분포를 soft label로 사용
+6. 얕은 층이 이 soft label을 따라가도록 증류 손실 적용
+- DDF Loss(Decoupled Distillation Focal Loss) : High-IoU low-confidence prediction도 적절히 반영
