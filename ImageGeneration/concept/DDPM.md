@@ -12,5 +12,5 @@
 
 <img width="771" height="127" alt="image" src="https://github.com/user-attachments/assets/5dc9afdf-5bae-43e3-8f5d-95871c51feff" />
 
-- $p_{\theta} (x_0) := \int p_{\theta}(x_{0:\T})dx_{1:T}$
+- $p_{\theta} (x_0) := \int p_{\theta}(x_{0:T})dx_{1:T}$
 - 
