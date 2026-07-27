@@ -12,5 +12,14 @@
 
 <img width="771" height="127" alt="image" src="https://github.com/user-attachments/assets/5dc9afdf-5bae-43e3-8f5d-95871c51feff" />
 
+### Forward process
+
+- $q(x_t|x_{t-1}) = N(\sqrt{1-\beta}x_{t-1}, \beta_t I)$
+- 이전 사진 $x_{t-1}$이 주어졌을 때, 다음 사진 $x_t$의 확률 분포
+- N : Gaussian distribution. 평균 + Gaussian noise
+- $\sqrt{1-\beta_t} x_{t-1}$(평균) : 원래 사진에 얼마만큼 남길 것인지. $\beta=0.01$ -> $\sqrt{1-0.01}=0.995$. 원래 사진에 99.5%만 사용
+- $\beta_T I$(분산) : 이번 단계에 넣는 noise 양
+- 위 확률분포에서 표본 추출 시 아래식
+- $x_t = \sqrt{1-\beta_t
 - $p_{\theta} (x_0) := \int p_{\theta}(x_{0:T})dx_{1:T}$
 - 
