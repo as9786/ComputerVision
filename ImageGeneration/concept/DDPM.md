@@ -31,6 +31,12 @@
 - 최종 : $x_t = \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1-\bar{\alpha_t}} \epsilon$
 - $\sqrt{\bar{\alpha_t}} x_0$ : 원래 사진 정보, $\sqrt{1-\bar{\alpha_t}} \epsilon$ : 추가된 Gaussian noise
 
- ### Reverse process
-- $p_{\theta} (x_0) := \int p_{\theta}(x_{0:T})dx_{1:T}$
-- 
+### Reverse process
+- 순수한 Gaussian noise를 원래 data 분포로 될돌림
+- $p_{\theta} (x_0:T) = p(x_T) \prod_{t=1}^{T} p_{\theta} (x_{t-1}|x_t)$ 
+- 생성 과정 전체를 하나의 markov chain으로 모형화
+- $p(x_T)$ : Random Gaussian noise. 생성은 항상 N(0,I)에서 시작
+- Reverse step : $p_{\theta}(x_{t-1}|x_t) = N(x_{t-1} ; \mu_{\theta}(x_t,t), \Sigma_{\theta} (x_t,t))$
+- $\mu$ : 신경망이 예측. 다음 단계로 이동해야 하는 가능도가 높은 위치
+- $\Sigma_{\theta} (x_t,t))$ : 얼마나 무작위로 움직일지
+- DDPM에서는 평균을 직접 예측 X. Noise 예측 
