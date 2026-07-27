@@ -20,6 +20,17 @@
 - $\sqrt{1-\beta_t} x_{t-1}$(평균) : 원래 사진에 얼마만큼 남길 것인지. $\beta=0.01$ -> $\sqrt{1-0.01}=0.995$. 원래 사진에 99.5%만 사용
 - $\beta_T I$(분산) : 이번 단계에 넣는 noise 양
 - 위 확률분포에서 표본 추출 시 아래식
-- $x_t = \sqrt{1-\beta_t
+- $x_t = \sqrt{1-\beta_t}x_{t-1} + \sqrt{\beta_t} \epsilon$
+- $\sqrt{1-\beta_t}x_{t-1}$ : 원래 사진. $\sqrt{\beta_t} \epsilon$ : Noise ~ N(0,I)
+- $\beta$가 높을수록 noise 양이 많아 짐
+- DDPM은 위 식을 매번 계산 X
+- 다음 식으로 변환
+- $q(x_t|x_0) = N(\sqrt{\bar{\alpha_t}}x_0, (1-\bar{\alpha_t}I)$
+- $\alpha_t = 1 - \beta_t$ : 원래 사진이 얼마나 남았는가
+- $\bar{\alpha_t} = \prod_{s=1}^{t} \alpha_s = \alpha_1 \times \alpha_2 \times \cdots \times \alpha_t$
+- 최종 : $x_t = \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1-\bar{\alpha_t}} \epsilon$
+- $\sqrt{\bar{\alpha_t}} x_0$ : 원래 사진 정보, $\sqrt{1-\bar{\alpha_t}} \epsilon$ : 추가된 Gaussian noise
+
+ ### Reverse process
 - $p_{\theta} (x_0) := \int p_{\theta}(x_{0:T})dx_{1:T}$
 - 
