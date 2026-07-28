@@ -14,5 +14,5 @@
 - Pretrained inception v3 model 사용. 출력층을 제거하고 마지막 pooling layer의 activation을 이용
 - 2,048개의 activation이 있으므로, 각 영상은 2048개의 activation feature로 예측
 - 위로 구한 vector들을 토대로 아래 식을 계산
-- $d^2((m,C), (m_w, C_w))=\| m-m_w \|_2^2 + T_r(C+C_w) = 2(CC_w)^{1/2})$
+- $d^2((m,C), (m_w, C_w))=\| m-m_w \|_2^2 + T_r(C+C_w) - 2(CC_w)^{1/2})$
 - m : Feature-Wise -mean, C : 공분산, T : 대각합 
