@@ -17,6 +17,16 @@
 <img width="797" height="287" alt="image" src="https://github.com/user-attachments/assets/3172568a-d44d-411c-a1ed-390498d9a450" />
 
 - Tokenizer = Teacher
+- 영상에서 두 view를 만듦. 선생 모형에는 원본, 학생 모형에는 masked view를 넣음
+- 두 가지 손실을 계산. $L = L_{cls} + L_{MIM}$
+
+### 3-1. CLS Self-Distillation
+- Cross-View
+- 선생 모형과 학생 모형의 서로 다른 view로 손실 계산
+- View가 달라져도 영상의 의미적 동일성은 유지되어야 하기 때문
+### 3-2. MIM Loss
+- 학생 모형이 선생 모형을 따라감
+- $L_{MIM} = -\sum_{i} m_i P^{patch}_{\theta '} (u_i)^T log P^{patch}_{\theta} (\hat {u_i})$
 - 
 
 
