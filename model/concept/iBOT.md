@@ -26,7 +26,7 @@
 - View가 달라져도 영상의 의미적 동일성은 유지되어야 하기 때문
 ### 3-2. MIM Loss
 - 학생 모형이 선생 모형을 따라감
-- $$L_{MIM} = -\sum_{i} m_i P^{patch}_{\theta} (u_i)^T log P^{patch}_{\theta} (\hat {u_i})$$
+- $L_{MIM}​=−\sum_i ​m_i ​P_{θ′}^{patch​} (ui​)^T log P_θ^{patch​}(\hat{u_i}​)$
 - 
 
 
