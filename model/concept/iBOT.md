@@ -19,6 +19,7 @@
 - Tokenizer = Teacher
 - 영상에서 두 view를 만듦. 선생 모형에는 원본, 학생 모형에는 masked view를 넣음
 - 두 가지 손실을 계산. $L = L_{cls} + L_{MIM}$
+- One-hot encoding이 아닌 soft distribution을 사용 
 
 ### 3-1. CLS Self-Distillation
 - Cross-View
@@ -27,6 +28,14 @@
 ### 3-2. MIM Loss
 - 학생 모형이 선생 모형을 따라감
 - $$L_{MIM}​=−\sum_i​m_i​P_{θ′}^{patch​}(ui​)^TlogP_θ^{patch​}(\hat{u_i}​)$$
-- 
+- Patch의 위치가 일치해야 함
 
+### 3-3. Online Tokenizer
+- 선생 모형이 patch마다 $P_{\theta '}^{patch}(u_i)$라는 target을 만듦
+- 즉 선생 모형은 영상 입력 -> ViT -> Patch feature -> Projection head -> 분포 를 생성
+- 분포가 visual token 역할
+- 그런데 매 반복마다 학생의 지수 이동 평균으로 선생 모형이 바뀜
 
+### 3-4. Shared Projection Head
+- CLS와 patch의 shared head
+- CLS token에서 배운 의미 구조를 patch token에도 전달
