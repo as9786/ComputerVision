@@ -27,5 +27,6 @@
 
 <img width="470" height="472" alt="image" src="https://github.com/user-attachments/assets/4428f347-e6db-4233-834b-61a8062e7c91" />
 
-#### Image-Level objective
-    - 
+- Image-Level objective : 지식 증류 방법 활용
+- Patch-Level objective : 
+
