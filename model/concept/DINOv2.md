@@ -28,5 +28,12 @@
 <img width="470" height="472" alt="image" src="https://github.com/user-attachments/assets/4428f347-e6db-4233-834b-61a8062e7c91" />
 
 - Image-Level objective : 지식 증류 방법 활용
-- Patch-Level objective : 
+- Patch-Level objective : 학생 모형에 넣는 영상들은 몇 개의 patch masking. 선생 모형에는 원본을 넣어서 나오는 결과를 patch-wise하게 cross entropy 계산
+
+<img width="923" height="569" alt="image" src="https://github.com/user-attachments/assets/925ebe49-1dfb-46d3-b479-59e6f535dc01" />
+
+- Untying head weights between both objectives : Cross entropy를 계산할 때 쓰이는 tensor를 얻기 위해 몇 개의 층으로 구성된 head를 서로 공유
+- Sinkhorn-Knopp centering : Sinkhorn-Knkopp batch normalization 도입. 선생 모형과 학생 모형 간의 domain gap을 줄여줌
+- KeLeo regularizer : 배치 내 여러 특징들이 있으면 그 특징 사이의 거리를 최대한 균등하게 만드는 방법 
+
 
