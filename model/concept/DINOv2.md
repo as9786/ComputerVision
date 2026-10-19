@@ -16,4 +16,16 @@
 
 <img width="1753" height="499" alt="image" src="https://github.com/user-attachments/assets/4c87ce38-bfbc-43d8-ae89-4ac297a430f7" />
 
-- 
+1. Collecting raw images(Uncurated data) : 인터넷에서 사진 모음
+2. 중복 제거
+3. Self-Supervised image retrieval
+    - Curated/Uncurated data에 대해 ViT 모형을 통해 embedding
+    - Uncurated data에 대해 K-means clustering 수행
+    - 각 curated data에 대해 가장 가까운 N개의 uncurated data를 고르거나 아니면 가장 가까운 군집을 찾고 그 안에서 m개를 고름
+
+### 2-2. Discriminative self-supervised pre-training
+
+<img width="470" height="472" alt="image" src="https://github.com/user-attachments/assets/4428f347-e6db-4233-834b-61a8062e7c91" />
+
+#### Image-Level objective
+    - 
