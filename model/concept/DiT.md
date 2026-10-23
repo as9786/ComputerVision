@@ -40,4 +40,18 @@
 - 그 후, positional embedding
 
 ### 3-2. DiT block
-- 
+
+#### 3-2-1. In-Context conditioning
+- t, c embedding vector를 input sequence에 두 개의 추가 token으로 추가하여 image token과 다르지 않게 취급
+- Last block 이후 sequence에서 conditioning token 제거
+
+#### 3-2-2. Cross-Attention block
+- t와 c embedding을 image token sequence와 별도로 길이가 2인 sequence로 이어 붙임
+- Transformer block에서 multi-head attention block 다음에 multi-head cross-attention layer를 포함하도록 수정
+
+#### 3-2-3. Adaptive Layer Norm(AdaLN) block
+- 층 정규화 매개변수를 직접 학습하는 대신 t와 c의 embedding vector aggregation에서 회귀
+
+#### 3-2-4. adaLN zero-block
+- 잔차 연결 전에 각 block의 최종 합성곱 층을 0으로 초기화
+
