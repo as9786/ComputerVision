@@ -40,4 +40,12 @@
 <img width="1180" height="375" alt="image" src="https://github.com/user-attachments/assets/e2367670-04cc-493d-bf21-d73a2b69e0d7" />
 
 ### 2-4. Adding short-cut connections
-- 
+- 입력 : 32 x 32. ResNet layers의 6 blocks로 구성
+- First, second block 사이와 second, third block 사이에 strided convolution으로 downsampling 수행
+- Fourth, fifth block 사이와 fifth, sixth block 사이에 transposed strided convolution으로 upsampling 수행
+- 위 두 방식은 정보 손실을 일으킴. 그래서 저차원 정보에서 additional shor-cut connections 도입
+- (1,6), (2,5), (3,4) 연결
+
+### 2-5. Regularization using dropout
+- 첫 번째 합성곱 이후에 residual path에 standard binary dropout을 적용
+
