@@ -36,4 +36,8 @@
 ### 2-3. Downsampling versus dilated convolution
 - Dilated convolution 대신 단순 downsampling 사용
 - Additional short-cut connections을 통해 downsampling의 성능 개선 
+
+<img width="1180" height="375" alt="image" src="https://github.com/user-attachments/assets/e2367670-04cc-493d-bf21-d73a2b69e0d7" />
+
+### 2-4. Adding short-cut connections
 - 
