@@ -5,4 +5,7 @@
 - 높은 효율성과 유연성
 - Lightweight condition injection LoRA
 - 조건 신호를 독립적으로 처리(Plug-And-Play solution)
-- 기본 모형의 가중치를 건드리지 않음. 호환성 보장 
+- 기본 모형의 가중치를 건드리지 않음. 호환성 보장
+
+## 서론
+- 기존 controlnet이나 IP-Adapter 방식을 DiT에 그대로 적용할 경우 아래와 같은 문제 발생 
