@@ -25,7 +25,6 @@
 
 <img width="692" height="110" alt="image" src="https://github.com/user-attachments/assets/989f5dab-9b23-46fa-8358-a73d3917acb8" />
 
-
 - $\theta_j$는 가중치(W)와 특징(x)의 각도
 - 가중치 : 사람의 대표 얼굴(기준점, center)
 1. 모형의 출력으로 feature vector(x)
@@ -35,4 +34,11 @@
 - 모형이 유재석 사진 100장을 받고 1번 정답을 맞추기 위해서는 $W_i^T x_i$가 최고점이 나와야 함
 - 내적 점수가 높기 위해서는 두 vector 방향이 같아야 함(각도가 
 - W와 x는 L2 norm으로 정규화(1로 제한). Scale-factor s로 re-scale
-- 
+
+### 3-1. 학습
+
+<img width="1280" height="451" alt="image" src="https://github.com/user-attachments/assets/8cf4f890-904b-472f-9612-9e15ae72306c" />
+
+1. 특징과 가중치의 cosine similarity를 구하여 cosine 값을 구함
+2. acrcos function을 활용하여 두 vector 각도 계산 
+
