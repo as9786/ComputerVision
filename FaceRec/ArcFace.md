@@ -40,5 +40,9 @@
 <img width="1280" height="451" alt="image" src="https://github.com/user-attachments/assets/8cf4f890-904b-472f-9612-9e15ae72306c" />
 
 1. 특징과 가중치의 cosine similarity를 구하여 cosine 값을 구함
-2. acrcos function을 활용하여 두 vector 각도 계산 
+2. acrcos function을 활용하여 두 vector 각도 계산 ($arccos=cos^{-1}$ : 내적 값을 넣으면 각도를 계산)
+3. 각도에 angular margin penalty m을 더하여 $cos(\theta_{yi}+m)$을 계산
+4. s를 곱해주고, softmax 취함
+5. Cross entropy loss를 구하고, 역전파하여 신경망 학습
 
+<img width="705" height="120" alt="image" src="https://github.com/user-attachments/assets/347c821e-ee67-4da1-be49-9af943c7d3cc" /> 
