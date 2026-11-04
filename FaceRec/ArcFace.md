@@ -23,7 +23,7 @@
 - 해당 이유로 성능 저하 발생
 - 위 문제를 해결하기 위해 편향을 없애고, vector 간 각도에 집중
 
-$$W_j^T x_i = ||W_j|| ||x_i|| cos \theta_j$$
+$$W_j^T x_i = \|W_j\| \|x_i\| cos \theta_j$$
 
 - $\theta_j$는 가중치(W)와 특징(x)의 각도
 - 
