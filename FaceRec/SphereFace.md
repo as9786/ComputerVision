@@ -19,9 +19,13 @@
 
 ### 2-1. Modified softmax
 - x가 주어졌을 때, softmax 이진 분류에서 class 1과 class 2로 분류될 확률을 $p1,  p2$라고 하자
-- $p_1 = \frac{e^{W_1^T x+b_1}}{e^{W_1^T x+b_1}+e^{W_2^T x+b_2}}$ 
+- $p_1 = \frac{e^{W_1^T x+b_1}}{e^{W_1^T x+b_1}+e^{W_2^T x+b_2}}, \ p_2 = \frac{e^{W_2^T x+b_2}}{e^{W_1^T x+b_1}+e^{W_2^T x+b_2}}$
+- $p_1 > p_2$ => Class 1, $p_1 < p_2$ => Class 2
+- 결정 경계 : $p_1 = p_2$. 분모가 같으므로 분자가 같으면 됨
+- $e^{W_1^T x+b_1} = e^{W_2^T x+b_2}$
+- $W_1^T x + b_1 = W_2^T x + b_2$ (자연로그)
 - 이진 분류 기준 기존 softmax decision boundary : $(W_1 - W_2)x + b_1 - b_2=0$
-- 내적 공식으로 풀면 가중치 크기와 편향이 개입. ‖W₁‖‖x‖cos θ₁ + b₁ = ‖W₂‖‖x‖cos θ₂ + b₂
+- 내적 공식($‖W‖‖x‖cos \theta = W_i^Tx$)으로 풀면 가중치 크기와 편향이 개입. ‖W₁‖‖x‖cos θ₁ + b₁ = ‖W₂‖‖x‖cos θ₂ + b₂
 - Weight vector를 L2 normalization(‖Wᵢ‖ = 1)하고, 편향 제거(bᵢ = 0)
 - 결정 경계가 $cos \theta_1 = cos \theta_2$로 단순화되어 오직 weight vector와 feature vector 사이의 각도만으로 분류 수행
 - 여전히 결정 경계가 하나뿐이어서 class 간 margin이 존재하지 않음
