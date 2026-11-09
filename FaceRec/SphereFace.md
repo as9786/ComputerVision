@@ -31,6 +31,10 @@
 - 여전히 결정 경계가 하나뿐이어서 class 간 margin이 존재하지 않음
 
 ### 2-2. A-Softmax(Angular Softmax) Loss
+- $cos \theta_1 = cos \theta_2$
+- $\theta _1 < \theta_2$ => Class 1, $\theta_1 > \theta_2$ => Class 2
+- 정답 클래스 각도에 m을 곱함으로써 더 엄격한 조건
+- $cos (m \theta_1) > cos \theta_2$, $m\theta_1 < \theta_2$ 
 - Class 간 angle margin을 강제하기 위해 정답 class의 각도 $\theta_1$에 정수 m(m ≥ 1)을 곱함
 - Class 1로 분류되기 위한 조건  : $cos(m \theta_1) > cos(\theta_2)$ (즉, $\theta_1 < \frac{\theta_2}{m}$이 되어야 하므로 다른 class보다 m배 더 가까워야 정답으로 인정
 
