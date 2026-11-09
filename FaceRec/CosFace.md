@@ -26,4 +26,5 @@
 - LMCL
     - Cosine space에서 직접 고정된 여백 m($m \geq 0$)을 빼주어 정답 클래스에 대해 더 엄격한 기준 적용
     - 정답 클래스 $y_i$에 대한 조건 : $cos(\theta_{y_i}) - m > cos(\theta_j)$ (다른 클래스 j보다 m만큼 더 커야 정답으로 인정)
-    - $L_{lmc} = \frac{1}{N} \sum_i -log \frac{e^{s(cos(\theta_{y_i, i)-m)}}{e^{s(cos(\theta_{y_i, i)-m)}} + \sum_{j \neq y_i} e^{s(cos(\theta_{j,i})}}$
+    - $L_{lmc} = \frac{1}{N} \sum_i -\log \frac{e^{s(\cos(\theta_{y_i, i}) - m)}}{e^{s(\cos(\theta_{y_i, i}) - m)} + \sum_{j \neq y_i} e^{s\cos(\theta_{j, i})}}$
+
