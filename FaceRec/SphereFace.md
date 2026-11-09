@@ -18,6 +18,8 @@
 - 가중치 정규화와 편향 제거를 통해 분류 기준을 순수한 각도로 바꿈. Ground truth class angle에 정수 m을 곱해 더 엄격한 angle margin 형성
 
 ### 2-1. Modified softmax
+- x가 주어졌을 때, softmax 이진 분류에서 class 1과 class 2로 분류될 확률을 $p1,  p2$라고 하자
+- $p_1 = \frac{e^{W_1^T}x+b_1}{e^{W_1^T}x+b_1+e^{W_2^T}x+b_2}$ 
 - 이진 분류 기준 기존 softmax decision boundary : $(W_1 - W_2)x + b_1 - b_2=0$
 - 내적 공식으로 풀면 가중치 크기와 편향이 개입. ‖W₁‖‖x‖cos θ₁ + b₁ = ‖W₂‖‖x‖cos θ₂ + b₂
 - Weight vector를 L2 normalization(‖Wᵢ‖ = 1)하고, 편향 제거(bᵢ = 0)
