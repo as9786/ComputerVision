@@ -38,6 +38,9 @@ $$y_i=\frac{1}{C(x)}\sum_{\forall j} f(x_i, x_j)g(x_j)$$
 |Concatenation|$ReLU(w^T_f[\theta(x_i),\phi(x_j)])$|N|두 특징을 이어 붙인 뒤 선형 층과 ReLU 통과(Relation network)|
 
 ### 2-3. Non-local Block
+
+<img width="771" height="831" alt="image" src="https://github.com/user-attachments/assets/92c5d2f0-9475-4ac5-ba33-e76f4c8bf6ba" />
+
 - 해당 연산을 기존 신경망에 부작용 없이 넣기 위해 residual block 형태로 감쌈
 
 $$ z_i = W_z y_i + x_i$$
