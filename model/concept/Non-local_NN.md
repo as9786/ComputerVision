@@ -37,6 +37,15 @@ $$y_i=\frac{1}{C(x)}\sum_{\forall j} f(x_i, x_j)g(x_j)$$
 |Dot product|$\theta(x_i)^T \phi(x_j)$|N(전체 위치 개수)|Softmax 없이 단순 내적 후 위치 개수 N으로 나눔|
 |Concatenation|$ReLU(w^T_f[\theta(x_i),\phi(x_j)])$|N|두 특징을 이어 붙인 뒤 선형 층과 ReLU 통과(Relation network)|
 
+### 2-3. Non-local Block
+- 해당 연산을 기존 신경망에 부작용 없이 넣기 위해 residual block 형태로 감쌈
 
+$$ z_i = W_z y_i + x_i$$
+
+- $W_z$의 마지막에 배치 정규화를 두고 가중치를 0으로 초기화.
+- 학습 초기에는 $z_i = x_i$가 되어서 기존 사전 학습 신경망의 동작을 전혀 해치지 않으면서 점진적으로 전역적인 맥락을 학습
+- $W_g, \ W_{\theta}, \ W_{\phi}$에서 channel 수를 절반으로 줄여 연산량을 아낌
+- 2 x 2 max pooling
+- 
 
 
