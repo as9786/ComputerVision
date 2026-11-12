@@ -33,7 +33,7 @@ $$y_i=\frac{1}{C(x)}\sum_{\forall j} f(x_i, x_j)g(x_j)$$
 |구현 방식|유사도 수식|정규화 계수|특징|
 |-----|------|-----|--|
 |Gaussian|$e^{x^T_i x_j}$|$\sum_{\forall j} f(x_i, x_j)$|별도 embedding 없이 원본 특징 내적에 지수 함수 적용|
-|Embedded Gaussian|$e^{\theta(x_i)^T \phi(x_j)$|$\sum_{\forall j} f(x_i, x_j)$|Transformer의 self-attention과 정확히 동일)|
+|Embedded Gaussian|$e^{\theta(x_i)^T \phi(x_j)}$|$\sum_{\forall j} f(x_i, x_j)$|Transformer의 self-attention과 정확히 동일)|
 |Dot product|$\theta(x_i)^T \phi(x_j)$|N(전체 위치 개수)|Softmax 없이 단순 내적 후 위치 개수 N으로 나눔|
 |Concatenation|$ReLU(w^T_f[\theta(x_i),\phi(x_j)])$|N|두 특징을 이어 붙인 뒤 선형 층과 ReLU 통과(Relation network)|
 
