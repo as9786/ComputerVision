@@ -36,5 +36,14 @@ $$ y_{i,j} = \sum_{a,b \in N_k (i,j)} softmax_{ab} (q^T_{i,j}k_{ab})v_{ab}$$
 - 이를 해결하기 위해 2D relative positional embedding 도입
 - Query와 주변 key 사이의 행 및 열 방향 상대 거리 계산
 - Row offset과 columns offset의 embedding을 결합하여 relative positional representation 생성
-- 
 
+### 2-3. Attention stem
+- 초기 층에서는 가장자리, 질감 등 저차원 공간 특징 추출이 중요
+- RGB pixel 개별적으로 의미 있는 정보를 충분히 포함하지 않기 때문에 content-based attention만으로 초기 특징을 학습하기 어려움
+- 이를 위해 spatially-aware value transformation 제안
+- 주변 위치에 따라 서로 다른 값 변환을 적용하여 공간적 특징 학습 강화
+
+$$\tilde{v}_{ab} = (\sum_m p(a,b,m)W^v_m)x_{ab}$$
+
+- p(a,b,m) : 위치에 따른 가중치
+- $W^v_m$ : 학습 가능한 값 변환 행렬 
