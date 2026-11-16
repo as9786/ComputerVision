@@ -68,4 +68,6 @@ $$q_i = clip(h \cdot \frac{\|\|z_i\|\| - \mu}{\sigma + \epsilon},-1,1)$$
 $$f_y = s[cos(\theta_y - mq_i) - m(1+q_i)]$$
 
 - 정답이 아닌 class : $f_j = s cos\theta_j \ (j \neq y)$
-- 
+- Scale s가 각도 조정과 가산 여백을 모두 적용한 결과에 곱해짐
+- 품질 지표에 따라 여백 함수의 형태를 바꾸어, 표본 난이도별 경사가 발생하는 위치와 크기를 조절
+
