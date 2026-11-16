@@ -12,6 +12,6 @@
 - 4가지 multi-task loss
 - 4가지 작업을 동시에 수행하도록 손실 함수 설계
 
-$$ \mathcal{L} = \mathcal{L}_{\mathrm{cls}}(p_i, p^*_i) + \lambda_1 p^*_i \mathcal{L}_{\mathrm{box}}(t_i, t^*_i) + \lambda_2 p^*_i \mathcal{L}_{\mathrm{pts}}(l_i, l^*_i) + \lambda_3 p^*_i \mathcal{L}_{\mathrm{pixel}}(I_i, I^*_i)
+$$\mathcal{L} = \mathcal{L}_{\mathrm{cls}}(p_i, p^*_i) + \lambda_1 p^*_i \mathcal{L}_{\mathrm{box}}(t_i, t^*_i) + \lambda_2 p^*_i \mathcal{L}_{\mathrm{pts}}(l_i, l^*_i) + \lambda_3 p^*_i \mathcal{L}_{\mathrm{pixel}}(I_i, I^*_i)
 $$
 
