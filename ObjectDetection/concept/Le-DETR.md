@@ -40,5 +40,17 @@
 
 ### 2-3. Hybrid encoder(NAIFI)
 - 기존 RT-DETR은 encoder에서 multi scale feature를 처리할 때 전역 self-attention 기반의 AIFI(Attention-based Intra-scale Feature Interaction)을 사용해 연산량이 많음
-- 
 
+#### AIFI
+- 전통적인 DETR 모형들은 고해상도 영상 내에서 작은 물체부터 큰 물체까지 모두 잘 잡기 위해, backbone network가 뽑아낸 여러 크기의 feature map 전부를 transformer encoder에 넣고 self-attention 수행
+- 연산량이 감당할 수 없을 정도로 폭증
+- 모든 크기의 feature map에 attention을 다 돌릴 필요가 없음 -> Hybrid encoder
+- Backbone이 뽑아낸 특징 중 가장 작은 크기의 feature map만 골라냄
+- 해당 feature map에서만 self-attention 수행. 영상 속 객체들 간의 전역적인 관계 파악
+- 나머지 특징들은 합성곱 신경망으로
+
+- NAIFI : 기존 self-attention을 걷어내고, 비교적 작은 kernel size를 갖는 neighborhood attention 기반의 단일 층 transformer module로 재설계
+- 추론 속도를 크게 단축하면서도 특징 표현력을 오히려 향상 
+
+## 3. 결과
+- 사전학습 데이터 80% 절감
