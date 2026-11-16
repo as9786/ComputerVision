@@ -35,9 +35,10 @@
 <img width="602" height="321" alt="image" src="https://github.com/user-attachments/assets/4817289b-0029-4b4e-b556-d2190ead51e7" />
 
 - 초기 단계에서는 합성곱을 통해 효율적으로 지역적 특징을 추출하고, 마지막 단계에서는 neighborhood attention을 통해 특징 표현력 강화
+- EfficientNATBlock : 고정된 local window 내의 주변 픽셀들에만 집중하는 neighborhood attention에 MBConv(Mobile inverted Bottleneck Convolution) 기반의 FFN을 결합
+- 합성곱의 강력한 지역적 귀납적 편향과 transformer의 문맥 파악 능력을 동시에 챙김. 대용량 추가 사전학습 없이 빠르게 수렴하고 뛰어난 특징 추출 능력
 
-#### Neighborhood attention
-- 서로 인접한 국소 영역 중심의 attention mechanism
-- 기존 attention의 연산량 문제를 해결하고, 기존의 sliding window 방식이 가진 경계선 왜곡 문제를 해결
+### 2-3. Hybrid encoder(NAIFI)
+- 기존 RT-DETR은 encoder에서 multi scale feature를 처리할 때 전역 self-attention 기반의 AIFI(Attention-based Intra-scale Feature Interaction)을 사용해 연산량이 많음
 - 
 
