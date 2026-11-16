@@ -8,6 +8,9 @@
 
 ## 2. 방법
 
+<img width="542" height="287" alt="image" src="https://github.com/user-attachments/assets/fdd84472-73dd-484d-aedd-b1fba89ec1a7" />
+
+
 ### 2-1. 손실 함수
 - 4가지 multi-task loss
 - 4가지 작업을 동시에 수행하도록 손실 함수 설계
@@ -20,6 +23,9 @@
 4. 3D 정밀 얼굴 복원($L_{pixel}$) : 자기 지도 방식으로 얼굴의 3D 정점과 조명/색상 정보를 복원해 내는 mesh decoder를 학습 과정에 추가. 학습에서만 사용
 
 ### 2-2. 모형 구조
+
+<img width="996" height="252" alt="image" src="https://github.com/user-attachments/assets/6a5e1123-a253-46bd-a3f0-f009e96cf67d" />
+
 
 [입력 이미지] 
      │
