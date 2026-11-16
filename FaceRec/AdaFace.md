@@ -67,4 +67,5 @@ $$q_i = clip(h \cdot \frac{\|\|z_i\|\| - \mu}{\sigma + \epsilon},-1,1)$$
 
 $$f_y = s[cos(\theta_y - mq_i) - m(1+q_i)]$$
 
-- 정답이 아닌 class : $f_j = 
+- 정답이 아닌 class : $f_j = s cos\theta_j \ (j \neq y)$
+- 
