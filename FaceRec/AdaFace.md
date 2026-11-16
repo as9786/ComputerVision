@@ -49,7 +49,7 @@
 - 영상의 feature norm을 그대로 사용 X
 - 학습 중 관찰되는 feature norm의 평균과 표준편차를 사용해 정규화하고, 범위를 제한
 
-$$q_i = clip(h \cdot \frac{\|z_i\| - \mu}{\sigma + \epsilon},-1,1)$$
+$$q_i = clip(h \cdot \frac{\|\|z_i\|\| - \mu}{\sigma + \epsilon},-1,1)$$
 
 - $q_i$ : i번째 영상의 정규화된 품질 대리 지표
 - $|z_i|$ : 정규화 전 feature norm
